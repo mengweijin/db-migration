@@ -15,6 +15,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <flyway-extend.version>1.0.1</flyway-extend.version>
+        <DmJdbcDriver18.version>8.1.2.141</DmJdbcDriver18.version>
     </properties>
 
     <dependencies>
@@ -33,13 +35,13 @@
         <dependency>
             <groupId>com.github.mengweijin</groupId>
             <artifactId>flyway-extend</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${flyway-extend.version}</version>
         </dependency>
         <dependency>
             <groupId>com.dameng</groupId>
             <artifactId>DmJdbcDriver18</artifactId>
             <!-- <version>8.1.1.193</version>   这个版本有BUG -->
-            <version>8.1.2.141</version>
+            <version>${DmJdbcDriver18.version}</version>
         </dependency>
     </dependencies>
 
