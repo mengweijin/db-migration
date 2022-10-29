@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.2</version>
+    <relativePath/>
+  </parent>
+  <groupId>com.github.mengweijin</groupId>
+  <artifactId>flyway-extend</artifactId>
+  <version>1.0.1</version>
+
+  <name>flyway-extend</name>
+  <description>flyway-extend</description>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <artifactId>flyway-core</artifactId>
+      <groupId>org.flywaydb</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <url>https://gitee.com/mengweijin/flyway-extend</url>
+  <!-- 开源许可证 -->
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <!-- 开发者信息 -->
+  <developers>
+    <developer>
+      <name>Meng Wei Jin</name>
+      <email>mengweijin.work@foxmail.com</email>
+    </developer>
+  </developers>
+  <!--开源地址-->
+  <scm>
+    <url>https://gitee.com/mengweijin/flyway-extend</url>
+  </scm>
+  <!--  Issue地址  -->
+  <issueManagement>
+    <system>Gitee Issue</system>
+    <url>https://gitee.com/mengweijin/flyway-extend/issues</url>
+  </issueManagement>
+  <!--  提交到资料库的地址  -->
+  <distributionManagement>
+    <snapshotRepository>
+      <id>oss</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>oss</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>aliyun</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>aliyun</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+</project>
