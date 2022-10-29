@@ -25,7 +25,17 @@
   - 请勿添加如下参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle
 
 ### 版本说明
-| flyway-extend | flyway | Spring Boot |
-|:-------------:|:------:|:-----------:|
-|     1.0.1     | 8.5.13 |    2.7.2    |
+| flyway-extend | flyway | Spring Boot | 达梦数据库 |
+|:-------------:|:------:|:-----------:|:-----:|
+|     1.0.1     | 8.5.13 |    2.7.2    |   8   |
 
+
+### 使用
+maven 引入 flyway-core 后，额外引入 flyway-extend。然后按照 Flyway 的使用方式直接使用即可。
+```xml
+<dependency>
+    <groupId>com.github.mengweijin</groupId>
+    <artifactId>flyway-extend</artifactId>
+    <version>${flyway-extend.version}</version>
+</dependency>
+```
