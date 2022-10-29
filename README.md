@@ -21,7 +21,7 @@
 扩展添加对 Flyway 官方默认不支持的一些数据库的支持。
 
 ### 已支持：
-- 达梦数据库（jdbc:dm://localhost:5236）
+- **达梦数据库**（jdbc:dm://localhost:5236）
   - 请勿添加如下参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle
 
 ### 版本说明
