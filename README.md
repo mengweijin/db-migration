@@ -25,9 +25,9 @@
   - 请勿添加如下参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle
 
 ### 版本说明
-| flyway-extend | flyway | Spring Boot | 达梦数据库 |
-|:-------------:|:------:|:-----------:|:-----:|
-|     1.0.1     | 8.5.13 |    2.7.2    |   8   |
+| flyway-extend | flyway | 
+|:-------------:|:------:|
+|     1.0.1     | 8.5.13 |
 
 
 ### 使用
@@ -37,5 +37,16 @@ maven 引入 flyway-core 后，额外引入 flyway-extend。然后按照 Flyway 
     <groupId>com.github.mengweijin</groupId>
     <artifactId>flyway-extend</artifactId>
     <version>${flyway-extend.version}</version>
+</dependency>
+```
+
+#### MySQL 额外引入
+flyway-core 8.2.1及以后的版本不再直接支持MySQL，需要额外引入：
+
+官方说明：[https://flywaydb.org/documentation/database/mysql#maven](https://flywaydb.org/documentation/database/mysql#maven)
+```xml
+<dependency>
+  <groupId>org.flywaydb</groupId>
+  <artifactId>flyway-mysql</artifactId>
 </dependency>
 ```
