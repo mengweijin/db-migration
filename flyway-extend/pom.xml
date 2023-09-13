@@ -1,15 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.2</version>
-    <relativePath/>
-  </parent>
+
   <groupId>com.github.mengweijin</groupId>
   <artifactId>flyway-extend</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 
   <name>flyway-extend</name>
   <description>flyway-extend</description>
@@ -26,16 +21,12 @@
     <dependency>
       <artifactId>flyway-core</artifactId>
       <groupId>org.flywaydb</groupId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
+      <version>9.16.3</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
 
-  <url>https://gitee.com/mengweijin/flyway-extend</url>
+  <url>https://gitee.com/mengweijin/db-migration</url>
   <!-- 开源许可证 -->
   <licenses>
     <license>
@@ -52,12 +43,12 @@
   </developers>
   <!--开源地址-->
   <scm>
-    <url>https://gitee.com/mengweijin/flyway-extend</url>
+    <url>https://gitee.com/mengweijin/db-migration</url>
   </scm>
   <!--  Issue地址  -->
   <issueManagement>
     <system>Gitee Issue</system>
-    <url>https://gitee.com/mengweijin/flyway-extend/issues</url>
+    <url>https://gitee.com/mengweijin/db-migration/issues</url>
   </issueManagement>
 
   <build>
@@ -140,14 +131,14 @@
 
   <repositories>
     <repository>
-      <id>aliyun</id>
-      <url>https://maven.aliyun.com/repository/public</url>
+      <id>huawei</id>
+      <url>https://mirrors.huaweicloud.com/repository/maven/</url>
     </repository>
   </repositories>
   <pluginRepositories>
     <pluginRepository>
-      <id>aliyun</id>
-      <url>https://maven.aliyun.com/repository/public</url>
+      <id>huawei</id>
+      <url>https://mirrors.huaweicloud.com/repository/maven/</url>
     </pluginRepository>
   </pluginRepositories>
 

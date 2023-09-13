@@ -3,19 +3,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.3</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.mengweijin</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>demo-flyway-dm</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>demo</name>
+    <name>demo-flyway-dm</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <flyway-extend.version>1.0.1</flyway-extend.version>
+        <flyway-extend.version>1.0.2</flyway-extend.version>
         <DmJdbcDriver18.version>8.1.2.141</DmJdbcDriver18.version>
     </properties>
 
@@ -40,7 +40,6 @@
         <dependency>
             <groupId>com.dameng</groupId>
             <artifactId>DmJdbcDriver18</artifactId>
-            <!-- <version>8.1.1.193</version>   这个版本有BUG -->
             <version>${DmJdbcDriver18.version}</version>
         </dependency>
     </dependencies>
@@ -53,4 +52,17 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>huawei</id>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>huawei</id>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
