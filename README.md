@@ -23,20 +23,20 @@ db-migration-dm 最新版本：
     <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration-dm" />
 </a>
 
-| db-migration-dm |      spring boot       |     flyway      |   liquibase    |
-|:---------------:|:----------------------:|:---------------:|:--------------:|
-|    &#10006;     | spring boot 版本 < 2.6.2 |   版本 < 8.0.5    | 版本 < 4.5.0 未测试 |
-|      1.0.8      |      2.6.2(JDK 8)      | 8.0.5 &#10004;  |  4.5.0    未测试  |
-|      1.0.8      |      2.7.2(JDK 8)      | 8.5.13 &#10004; | 4.9.1 &#10004; |
-|      1.1.0      |     3.0.0(JDK 17)      | 9.5.1 &#10004;  |                |
-|      1.1.0      |     3.1.0(JDK 17)      | 9.16.3 &#10004; |                |
+| db-migration-dm |      spring boot       |     flyway      |           liquibase           |
+|:---------------:|:----------------------:|:---------------:|:-----------------------------:|
+|    &#10006;     | spring boot 版本 < 2.6.2 |   版本 < 8.0.5    |        版本 < 4.5.0 未测试         |
+|      1.0.8      |      2.6.2(JDK 8)      | 8.0.5 &#10004;  |         4.5.0    未测试          |
+|      1.0.8      |      2.7.2(JDK 8)      | 8.5.13 &#10004; |        4.9.1 &#10004;         |
+|      1.1.0      |     3.0.0(JDK 17)      | 9.5.1 &#10004;  |        4.17.2 &#10004;        |
+|      1.1.0      |     3.1.0(JDK 17)      | 9.16.3 &#10004; |        4.20.0 &#10004;        |
 
 提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VTL_TEST&compatibleMode=oracle
 
 ### Flyway 使用（以达梦(DM)数据库为例）
 引入 maven 依赖。然后按照 Flyway 的使用方式直接使用即可。
 
-**注意：Flyway 达梦数据库请勿添加如下参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle**
+**注意：** Flyway 达梦数据库**请勿**添加如下参数：**comOracle=true&databaseProductName=Oracle&compatibleMode=oracle**
 
 ```xml
 <dependency>
@@ -68,7 +68,7 @@ flyway-core 8.2.1及以后的版本不再直接支持 MySQL，需要额外引入
 ### Liquibase 使用（以达梦(DM)数据库为例）
 引入 maven 依赖。然后按照 Liquibase 的使用方式直接使用即可。
 
-**注意：liquibase 中的 jdbc url 需要添加 compatibleMode=oracle 参数。**
+**注意：** liquibase 中达梦数据库的 jdbc url 需要添加 **compatibleMode=oracle** 参数。
 ```xml
 <dependency>
     <groupId>com.github.mengweijin</groupId>

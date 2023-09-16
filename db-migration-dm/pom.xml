@@ -4,7 +4,7 @@
 
   <groupId>com.github.mengweijin</groupId>
   <artifactId>db-migration-dm</artifactId>
-  <version>1.0.8</version>
+  <version>1.1.0</version>
 
   <name>db-migration-dm</name>
   <description>db-migration-dm</description>
@@ -21,13 +21,13 @@
     <dependency>
       <artifactId>flyway-core</artifactId>
       <groupId>org.flywaydb</groupId>
-      <version>8.5.13</version>
+      <version>9.16.3</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
-      <version>4.9.1</version>
+      <version>4.20.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
