@@ -1,9 +1,11 @@
 spring:
+  profiles:
+    active: local
   datasource:
     driver-class-name: dm.jdbc.driver.DmDriver
-    url: jdbc:dm://www.aday.fun:10221?compatibleMode=oracle
-    username: VTL_TEST
-    password: fun#work!
+    url: jdbc:dm://localhost:5236?compatibleMode=oracle
+    username: SYSDBA
+    password:
   liquibase:
     # 启用liquibase
     enabled: true

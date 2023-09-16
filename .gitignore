@@ -37,4 +37,4 @@ build/
 logs
 /upload
 /data
-application.properties
+application-local.yml

@@ -15,7 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <liquibase-extend.version>1.0.1-SNAPSHOT</liquibase-extend.version>
+        <db-migration-dm.version>1.0.0-SNAPSHOT</db-migration-dm.version>
         <DmJdbcDriver18.version>8.1.2.141</DmJdbcDriver18.version>
         <flowable.version>6.8.0</flowable.version>
     </properties>
@@ -31,8 +31,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.mengweijin</groupId>
-            <artifactId>liquibase-extend</artifactId>
-            <version>${liquibase-extend.version}</version>
+            <artifactId>db-migration-dm</artifactId>
+            <version>${db-migration-dm.version}</version>
         </dependency>
         <dependency>
             <groupId>com.dameng</groupId>
