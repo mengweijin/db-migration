@@ -3,18 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.mengweijin</groupId>
-  <artifactId>db-migration</artifactId>
+  <artifactId>db-migration-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>db-migration</name>
+  <name>db-migration-parent</name>
 
   <modules>
-    <module>./flyway-extend</module>
-    <module>./liquibase-extend</module>
-    <module>./demo-flyway-dm</module>
-    <module>./demo-liquibase-dm</module>
+    <module>./db-migration-dm</module>
+    <module>demo/liquibase-dm</module>
+    <module>demo/flyway-dm</module>
   </modules>
-
 
 </project>
