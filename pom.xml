@@ -11,8 +11,8 @@
 
   <modules>
     <module>./db-migration-dm</module>
-    <module>demo/demo-liquibase-dm</module>
-<!--    <module>demo/demo-flyway-dm</module>-->
+    <module>demo/liquibase-dm</module>
+    <module>demo/flyway-dm</module>
   </modules>
 
 </project>

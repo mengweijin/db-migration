@@ -19,14 +19,21 @@
 
   <dependencies>
     <dependency>
+      <artifactId>flyway-core</artifactId>
+      <groupId>org.flywaydb</groupId>
+      <version>8.5.13</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
       <version>4.9.1</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.dameng</groupId>
       <artifactId>DmJdbcDriver18</artifactId>
-      <version>8.1.2.141</version>
+      <version>8.1.2.192</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
