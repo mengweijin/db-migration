@@ -7,7 +7,7 @@
 		<img src="https://img.shields.io/badge/JDK-8+-green.svg" />
 	</a>
 	<a target="_blank" href="https://gitee.com/mengweijin/db-migration/stargazers">
-		<img src="https://gitee.com/mengweijin/db-migration-dm/badge/star.svg?theme=dark" alt='gitee star'/>
+		<img src="https://gitee.com/mengweijin/db-migration/badge/star.svg?theme=dark" alt='gitee star'/>
 	</a>
 	<a target="_blank" href='https://github.com/mengweijin/db-migration'>
 		<img src="https://img.shields.io/github/stars/mengweijin/db-migration.svg?style=social" alt="github star"/>
