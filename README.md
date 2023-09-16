@@ -23,7 +23,7 @@ flyway-extend 最新版本：
     <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/flyway-extend" />
 </a>
 
-| flyway-extend |      flyway       |      spring boot       | 达梦（DM）数据库 |
+| flyway-extend |      flyway       |    spring boot 参考版本    | 达梦（DM）数据库 |
 |:-------------:|:-----------------:|:----------------------:|:---------:|
 |   &#10006;    | flyway 版本 < 8.0.5 | spring boot 版本 < 2.6.2 | &#10006;  |
 |     1.0.1     |       8.0.5       |      2.6.2(JDK 8)      | &#10004;  |
@@ -32,12 +32,13 @@ flyway-extend 最新版本：
 |     1.0.2     |      9.16.3       |     3.1.0(JDK 17)      | &#10004;  |
 
 **注：达梦数据库请勿添加如下参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle**
+jdbc:dm://localhost:5236?schema=VTL_TEST&compatibleMode=oracle
 
 ### Liquibase 版本说明
-| liquibase-extend | liquibase | spring boot | 达梦（DM）数据库 |
-|:----------------:|:---------:|:-----------:|:---------:|
-|     &#10006;     |           |             | &#10006;  |
-|      1.0.1       |           |             | &#10004;  |
+| liquibase-extend | liquibase | spring boot 参考版本 | 达梦（DM）数据库 |
+|:----------------:|:---------:|:----------------:|:---------:|
+|     &#10006;     |           |                  | &#10006;  |
+|      1.0.1       |   4.9.1   |   2.7.2(JDK 8)   | &#10004;  |
 
 
 **注：达梦数据库请勿添加如下参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle**
