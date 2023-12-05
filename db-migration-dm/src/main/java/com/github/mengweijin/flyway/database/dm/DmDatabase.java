@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  * refer to : @{link <a href="https://www.fons.com.cn/171825.html">参考文档</a>}
  * @author mengweijin
  */
-public class DmDatabase extends Database<DmConnection> {
+public class DmDatabase extends Database<DmConnection> implements ISupport8And9 {
 
     private static final String DM_NET_TNS_ADMIN = "DM.net.tns_admin";
 
@@ -91,6 +91,11 @@ public class DmDatabase extends Database<DmConnection> {
     @Override
     public boolean supportsDdlTransactions() {
         return false;
+    }
+
+    @Override
+    public boolean supportsChangingCurrentSchema() {
+        return true;
     }
 
     @Override
