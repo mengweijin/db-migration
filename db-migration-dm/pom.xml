@@ -4,7 +4,7 @@
 
   <groupId>com.github.mengweijin</groupId>
   <artifactId>db-migration-dm</artifactId>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
 
   <name>db-migration-dm</name>
   <description>db-migration-dm</description>
