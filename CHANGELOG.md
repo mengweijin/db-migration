@@ -1,6 +1,6 @@
 ## CHANGELOG
 ### [v1.1.2] 2023-12-06
-- 【适配】优化代码实现，修复 DROP TABLE IF EXISTS xxx; 语句解析异常。
+- 【适配】优化代码实现，修复 flyway 中 DROP TABLE IF EXISTS xxx; 语句解析异常。
 
 ### [v1.1.1] 2023-12-05
 - 【优化】优化代码实现，扩展 flyway 从 7.15.0 版本到 9.x（同时支持 Spring Boot 2.x 和 3.x）。
