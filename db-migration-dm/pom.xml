@@ -52,6 +52,10 @@
       <name>Meng Wei Jin</name>
       <email>mengweijin.work@foxmail.com</email>
     </developer>
+    <developer>
+      <name>Jack Chu</name>
+      <email>chuchuanbao@gmail.com</email>
+    </developer>
   </developers>
   <!--开源地址-->
   <scm>
