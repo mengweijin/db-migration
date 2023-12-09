@@ -90,3 +90,6 @@ flyway-core 8.2.1及以后的版本不再直接支持 MySQL，需要额外引入
 
 完整的基础使用示例参考各自 demo 工程。
 
+## ⭐Star Vitality
+
+[![Stargazers over time](https://starchart.cc/mengweijin/db-migration.svg)](https://starchart.cc/mengweijin/db-migration)
