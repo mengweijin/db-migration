@@ -25,6 +25,16 @@ public class DmParser extends OracleParser {
         super(configuration, parsingContext);
     }
 
+    /**
+     * 调整块深度<BR>
+     *
+     * @param context 参数
+     * @param tokens  参数
+     * @param keyword 参数
+     * @param reader  参数
+     * @author 作者: Jack Chu E-mail: chuchuanbao@gmail.com
+     * @date 创建时间：2023/12/13 20:52
+     */
     @Override
     protected void adjustBlockDepth(ParserContext context, List<Token> tokens, Token keyword, PeekingReader reader) {
         String keywordText = keyword.getText();
