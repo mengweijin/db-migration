@@ -36,6 +36,12 @@
       <version>8.1.2.192</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <url>https://gitee.com/mengweijin/db-migration</url>
@@ -51,6 +57,11 @@
     <developer>
       <name>Meng Wei Jin</name>
       <email>mengweijin.work@foxmail.com</email>
+    </developer>
+    <developer>
+      <name>Jack Chu</name>
+      <email>chuchuanbao@gmail.com</email>
+      <url>https://gitee.com/godfather1103</url>
     </developer>
   </developers>
   <!--开源地址-->
