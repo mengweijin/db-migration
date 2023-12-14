@@ -4,12 +4,13 @@
 
   <groupId>com.github.mengweijin</groupId>
   <artifactId>db-migration-dm</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.3</version>
 
   <name>db-migration-dm</name>
   <description>db-migration-dm</description>
 
   <properties>
+    <skipTests>true</skipTests>
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>

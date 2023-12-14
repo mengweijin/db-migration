@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v1.1.3] 2023-12-14
+- 【适配】优化代码实现，修复 flyway 中 “CREATE TABLE IF NOT EXISTS XXX”语法解析异常
+
 ### [v1.1.2] 2023-12-06
 - 【适配】优化代码实现，修复 flyway 中 DROP TABLE IF EXISTS xxx; 语句解析异常。
 
