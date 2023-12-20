@@ -4,7 +4,7 @@ spring:
   datasource:
     driver-class-name: dm.jdbc.driver.DmDriver
     url: jdbc:dm://localhost:5236?compatibleMode=oracle
-    username: SYSDBA
+    username: VTL_TEST
     password:
   liquibase:
     # 启用liquibase
@@ -25,6 +25,6 @@ spring:
     # 访问数据库的密码
     # password:
 flowable:
-  async-executor-activate: false
-  database-schema-update: true
+  #async-executor-activate: false
+  #database-schema-update: true
   database-schema: VTL_TEST
