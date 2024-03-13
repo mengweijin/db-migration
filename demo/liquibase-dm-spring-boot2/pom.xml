@@ -3,21 +3,21 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.3</version>
+        <version>2.7.2</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.mengweijin</groupId>
-    <artifactId>liquibase-dm</artifactId>
+    <artifactId>liquibase-dm-spring-boot2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>liquibase-dm</name>
+    <name>liquibase-dm-spring-boot2</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <db-migration-dm.version>1.1.4-SNAPSHOT</db-migration-dm.version>
         <DmJdbcDriver18.version>8.1.2.192</DmJdbcDriver18.version>
-        <flowable.version>7.0.0.M2</flowable.version>
+        <flowable.version>6.8.0</flowable.version>
     </properties>
 
     <dependencies>

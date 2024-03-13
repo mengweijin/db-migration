@@ -1,6 +1,7 @@
 package liquibase.database.core;
 
 import dm.jdbc.driver.DmdbConnection;
+import com.github.mengweijin.util.ReflectUtils;
 import liquibase.CatalogAndSchema;
 import liquibase.GlobalConfiguration;
 import liquibase.Scope;
@@ -357,7 +358,7 @@ public class OracleDatabase extends AbstractJdbcDatabase {
     @Override
     public String getDefaultCatalogName() {//NOPMD
         String defaultCatalogName = super.getDefaultCatalogName();
-        if (Boolean.TRUE.equals(GlobalConfiguration.PRESERVE_SCHEMA_CASE.getCurrentValue())) {
+        if (ReflectUtils.hasStaticField(GlobalConfiguration.class, "PRESERVE_SCHEMA_CASE") && Boolean.TRUE.equals(GlobalConfiguration.PRESERVE_SCHEMA_CASE.getCurrentValue())) {
             return defaultCatalogName;
         }
         return (defaultCatalogName == null) ? null : defaultCatalogName.toUpperCase(Locale.US);
