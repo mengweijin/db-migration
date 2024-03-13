@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v1.1.4] 2024-03-16
+- 【优化】优化代码实现，修复对 Liquibase 的低版本兼容性问题。
+
 ### [v1.1.3] 2023-12-14
 - 【适配】优化代码实现，修复 flyway 中 “CREATE TABLE IF NOT EXISTS XXX”语法解析异常
 

@@ -15,7 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <db-migration-dm.version>1.1.4-SNAPSHOT</db-migration-dm.version>
+        <db-migration-dm.version>1.1.4</db-migration-dm.version>
         <DmJdbcDriver18.version>8.1.2.192</DmJdbcDriver18.version>
         <flowable.version>7.0.0.M2</flowable.version>
     </properties>

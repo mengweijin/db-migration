@@ -24,11 +24,11 @@
 | db-migration-dm |      spring boot       |        flyway         |    liquibase    |
 |:---------------:|:----------------------:|:---------------------:|:---------------:|
 |    &#10006;     | spring boot 版本 < 2.6.2 |      版本 < 7.15.0      | 版本 < 4.5.0(未测试) |
-|      1.1.3      |                        | 版本 >= 7.15.0 &#10004; |                 |
-|      1.1.3      |         2.6.x          |    8.0.5 &#10004;     |   4.5.0(未测试)    |
-|      1.1.3      |         2.7.x          |    8.5.13 &#10004;    | 4.9.1 &#10004;  |
-|      1.1.3      |         3.0.x          |    9.5.1 &#10004;     | 4.17.2 &#10004; |
-|      1.1.3      |         3.1.x          |    9.16.3 &#10004;    | 4.20.0 &#10004; |
+|      1.1.4      |                        | 版本 >= 7.15.0 &#10004; |                 |
+|      1.1.4      |         2.6.x          |    8.0.5 &#10004;     |   4.5.0(未测试)    |
+|      1.1.4      |         2.7.x          |    8.5.13 &#10004;    | 4.9.1 &#10004;  |
+|      1.1.4      |         3.0.x          |    9.5.1 &#10004;     | 4.17.2 &#10004; |
+|      1.1.4      |         3.1.x          |    9.16.3 &#10004;    | 4.20.0 &#10004; |
 
 提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VTL_TEST&compatibleMode=oracle
 
@@ -52,7 +52,7 @@
 #### Flyway MySQL 温馨提示
 flyway-core 8.2.1及以后的版本不再直接支持 MySQL，需要额外引入：
 
-官方说明：[https://flywaydb.org/documentation/database/mysql#maven](https://flywaydb.org/documentation/database/mysql#maven)
+官方说明：[https://documentation.red-gate.com/fd/mysql-184127601.html](https://documentation.red-gate.com/fd/mysql-184127601.html)
 ```xml
 <dependency>
     <artifactId>flyway-core</artifactId>
