@@ -14,7 +14,11 @@
     <name>liquibase-dm</name>
 
     <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <db-migration-dm.version>1.1.4</db-migration-dm.version>
         <DmJdbcDriver18.version>8.1.2.192</DmJdbcDriver18.version>
         <flowable.version>7.0.0.M2</flowable.version>
