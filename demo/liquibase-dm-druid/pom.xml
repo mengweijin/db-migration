@@ -8,10 +8,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.mengweijin</groupId>
-    <artifactId>flyway-dm</artifactId>
+    <artifactId>liquibase-dm-druid</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>flyway-dm</name>
+    <name>liquibase-dm-druid</name>
 
     <properties>
         <java.version>17</java.version>
@@ -20,7 +20,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <db-migration-dm.version>1.1.6</db-migration-dm.version>
+        <druid.version>1.2.22</druid.version>
         <DmJdbcDriver18.version>8.1.2.192</DmJdbcDriver18.version>
+        <flowable.version>7.0.0.M2</flowable.version>
     </properties>
 
     <dependencies>
@@ -31,20 +33,40 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.zaxxer</groupId>
+                    <artifactId>HikariCP</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!-- SpringBoot 3.x -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-3-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.github.mengweijin</groupId>
             <artifactId>db-migration-dm</artifactId>
             <version>${db-migration-dm.version}</version>
         </dependency>
         <dependency>
-            <artifactId>flyway-core</artifactId>
-            <groupId>org.flywaydb</groupId>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.dameng</groupId>
             <artifactId>DmJdbcDriver18</artifactId>
             <version>${DmJdbcDriver18.version}</version>
+        </dependency>
+
+        <!-- https://github.com/flowable/flowable-engine/blob/main/distro/sql/create/all/flowable.oracle.all.create.sql -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-process</artifactId>
+            <version>${flowable.version}</version>
         </dependency>
     </dependencies>
 

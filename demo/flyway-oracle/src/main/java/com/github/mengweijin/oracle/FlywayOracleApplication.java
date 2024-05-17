@@ -1,4 +1,4 @@
-package com.github.mengweijin;
+package com.github.mengweijin.oracle;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author mengweijin
  */
 @SpringBootApplication
-public class LiquibaseDMSpringBoot2Application {
+public class FlywayOracleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LiquibaseDMSpringBoot2Application.class, args);
+		SpringApplication.run(FlywayOracleApplication.class, args);
 	}
 }

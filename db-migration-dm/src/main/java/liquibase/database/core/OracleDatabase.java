@@ -1,6 +1,5 @@
 package liquibase.database.core;
 
-import dm.jdbc.driver.DmdbConnection;
 import com.github.mengweijin.util.ReflectUtils;
 import liquibase.CatalogAndSchema;
 import liquibase.GlobalConfiguration;
@@ -172,7 +171,7 @@ public class OracleDatabase extends AbstractJdbcDatabase {
                 try {
                     DatabaseMetaData metaData = sqlConn.getMetaData();
                     Connection connection = metaData.getConnection();
-                    if (connection instanceof DmdbConnection) {
+                    if (ReflectUtils.isDmConnection(connection)) {
                         String compatibleVersion = "11.2.0.4.0";
                         Matcher majorVersionMatcher = Pattern.compile("(\\d+)\\.(\\d+)\\..*").matcher(compatibleVersion);
                         if (majorVersionMatcher.matches()) {
@@ -194,9 +193,7 @@ public class OracleDatabase extends AbstractJdbcDatabase {
                                 this.databaseMinorVersion = Integer.valueOf(majorVersionMatcher.group(2));
                             }
                         }
-
                     }
-
                 } catch (SQLException e) {
                     @SuppressWarnings("HardCodedStringLiteral") String message = "Cannot read from DBMS_UTILITY.DB_VERSION: " + e.getMessage();
 

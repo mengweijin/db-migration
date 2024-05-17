@@ -717,7 +717,9 @@ public class DmSchema extends Schema<DmDatabase, DmTable> {
         public static Set<String> getObjectTypeNames(JdbcTemplate jdbcTemplate, DmDatabase database, DmSchema schema)
             throws SQLException {
             // 某模式下所有表名 需要DBA权限          AND SEGMENT_NAME LIKE 'CD_%'\n"
-            String query = "select SEGMENT_NAME as tbName from dba_segments  where segment_type='TABLE' and OWNER =? ";
+            // String query = "select SEGMENT_NAME as tbName from dba_segments where segment_type='TABLE' and OWNER =?";
+            // Github issue: 5【上面的 sql 需要 DBA 权限才行，下面这个不用】
+            String query = "SELECT DISTINCT OBJECT_NAME FROM ALL_OBJECTS WHERE OWNER=? AND OBJECT_TYPE='TABLE'";
             int n = 1;
             String[] params = new String[n];
             Arrays.fill(params, schema.getName());

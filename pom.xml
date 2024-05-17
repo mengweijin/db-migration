@@ -12,8 +12,10 @@
   <modules>
     <module>./db-migration-dm</module>
     <module>demo/liquibase-dm</module>
+    <module>demo/liquibase-dm-druid</module>
     <module>demo/liquibase-dm-spring-boot2</module>
     <module>demo/flyway-dm</module>
+    <module>demo/flyway-oracle</module>
   </modules>
 
 </project>

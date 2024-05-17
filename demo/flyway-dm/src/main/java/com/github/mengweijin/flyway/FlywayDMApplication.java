@@ -1,4 +1,4 @@
-package com.github.mengweijin;
+package com.github.mengweijin.flyway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author mengweijin
  */
 @SpringBootApplication
-public class LiquibaseDMApplication {
+public class FlywayDMApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LiquibaseDMApplication.class, args);
+		SpringApplication.run(FlywayDMApplication.class, args);
 	}
 }
