@@ -24,11 +24,13 @@
 | db-migration-dm |      spring boot       |        flyway         |    liquibase    |
 |:---------------:|:----------------------:|:---------------------:|:---------------:|
 |    &#10006;     | spring boot 版本 < 2.6.2 |      版本 < 7.15.0      | 版本 < 4.5.0(未测试) |
-|      1.1.6      |                        | 版本 >= 7.15.0 &#10004; |                 |
-|      1.1.6      |         2.6.x          |    8.0.5 &#10004;     |   4.5.0(未测试)    |
-|      1.1.6      |         2.7.x          |    8.5.13 &#10004;    | 4.9.1 &#10004;  |
-|      1.1.6      |         3.0.x          |    9.5.1 &#10004;     | 4.17.2 &#10004; |
-|      1.1.6      |         3.1.x          |    9.16.3 &#10004;    | 4.20.0 &#10004; |
+|  1.1.6 ~ 1.1.7  |                        | 版本 >= 7.15.0 &#10004; |                 |
+|  1.1.6 ~ 1.1.7  |         2.6.x          |    8.0.5 &#10004;     |   4.5.0(未测试)    |
+|  1.1.6 ~ 1.1.7  |         2.7.x          |    8.5.13 &#10004;    | 4.9.1 &#10004;  |
+|  1.1.6 ~ 1.1.7  |         3.0.x          |    9.5.1 &#10004;     | 4.17.2 &#10004; |
+|  1.1.6 ~ 1.1.7  |         3.1.x          |    9.16.3 &#10004;    | 4.20.0 &#10004; |
+|      1.1.6      |         3.2.x          |    9.22.3 &#10006;    | 4.24.0 &#10004; |
+|      1.1.7      |         3.2.x          |    9.22.3 &#10004;    | 4.24.0 &#10004; |
 
 提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VTL_TEST&compatibleMode=oracle
 
@@ -49,10 +51,10 @@
 </dependency>
 ```
 
-#### Flyway MySQL 温馨提示
+#### Flyway MySQL / Oracle 温馨提示
 flyway-core 8.2.1及以后的版本不再直接支持 MySQL，需要额外引入：
 
-官方说明：[https://documentation.red-gate.com/fd/mysql-184127601.html](https://documentation.red-gate.com/fd/mysql-184127601.html)
+Flyway MySQL 官方文档：[https://documentation.red-gate.com/fd/mysql-184127601.html](https://documentation.red-gate.com/fd/mysql-184127601.html)
 ```xml
 <dependency>
     <artifactId>flyway-core</artifactId>
@@ -61,6 +63,20 @@ flyway-core 8.2.1及以后的版本不再直接支持 MySQL，需要额外引入
 <dependency>
   <groupId>org.flywaydb</groupId>
   <artifactId>flyway-mysql</artifactId>
+</dependency>
+```
+
+flyway-core 9.22.3 及以后的版本不再直接支持 Oracle(Flyway 9.16.3 还是直接支持 Oracle 的)，需要额外引入：
+
+Flyway Oracle 官方文档：[https://documentation.red-gate.com/flyway/flyway-cli-and-api/supported-databases/oracle-database](https://documentation.red-gate.com/flyway/flyway-cli-and-api/supported-databases/oracle-database)
+```xml
+<dependency>
+    <artifactId>flyway-core</artifactId>
+    <groupId>org.flywaydb</groupId>
+</dependency>
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-database-oracle</artifactId>
 </dependency>
 ```
 

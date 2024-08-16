@@ -1,7 +1,7 @@
 package com.github.mengweijin.flyway.database.dm;
 
+import com.github.mengweijin.flyway.database.oracle.OracleParser;
 import org.flywaydb.core.api.configuration.Configuration;
-import org.flywaydb.core.internal.database.oracle.OracleParser;
 import org.flywaydb.core.internal.parser.ParserContext;
 import org.flywaydb.core.internal.parser.ParsingContext;
 import org.flywaydb.core.internal.parser.PeekingReader;
