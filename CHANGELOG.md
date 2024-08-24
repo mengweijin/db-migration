@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v1.1.7] 2024-08-17
+- 【适配】适配 spring boot 3.2.x 和 flyway 9.22.3 版本。
+
 ### [v1.1.6] 2024-05-18
 - 【优化】修复 flyway 必须拥有 DBA 角色才能运行的问题。
 - 【优化】修复 Liquibase 对 HikariProxyConnection 识别不准确导致控制台报 Cannot read from DBMS_UTILITY.DB_VERSION 的问题。
