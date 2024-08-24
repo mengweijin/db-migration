@@ -121,7 +121,7 @@ flowable:
 spring:
   # 此处省略数据库相关配置，可参考上面一段配置。
   liquibase:
-    # 启用liquibase，Spring Boot 默认就是 true
+    # 启用liquibase
     enabled: true
     # 存储变化的文件（changelog）位置。默认：classpath:/db/changelog/db.changelog-master.xml
     # 如果只用来初始化 flowable 相关的表，change-log 可以不用配置。
