@@ -50,9 +50,16 @@ public class DmSchema extends Schema<DmDatabase, DmTable> {
         return name.equals(database.doGetCurrentUser());
     }
 
+    /**
+     * return database.queryReturnsRows("SELECT * FROM ALL_USERS WHERE USERNAME = ?", name);
+     * <a href="https://github.com/mengweijin/db-migration/issues/7">https://github.com/mengweijin/db-migration/issues/7</a>
+     * return database.queryReturnsRows("SELECT DISTINCT OBJECT_NAME FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'SCH' AND OBJECT_NAME = ?", name);
+     * @return boolean
+     * @throws SQLException SQLException
+     */
     @Override
     protected boolean doExists() throws SQLException {
-        return database.queryReturnsRows("SELECT * FROM ALL_USERS WHERE USERNAME = ?", name);
+        return database.queryReturnsRows("SELECT DISTINCT OBJECT_NAME FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'SCH' AND OBJECT_NAME = ?", name);
     }
 
     @Override

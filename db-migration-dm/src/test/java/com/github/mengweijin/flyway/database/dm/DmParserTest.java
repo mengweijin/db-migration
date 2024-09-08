@@ -7,8 +7,7 @@ import org.flywaydb.core.api.resource.LoadableResource;
 import org.flywaydb.core.internal.parser.ParsingContext;
 import org.flywaydb.core.internal.resource.filesystem.FileSystemResource;
 import org.flywaydb.core.internal.sqlscript.SqlStatementIterator;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import java.nio.charset.Charset;
 
 public class DmParserTest {

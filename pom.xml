@@ -15,6 +15,7 @@
     <module>demo/liquibase-dm-druid</module>
     <module>demo/liquibase-dm-spring-boot2</module>
     <module>demo/flyway-dm</module>
+    <module>demo/flyway-dm-schema-baseline-version</module>
     <module>demo/flyway-dm-spring-boot2</module>
     <module>demo/flyway-mysql</module>
     <module>demo/flyway-postgresql</module>

@@ -12,7 +12,7 @@ spring:
     # 默认不启用，true 为启用
     enabled: true
     baseline-on-migrate: true
-    baseline-version: 2020.12.12
+    # baseline-version: 2020.12.11
     # 禁用 placeholder replacement，否则 sql 脚本中不能写 ${} 这样的字符。
     placeholder-replacement: false
     locations:
