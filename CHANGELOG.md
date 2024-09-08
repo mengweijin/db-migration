@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v1.1.8] 2024-09-08
+- 【Github issue 7】Fixed flyway baseline-version not work.
+
 ### [v1.1.7] 2024-08-17
 - 【适配】适配 spring boot 3.2.x 和 flyway 9.22.3 版本。
 
