@@ -10,7 +10,7 @@
 - 【优化】修复 Liquibase 对 HikariProxyConnection 识别不准确导致控制台报 Cannot read from DBMS_UTILITY.DB_VERSION 的问题。
 
 ### [v1.1.5] 2024-05-18
-- 【跳过】一个 Liquibase 有点小问题的版本，flyway 不受影响。
+- 【丢弃】一个 Liquibase 有点小问题的版本，flyway 不受影响。
 
 ### [v1.1.4] 2024-03-16
 - 【优化】优化代码实现，修复对 Liquibase 的低版本兼容性问题。
