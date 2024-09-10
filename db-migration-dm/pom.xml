@@ -4,7 +4,7 @@
 
   <groupId>com.github.mengweijin</groupId>
   <artifactId>db-migration-dm</artifactId>
-  <version>1.1.8</version>
+  <version>1.1.9-SNAPSHOT</version>
 
   <name>db-migration-dm</name>
   <description>db-migration-dm</description>
@@ -64,7 +64,7 @@
   <developers>
     <developer>
       <name>Meng Wei Jin</name>
-      <email>mengweijin.work@foxmail.com</email>
+      <email>mwjwork@qq.com</email>
     </developer>
     <developer>
       <name>Jack Chu</name>

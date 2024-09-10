@@ -5,7 +5,7 @@ spring:
     driver-class-name: dm.jdbc.driver.DmDriver
     # 勿添加如下参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle
     # create schema VTL_TEST_SCHEMA1 AUTHORIZATION VTL_TEST;
-    url: jdbc:dm://localhost:5236?schema=VTL_TEST_SCHEMA1
+    url: jdbc:dm://localhost:5236?schema=VTL_TEST_SCHEMA
     username: VTL_TEST
     password:
   # flyway在spring boot中默认配置位置为：classpath:db/migration
@@ -21,10 +21,10 @@ spring:
     # 当以上 3 个条件成立时，设置的 baseline-version 的值是多少，那么这个版本及之前版本的脚本都不会被执行。
     # 并且，flyway_schema_history 表中会多出第一条字段 script 为 << Flyway Baseline >> 的数据记录。
     baseline-version: 2020.12.11
-    # create schema VTL_TEST_SCHEMA1 AUTHORIZATION VTL_TEST;
+    # create schema VTL_TEST_SCHEMA AUTHORIZATION VTL_TEST;
     schemas:
-      - VTL_TEST_SCHEMA1
-    default-schema: VTL_TEST_SCHEMA1
+      - VTL_TEST_SCHEMA
+    default-schema: VTL_TEST_SCHEMA
     # 禁用 placeholder replacement，否则 sql 脚本中不能写 ${} 这样的字符。
     placeholder-replacement: false
     locations:

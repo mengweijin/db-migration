@@ -93,4 +93,8 @@ public class ReflectUtils {
         }
         return false;
     }
+
+    public static boolean isDmUrl(String url) {
+        return url.startsWith("jdbc:dm:");
+    }
 }

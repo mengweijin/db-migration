@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: dm.jdbc.driver.DmDriver
+    url: jdbc:dm://localhost:5236?schema=VTL_TEST_SCHEMA&compatibleMode=oracle
+    username: VTL_TEST
+    password:
+  liquibase:
+    # 启用liquibase
+    enabled: true
+    # 存储变化的文件（changelog）位置。默认：classpath:/db/changelog/db.changelog-master.xml
+    change-log: classpath:/db/changelog.xml
+    # 分环境执行，若在 changelog 文件中设置了对应 context 属性，则只会执行与 dev 对应值的 changeset
+    # contexts: dev
+    # 执行前首先删除数据库，默认 false。若设置为 true，需配置 default-schema 属性，则执行变更前，会先删除目标数据库，请谨慎。
+    # drop-first 不能和 flowable 一同使用：
+    # 因为 flowable 初始化数据库脚本会优先执行，结束后再执行 drop all 操作就会把 flowable 刚创建好的表全部又清空掉，
+    # 导致应用启动时由于找不到 flowable 相关表而导致启动失败。
+    drop-first: true
+    # 默认 schema
+    default-schema: VTL_TEST_SCHEMA
+    # 执行更新时将回滚 SQL 写入的文件路径
+    # rollback-file:
+    # 如果使用工程已配置的 datasource 数据源，则以下三个数据库连接参数可不配置
+    # 访问数据库的连接地址
+    # url:
+    # 访问数据库的用户名
+    # user:
+    # 访问数据库的密码
+    # password:
+#flowable:
+#  #async-executor-activate: false
+#  #database-schema-update: true
+#  database-schema: VTL_TEST

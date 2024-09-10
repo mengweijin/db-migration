@@ -21,24 +21,26 @@
 针对 Flyway、Liquibase 扩展官方默认不支持的一些数据库的支持。当前支持达梦（DM）数据库。
 
 ### db-migration-dm 版本说明（达梦）
-| db-migration-dm |      spring boot       |        flyway         |    liquibase    |
-|:---------------:|:----------------------:|:---------------------:|:---------------:|
-|    &#10006;     | spring boot 版本 < 2.6.2 |      版本 < 7.15.0      |   版本 <= 4.5.0   |
-|  1.1.6 ~ 1.1.7  |                        | 版本 >= 7.15.0 &#10004; |                 |
-|  1.1.6 ~ 1.1.7  |         2.6.x          |    8.0.5 &#10004;     | 4.5.0 &#10006;  |
-|  1.1.6 ~ 1.1.7  |         2.7.x          |    8.5.13 &#10004;    | 4.9.1 &#10004;  |
-|  1.1.6 ~ 1.1.7  |         3.0.x          |    9.5.1 &#10004;     | 4.17.2 &#10004; |
-|  1.1.6 ~ 1.1.7  |         3.1.x          |    9.16.3 &#10004;    | 4.20.0 &#10004; |
-|      1.1.6      |         3.2.x          |    9.22.3 &#10006;    | 4.24.0 &#10004; |
-|      1.1.7      |         3.2.x          |    9.22.3 &#10004;    | 4.24.0 &#10004; |
+| db-migration-dm |     spring boot     |     flyway      |     liquibase      |
+|:---------------:|:-------------------:|:---------------:|:------------------:|
+|        ❌        | spring boot < 2.6.2 | flyway < 7.15.0 | liquibase <= 4.5.0 |
+|      1.1.8      |                     |    7.15.0 ✅     |                    |
+|      1.1.8      |        2.6.x        |     8.0.5 ✅     |      4.5.0 ❌       |
+|      1.1.8      |        2.7.x        |    8.5.13 ✅     |      4.9.1 ✅       |
+|      1.1.8      |        3.0.x        |     9.5.1 ✅     |      4.17.2 ✅      |
+|      1.1.8      |        3.1.x        |    9.16.3 ✅     |      4.20.0 ✅      |
+|      1.1.8      |        3.2.x        |    9.22.3 ✅     |      4.24.0 ✅      |
+
+✅
 
 * [文档：达梦数据库使用 flyway](./doc/flyway.md)
 * [文档：达梦数据库使用 liquibase + flowable 工作流](./doc/liquibase.md)
+* [文档：达梦数据库使用 liquibase 在 spring boot 低版本中可以使用吗？](./doc/earlier_spring_boot_versions.md)
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
 
 提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VTL_TEST
 
-## ⭐Star db-migration
+## ⭐Star db-migration on GitHub
 
 [![Stargazers over time](https://starchart.cc/mengweijin/db-migration.svg)](https://starchart.cc/mengweijin/db-migration)
