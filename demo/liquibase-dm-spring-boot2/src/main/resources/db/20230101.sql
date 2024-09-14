@@ -1,8 +1,9 @@
 --liquibase formatted sql
 --changeset admin:1 splitStatements:false
 BEGIN
-     EXECUTE IMMEDIATE 'DROP TABLE SYS_USER';
-     EXCEPTION WHEN OTHERS THEN NULL;
+    EXECUTE IMMEDIATE 'DROP TABLE SYS_USER';
+EXCEPTION
+    WHEN OTHERS THEN NULL;
 END;
 
 --changeset admin:2 splitStatements:false

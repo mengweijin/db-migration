@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v1.1.8] 2024-09-10
+- 【Gitee issue IAQ6CG】Fixed liquibase drop-first-true throw invalid table or view name error.
+
 ### [v1.1.8] 2024-09-08
 - 【Github issue 7】Fixed flyway baseline-version not work.
 
