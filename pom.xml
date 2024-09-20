@@ -15,6 +15,7 @@
     <module>demo/liquibase-dm-drop-first</module>
     <module>demo/liquibase-dm-druid</module>
     <module>demo/liquibase-dm-spring-boot2</module>
+    <module>demo/liquibase-dm-spring-boot2-github-issue-8</module>
     <module>demo/liquibase-postgresql</module>
     <module>demo/flyway-dm</module>
     <module>demo/flyway-dm-schema-baseline-version</module>
