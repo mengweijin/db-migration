@@ -1,0 +1,3 @@
+com.github.mengweijin.flyway.database.gbase.GbaseDatabaseType
+com.github.mengweijin.flyway.database.GbaseDatabaseExtension
+com.github.mengweijin.flyway.database.gbase.GbaseConfigurationExtension

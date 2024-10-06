@@ -11,6 +11,7 @@
 
   <modules>
     <module>./db-migration-dm</module>
+    <module>./db-migration-gbase</module>
     <module>demo/liquibase-dm</module>
     <module>demo/liquibase-dm-drop-first</module>
     <module>demo/liquibase-dm-druid</module>
@@ -20,6 +21,7 @@
     <module>demo/flyway-dm</module>
     <module>demo/flyway-dm-schema-baseline-version</module>
     <module>demo/flyway-dm-spring-boot2</module>
+    <module>demo/flyway-gbase</module>
     <module>demo/flyway-mysql</module>
     <module>demo/flyway-postgresql</module>
     <module>demo/flyway-oracle</module>
