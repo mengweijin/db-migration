@@ -3,15 +3,15 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.3.0</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.mengweijin</groupId>
-    <artifactId>flyway-dm</artifactId>
+    <artifactId>liquibase-dm-v1.2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>flyway-dm</name>
+    <name>liquibase-dm-v1.2</name>
 
     <properties>
         <java.version>17</java.version>
@@ -19,8 +19,9 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <db-migration-dm.version>1.1.8</db-migration-dm.version>
+        <db-migration.version>1.2.0-SNAPSHOT</db-migration.version>
         <DmJdbcDriver18.version>8.1.3.140</DmJdbcDriver18.version>
+        <flowable.version>7.0.1</flowable.version>
     </properties>
 
     <dependencies>
@@ -34,23 +35,24 @@
         </dependency>
         <dependency>
             <groupId>com.github.mengweijin</groupId>
-            <artifactId>db-migration-dm</artifactId>
-            <version>${db-migration-dm.version}</version>
+            <artifactId>db-migration</artifactId>
+            <version>${db-migration.version}</version>
         </dependency>
         <dependency>
-            <artifactId>flyway-core</artifactId>
-            <groupId>org.flywaydb</groupId>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.dameng</groupId>
             <artifactId>DmJdbcDriver18</artifactId>
             <version>${DmJdbcDriver18.version}</version>
         </dependency>
+
+        <!-- https://github.com/flowable/flowable-engine/blob/main/distro/sql/create/all/flowable.oracle.all.create.sql -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.10.2</version>
-            <scope>test</scope>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-process</artifactId>
+            <version>${flowable.version}</version>
         </dependency>
     </dependencies>
 

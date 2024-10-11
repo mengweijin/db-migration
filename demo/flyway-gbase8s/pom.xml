@@ -3,15 +3,15 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.3.0</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.mengweijin</groupId>
-    <artifactId>flyway-dm</artifactId>
+    <artifactId>flyway-gbase8s</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>flyway-dm</name>
+    <name>flyway-gbase8s</name>
 
     <properties>
         <java.version>17</java.version>
@@ -19,8 +19,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <db-migration-dm.version>1.1.8</db-migration-dm.version>
-        <DmJdbcDriver18.version>8.1.3.140</DmJdbcDriver18.version>
+        <db-migration.version>1.2.0-SNAPSHOT</db-migration.version>
     </properties>
 
     <dependencies>
@@ -34,17 +33,19 @@
         </dependency>
         <dependency>
             <groupId>com.github.mengweijin</groupId>
-            <artifactId>db-migration-dm</artifactId>
-            <version>${db-migration-dm.version}</version>
+            <artifactId>db-migration</artifactId>
+            <version>${db-migration.version}</version>
         </dependency>
         <dependency>
             <artifactId>flyway-core</artifactId>
             <groupId>org.flywaydb</groupId>
         </dependency>
         <dependency>
-            <groupId>com.dameng</groupId>
-            <artifactId>DmJdbcDriver18</artifactId>
-            <version>${DmJdbcDriver18.version}</version>
+            <artifactId>gbase8s</artifactId>
+            <groupId>com.gbase</groupId>
+            <version>3.5.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../lib/gbasedbtjdbc_3.5.1_3X1_3.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
