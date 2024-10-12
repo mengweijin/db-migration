@@ -5,19 +5,9 @@ import org.flywaydb.core.internal.jdbc.JdbcTemplate;
 
 import java.sql.SQLException;
 
-/**
- * DM-specific table.
- * @author mengweijin
- */
+
 public class DmTable extends Table<DmDatabase, DmSchema> {
-    /**
-     * Creates a new DM table.
-     *
-     * @param jdbcTemplate The Jdbc Template for communicating with the DB.
-     * @param database The database-specific support.
-     * @param schema The schema this table lives in.
-     * @param name The name of the table.
-     */
+
     public DmTable(JdbcTemplate jdbcTemplate, DmDatabase database, DmSchema schema, String name) {
         super(jdbcTemplate, database, schema, name);
     }

@@ -25,7 +25,7 @@ public class Gbase8sDatabase extends Database<Gbase8sConnection> {
     }
 
     @Override
-    public void ensureSupported(Configuration configuration) {
+    public final void ensureSupported() {
         ensureDatabaseIsRecentEnough("8");
         recommendFlywayUpgradeIfNecessary("8.8");
     }

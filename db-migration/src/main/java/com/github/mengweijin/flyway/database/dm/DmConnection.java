@@ -16,16 +16,16 @@ public class DmConnection extends Connection<DmDatabase> {
 
     @Override
     protected String getCurrentSchemaNameOrSearchPath() throws SQLException {
-        return jdbcTemplate.queryForString("SELECT SYS_CONTEXT('USERENV', 'CURRENT_SCHEMA') FROM DUAL");
+        return this.jdbcTemplate.queryForString("SELECT SYS_CONTEXT('USERENV', 'CURRENT_SCHEMA') FROM DUAL");
     }
 
     @Override
     public void doChangeCurrentSchemaOrSearchPathTo(String schema) throws SQLException {
-        jdbcTemplate.execute("ALTER SESSION SET CURRENT_SCHEMA=" + database.quote(schema));
+        this.jdbcTemplate.execute("ALTER SESSION SET CURRENT_SCHEMA=" + this.database.quote(schema));
     }
 
     @Override
-    public Schema getSchema(String name) {
-        return new DmSchema(jdbcTemplate, database, name);
+    public Schema<DmDatabase, DmTable> getSchema(String name) {
+        return new DmSchema(this.jdbcTemplate, this.database, name);
     }
 }

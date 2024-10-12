@@ -1,0 +1,2 @@
+com.github.mengweijin.flyway.database.dm.DmDatabaseType
+com.github.mengweijin.flyway.database.gbase8s.Gbase8sDatabaseType
