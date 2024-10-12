@@ -5,6 +5,8 @@
   <groupId>com.github.mengweijin</groupId>
   <artifactId>db-migration</artifactId>
   <version>2.0.1</version>
+  <name>db-migration</name>
+  <description>Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s）数据库。</description>
 
   <properties>
     <skipTests>true</skipTests>
