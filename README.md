@@ -1,5 +1,8 @@
 # db-migration
 <p align="center">
+    <a target="_blank" href="https://search.maven.org/search?q=g:%22com.github.mengweijin%22%20AND%20a:%22db-migration%22">
+        <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration" />
+    </a>
     <a target="_blank" href="https://search.maven.org/search?q=g:%22com.github.mengweijin%22%20AND%20a:%22db-migration-dm%22">
         <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration-dm" />
     </a>
@@ -19,6 +22,24 @@
 
 ## 介绍
 针对 Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s）数据库。
+
+```xml
+<dependency>
+    <groupId>com.github.mengweijin</groupId>
+    <artifactId>db-migration</artifactId>
+    <version>${db-migration.version}</version>
+</dependency>
+<dependency>
+    <artifactId>flyway-core</artifactId>
+    <groupId>org.flywaydb</groupId>
+    <version>10.10.0</version>
+</dependency>
+<dependency>
+    <groupId>org.liquibase</groupId>
+    <artifactId>liquibase-core</artifactId>
+    <version>4.27.0</version>
+</dependency>
+```
 
 ### db-migration 达梦（DM 8）
 

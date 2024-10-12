@@ -1,4 +1,8 @@
 ## CHANGELOG
+### [v2.0.0] 2024-10-12
+- 【重构】重构达梦 flyway（version 10） 和 liquibase（version 4） 逻辑。
+- 【新增】增加南大通用 GBase 8s 数据库 flyway（version 10）和（version 4）支持。
+
 ### [v1.1.9] 2024-09-10
 - 【Gitee issue IAQ6CG】Fixed liquibase drop-first-true throw invalid table or view name error.
 
