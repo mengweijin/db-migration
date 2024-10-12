@@ -8,7 +8,6 @@ import org.flywaydb.core.extensibility.Tier;
 import org.flywaydb.core.internal.callback.CallbackExecutor;
 import org.flywaydb.core.internal.database.DatabaseType;
 import org.flywaydb.core.internal.database.base.BaseDatabaseType;
-import org.flywaydb.core.internal.database.base.Database;
 import org.flywaydb.core.internal.jdbc.JdbcConnectionFactory;
 import org.flywaydb.core.internal.jdbc.JdbcTemplate;
 import org.flywaydb.core.internal.jdbc.StatementInterceptor;
@@ -69,7 +68,7 @@ public class DmDatabaseType extends BaseDatabaseType {
     }
 
     @Override
-    public Database createDatabase(Configuration configuration, JdbcConnectionFactory jdbcConnectionFactory, StatementInterceptor statementInterceptor) {
+    public org.flywaydb.core.internal.database.base.Database createDatabase(Configuration configuration, JdbcConnectionFactory jdbcConnectionFactory, StatementInterceptor statementInterceptor) {
         //DmDatabase.enableTnsnamesOraSupport();
         return new DmDatabase(configuration, jdbcConnectionFactory, statementInterceptor);
     }

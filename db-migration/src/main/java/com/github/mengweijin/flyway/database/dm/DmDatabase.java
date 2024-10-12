@@ -1,5 +1,6 @@
 package com.github.mengweijin.flyway.database.dm;
 
+import com.github.mengweijin.flyway.ISupportDatabase;
 import org.flywaydb.core.api.configuration.Configuration;
 import org.flywaydb.core.extensibility.Tier;
 import org.flywaydb.core.internal.database.base.Database;
@@ -7,6 +8,7 @@ import org.flywaydb.core.internal.database.base.Table;
 import org.flywaydb.core.internal.jdbc.JdbcConnectionFactory;
 import org.flywaydb.core.internal.jdbc.StatementInterceptor;
 import org.flywaydb.core.internal.util.StringUtils;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -16,7 +18,7 @@ import java.util.Set;
 /**
  * @author mengweijin
  */
-public class DmDatabase extends Database<DmConnection> {
+public class DmDatabase extends Database<DmConnection> implements ISupportDatabase {
     private static final String DM_NET_TNS_ADMIN = "dm.net.tns_admin";
 
     /**
@@ -41,11 +43,33 @@ public class DmDatabase extends Database<DmConnection> {
     }
 
     @Override
+    public boolean supportsChangingCurrentSchema() {
+        return true;
+    }
+
+    /**
+     * 兼容低版本
+     * @param identifier identifier
+     * @return String
+     */
+    @Override
+    public String doQuote(String identifier) {
+        return getOpenQuote() + identifier + getCloseQuote();
+    }
+
+    @Override
+    public void ensureSupported() {
+        //最小支持版本7
+        ensureDatabaseIsRecentEnough("7");
+        //最新支持版本8.1
+        //ensureDatabaseNotOlderThanOtherwiseRecommendUpgradeToFlywayEdition("8.1", org.flywaydb.core.internal.license.Edition.ENTERPRISE);
+        recommendFlywayUpgradeIfNecessary("8.1");
+    }
+
+    @Override
     public void ensureSupported(Configuration configuration) {
         ensureDatabaseIsRecentEnough("7");
-
         ensureDatabaseNotOlderThanOtherwiseRecommendUpgradeToFlywayEdition("8.1", Tier.PREMIUM, configuration);
-
         recommendFlywayUpgradeIfNecessaryForMajorVersion("8.1");
     }
 
@@ -303,4 +327,5 @@ public class DmDatabase extends Database<DmConnection> {
 
         return result;
     }
+
 }

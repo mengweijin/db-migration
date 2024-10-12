@@ -1,5 +1,6 @@
 package com.github.mengweijin.flyway.database.gbase8s;
 
+import com.github.mengweijin.flyway.ISupportDatabase;
 import org.flywaydb.core.api.configuration.Configuration;
 import org.flywaydb.core.internal.database.base.Database;
 import org.flywaydb.core.internal.database.base.Table;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
  * Gbase8s database.
  * @author mengweijin
  */
-public class Gbase8sDatabase extends Database<Gbase8sConnection> {
+public class Gbase8sDatabase extends Database<Gbase8sConnection> implements ISupportDatabase {
 
     public Gbase8sDatabase(Configuration configuration, JdbcConnectionFactory jdbcConnectionFactory, StatementInterceptor statementInterceptor) {
         super(configuration, jdbcConnectionFactory, statementInterceptor);
@@ -22,6 +23,22 @@ public class Gbase8sDatabase extends Database<Gbase8sConnection> {
     @Override
     protected Gbase8sConnection doGetConnection(Connection connection) {
         return new Gbase8sConnection(this, connection);
+    }
+
+    @Override
+    public boolean supportsChangingCurrentSchema() {
+        return true;
+    }
+
+    @Override
+    public String doQuote(String identifier) {
+        return getOpenQuote() + identifier + getCloseQuote();
+    }
+
+    @Override
+    public void ensureSupported() {
+        ensureDatabaseIsRecentEnough("8");
+        recommendFlywayUpgradeIfNecessary("8.8");
     }
 
     @Override
@@ -93,4 +110,5 @@ public class Gbase8sDatabase extends Database<Gbase8sConnection> {
     public boolean useSingleConnection() {
         return false;
     }
+
 }

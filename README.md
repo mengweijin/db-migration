@@ -1,10 +1,7 @@
 # db-migration
 <p align="center">
     <a target="_blank" href="https://search.maven.org/search?q=g:%22com.github.mengweijin%22%20AND%20a:%22db-migration%22">
-        <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration?label=db-migration" />
-    </a>
-    <a target="_blank" href="https://search.maven.org/search?q=g:%22com.github.mengweijin%22%20AND%20a:%22db-migration-dm%22">
-        <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration-dm?label=db-migration-dm (discard)&color=red" />
+        <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration?label=db-migration&color=blue" />
     </a>
 	<a target="_blank" href="https://github.com/mengweijin/db-migration/blob/master/LICENSE">
 		<img src="https://img.shields.io/badge/license-Apache2.0-blue.svg" />
@@ -23,98 +20,61 @@
 ## 介绍
 针对 Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s）数据库。
 
+只需要引入包即可。如下：
+
 ```xml
 <dependency>
     <groupId>com.github.mengweijin</groupId>
     <artifactId>db-migration</artifactId>
     <version>${db-migration.version}</version>
 </dependency>
+
+<!--flyway 或者 liquibase 用哪个引入哪个即可。-->
+
+<!--flyway 的版本正常不需要指定，如果兼容 spring boot 2.5，则需要明确指定为 7.15.0 版本。-->
 <dependency>
     <artifactId>flyway-core</artifactId>
     <groupId>org.flywaydb</groupId>
-    <version>10.10.0</version>
+    <!--<version>10.10.0</version>-->
 </dependency>
+
+<!--liquibase 的版本正常不需要指定，也可以明确指定为 4.27.0 版本。-->
 <dependency>
     <groupId>org.liquibase</groupId>
     <artifactId>liquibase-core</artifactId>
-    <version>4.27.0</version>
+    <!--<version>4.27.0</version>-->
 </dependency>
 ```
 
 ### db-migration 达梦（DM 8）
 
-| db-migration | spring boot |  flyway   | liquibase |
-|:-------------|:------------|:---------:|:---------:|
-| ——           | ——          |    ——     |    ——     |
-| 2.0.0        | 2.4.x       | 10.10.0 ❌ | 4.27.0 ❌  |
-| 2.0.0        | 2.5.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 2.6.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 2.7.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 3.0.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 3.1.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 3.2.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 3.3.x       | 10.10.0 ✅ | 4.27.0 ✅  |
+| db-migration | spring boot |    flyway | liquibase |
+|:-------------|:------------|----------:|----------:|
+| ——           | ——          |        —— |        —— |
+| 2.0.1        | 2.4.x       |   7.1.1 ❌ |  4.27.0 ❌ |
+| 2.0.1        | 2.5.x       |   7.7.3 ❌ |  4.27.0 ✅ |
+| 2.0.1        | 2.5.x       |  7.15.0 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 2.6.x       |   8.0.4 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 2.7.x       |  8.5.11 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.0.x       |   9.5.1 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.1.x       |  9.16.3 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.2.x       |  9.22.3 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.3.x       | 10.10.0 ✅ |  4.27.0 ✅ |
 
 ### db-migration 南大通用（GBase 8s）
 
-| db-migration | spring boot | flyway    | liquibase |
-|:-------------|:------------|:----------|:----------|
-| ——           | ——          | ——        | ——        |
-| 2.0.0        | 2.4.x       | 10.10.0 ❌ | 4.27.0 ❌  |
-| 2.0.0        | 2.5.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 2.6.x       | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 2.7.17      | 10.10.0 ❌ | 4.27.0 ✅  |
-| 2.0.0        | 2.7.18(+)   | 10.10.0 ✅ | 4.27.0 ✅  |
-| 2.0.0        | 3.0.x       | 10.10.0 ✅ | 4.27.0 ✅  |
-| 2.0.0        | 3.1.x       | 10.10.0 ✅ | 4.27.0 ✅  |
-| 2.0.0        | 3.2.x       | 10.10.0 ✅ | 4.27.0 ✅  |
-| 2.0.0        | 3.3.x       | 10.10.0 ✅ | 4.27.0 ✅  |
-
-### 达梦 db-migration-dm 版本说明之 Flyway
-
-| spring boot |     flyway      | db-migration-dm | supported |
-|:-----------:|:---------------:|:---------------:|:---------:|
-|     ——      | flyway < 7.15.0 |       ——        |     ❌     |
-|     ——      |     7.15.0      |      1.1.9      |     ✅     |
-|    2.6.x    |      8.0.5      |      1.1.9      |     ✅     |
-|    2.7.x    |     8.5.13      |      1.1.9      |     ✅     |
-|    3.0.x    |      9.5.1      |      1.1.9      |     ✅     |
-|    3.1.x    |     9.16.3      |      1.1.9      |     ✅     |
-|    3.2.x    |     9.22.3      |      1.1.9      |     ✅     |
-|    3.3.x    |     10.10.0     |      1.1.9      |     ❌     |
-
-
-### 达梦 db-migration-dm 版本说明之 Liquibase
-
-| spring boot |     liquibase      | db-migration-dm | supported |
-|:-----------:|:------------------:|:---------------:|:---------:|
-|     ——      | liquibase <= 4.5.0 |       ——        |     ❌     |
-|    2.6.x    |       4.5.0        |      1.1.8      |     ❌     |
-|    2.7.x    |       4.9.1        |      1.1.8      |     ✅     |
-|    2.7.x    |       4.9.1        |      1.1.9      |     ❌     |
-|    3.0.x    |       4.17.2       |      1.1.9      |     ✅     |
-|    3.1.x    |       4.20.0       |      1.1.9      |     ✅     |
-|    3.2.x    |       4.24.0       |      1.1.9      |     ✅     |
-|    3.3.x    |       4.27.0       |      1.1.9      |     ✅     |
-
-
-
-### 参考文档
-
-* [达梦：使用 flyway](./doc/flyway.md)
-* [达梦：使用 liquibase + flowable 工作流](./doc/liquibase.md)
-* [附录：flowable drop 所有表脚本](./doc/flowable_drop_script.md)
-
-完整的基础使用示例参考代码仓库中，各自的 demo 工程。
-
-提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VTL_TEST
-
-## 常见问题
-
-* [达梦：【**flyway 6.4.4** 和 spring boot 2.3.2.RELEASE】中如何使用？](./doc/flyway_6.4.4_solution.md)
-* [达梦：【**liquibase 低版本**】中如何使用？](./doc/liquibase_4.9.1_solution.md)
-* [达梦：使用 flowable（使用的Liquibase）同时使用 flyway来管理自己的 SQL的一点点疑问？](./doc/gitee_issue_I9KYBS.md)
-
+| db-migration | spring boot |    flyway | liquibase |
+|:-------------|:------------|----------:|----------:|
+| ——           | ——          |        —— |        —— |
+| 2.0.1        | 2.4.x       |   7.1.1 ❌ |  4.27.0 ❌ |
+| 2.0.1        | 2.5.x       |   7.7.3 ❌ |  4.27.0 ✅ |
+| 2.0.1        | 2.5.x       |  7.15.0 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 2.6.x       |   8.0.4 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 2.7.x       |  8.5.11 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.0.x       |   9.5.1 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.1.x       |  9.16.3 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.2.x       |  9.22.3 ✅ |  4.27.0 ✅ |
+| 2.0.1        | 3.3.x       | 10.10.0 ✅ |  4.27.0 ✅ |
 
 ## ⭐Star db-migration on GitHub
 
