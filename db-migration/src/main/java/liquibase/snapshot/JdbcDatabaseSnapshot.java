@@ -1797,7 +1797,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                                     "FROM all_cons_columns c, all_constraints k " +
                                     //"LEFT JOIN " + (((OracleDatabase) database).canAccessDbaRecycleBin() ? "dba_recyclebin" : "user_recyclebin") + " d ON d.object_name=k.table_name " +
                                     "WHERE k.constraint_type = 'P' " +
-                                    "AND d.object_name IS NULL " +
+                                    //"AND d.object_name IS NULL " +
                                     "AND k.table_name = '" + table + "' " +
                                     "AND k.owner = '" + ((AbstractJdbcDatabase) database).getJdbcSchemaName(catalogAndSchema) + "' " +
                                     "AND k.constraint_name = c.constraint_name " +

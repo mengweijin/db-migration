@@ -6,7 +6,7 @@
   <artifactId>db-migration-dm</artifactId>
   <version>1.1.9</version>
 
-  <name>db-migration-dm-deprecated</name>
+  <name>db-migration-dm</name>
   <description>db-migration-dm</description>
 
   <properties>
