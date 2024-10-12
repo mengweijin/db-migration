@@ -6,9 +6,6 @@
   <artifactId>db-migration</artifactId>
   <version>2.0.1-SNAPSHOT</version>
 
-  <name>db-migration</name>
-  <description>db-migration</description>
-
   <properties>
     <skipTests>true</skipTests>
     <java.version>1.8</java.version>

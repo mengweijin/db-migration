@@ -11,22 +11,13 @@
 
   <modules>
     <module>./db-migration</module>
-    <module>./db-migration-dm</module>
 
 
-    <module>demo-dm/dm-flyway-7-8-9</module>
-    <module>demo-dm/dm-flyway-7-8-9-schema-baseline-version</module>
-    <module>demo-dm/dm-flyway-7-8-9-spring-boot2</module>
-    <module>demo-dm/dm-flyway-10</module>
-    <module>demo-dm/dm-flyway-10-schema-baseline-version</module>
-    <module>demo-dm/dm-liquibase-1-1</module>
-    <module>demo-dm/dm-liquibase-1-1-drop-first</module>
-    <module>demo-dm/dm-liquibase-1-1-druid</module>
-    <module>demo-dm/dm-liquibase-1-1-spring-boot2</module>
-    <module>demo-dm/dm-liquibase-1-1-spring-boot2-github-issue-8</module>
-    <module>demo-dm/dm-liquibase-1-2</module>
-    <module>demo-dm/dm-liquibase-1-2-drop-first</module>
-    <module>demo-dm/dm-liquibase-1-2-spring-boot2</module>
+    <module>demo-dm/dm-flyway</module>
+    <module>demo-dm/dm-flyway-schema-baseline-version</module>
+
+    <module>demo-dm/dm-liquibase</module>
+    <module>demo-dm/dm-liquibase-drop-first</module>
 
 
     <module>demo-gbase8s/gbase8s-flyway</module>
