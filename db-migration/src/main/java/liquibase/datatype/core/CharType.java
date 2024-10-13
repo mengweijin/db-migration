@@ -14,6 +14,7 @@ import liquibase.datatype.LiquibaseDataType;
 import liquibase.integration.commandline.LiquibaseCommandLineConfiguration;
 import liquibase.statement.DatabaseFunction;
 import liquibase.util.StringUtil;
+import lombok.val;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -103,15 +104,8 @@ public class CharType extends LiquibaseDataType {
             return "to_clob( '" + StringUtil.join(chunks, "' ) || to_clob( '", obj -> database.escapeStringForDatabase(obj.toString())) + "' )";
         }
 
-        if (database instanceof DmDatabase &&
-                LiquibaseCommandLineConfiguration.WORKAROUND_ORACLE_CLOB_CHARACTER_LIMIT.getCurrentValue() &&
-                stringValue.length() > 4000) {
-            Scope.getCurrentScope().getLog(getClass()).fine("A string longer than 4000 characters has been detected on an insert statement, " +
-                    "and the database is DM. DM forbids insert statements with strings longer than 4000 characters, " +
-                    "so Liquibase is going to workaround this limitation. If an error occurs, this can be disabled by setting "
-                    + LiquibaseCommandLineConfiguration.WORKAROUND_ORACLE_CLOB_CHARACTER_LIMIT.getKey() + " to false.");
-            List<String> chunks = StringUtil.splitToChunks(stringValue, 4000);
-            return "to_clob( '" + StringUtil.join(chunks, "' ) || to_clob( '", obj -> database.escapeStringForDatabase(obj.toString())) + "' )";
+        if (database instanceof DmDatabase){
+            // ignore
         }
 
         return "'"+database.escapeStringForDatabase(val)+"'";

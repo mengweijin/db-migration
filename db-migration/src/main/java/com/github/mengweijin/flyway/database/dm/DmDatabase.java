@@ -54,7 +54,7 @@ public class DmDatabase extends Database<DmConnection> implements ISupportDataba
      */
     @Override
     public String doQuote(String identifier) {
-        return getOpenQuote() + identifier + getCloseQuote();
+        return "\"" + identifier + "\"";
     }
 
     @Override

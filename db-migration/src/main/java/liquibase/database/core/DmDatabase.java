@@ -1,5 +1,6 @@
 package liquibase.database.core;
 
+import com.github.mengweijin.util.ReflectUtils;
 import liquibase.CatalogAndSchema;
 import liquibase.GlobalConfiguration;
 import liquibase.Scope;
@@ -182,7 +183,7 @@ public class DmDatabase extends AbstractJdbcDatabase {
                     //JdbcUtil.closeStatement(statement);
                 }
 
-                if (GlobalConfiguration.DDL_LOCK_TIMEOUT.getCurrentValue() != null) {
+                if (ReflectUtils.hasStaticField(GlobalConfiguration.class, "DDL_LOCK_TIMEOUT") && GlobalConfiguration.DDL_LOCK_TIMEOUT.getCurrentValue() != null) {
                     int timeoutValue = GlobalConfiguration.DDL_LOCK_TIMEOUT.getCurrentValue();
                     Scope.getCurrentScope().getLog(getClass()).fine("Setting DDL_LOCK_TIMEOUT value to " + timeoutValue);
                     String sql = "ALTER SESSION SET DDL_LOCK_TIMEOUT=" + timeoutValue;
@@ -334,7 +335,7 @@ public class DmDatabase extends AbstractJdbcDatabase {
     @Override
     public String getDefaultCatalogName() {//NOPMD
         String defaultCatalogName = super.getDefaultCatalogName();
-        if (Boolean.TRUE.equals(GlobalConfiguration.PRESERVE_SCHEMA_CASE.getCurrentValue())) {
+        if (ReflectUtils.hasStaticField(GlobalConfiguration.class, "PRESERVE_SCHEMA_CASE") && Boolean.TRUE.equals(GlobalConfiguration.PRESERVE_SCHEMA_CASE.getCurrentValue())) {
             return defaultCatalogName;
         }
         return (defaultCatalogName == null) ? null : defaultCatalogName.toUpperCase(Locale.US);
