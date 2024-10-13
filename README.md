@@ -20,7 +20,7 @@
 ## 介绍
 针对 Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s）数据库。
 
-只需要 maven 引入包即可。如下：
+只需要 maven 引入包即可（更多使用示例参考 demo 工程）。如下：
 
 ```xml
 <dependency>
