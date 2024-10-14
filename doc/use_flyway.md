@@ -1,19 +1,19 @@
 ## 使用 Flyway
 
-### 达梦数据库
-引入 db-migration-dm 的 maven 依赖。然后按照 Flyway 的使用方式直接使用即可。
-
-**注意：** Flyway 达梦数据库**请勿**添加如下类似参数：**comOracle=true&databaseProductName=Oracle&compatibleMode=oracle**
+### 以达梦数据库为例，其他数据库类似
+引入 db-migration 的 maven 依赖。然后按照 Flyway 的使用方式直接使用即可。
 
 ```xml
 <dependency>
     <groupId>com.github.mengweijin</groupId>
-    <artifactId>db-migration-dm</artifactId>
+    <artifactId>db-migration</artifactId>
     <version>${db-migration-dm.version}</version>
 </dependency>
+<!--flyway 的版本一般不需要指定（会使用 spring boot 默认的版本），如果兼容 spring boot 2.5 和 2.4 版本，则需要明确指定为 7.15.0 版本。-->
 <dependency>
     <artifactId>flyway-core</artifactId>
     <groupId>org.flywaydb</groupId>
+    <!--<version>7.15.0</version>-->
 </dependency>
 ```
 
@@ -25,7 +25,6 @@ spring:
     active: local
   datasource:
     driver-class-name: dm.jdbc.driver.DmDriver
-    # 勿添加如下类似参数：comOracle=true&databaseProductName=Oracle&compatibleMode=oracle
     url: jdbc:dm://localhost:5236
     username: SYSDBA
     password:
@@ -82,4 +81,3 @@ Flyway Oracle 官方文档：[https://documentation.red-gate.com/flyway/flyway-c
 ```
 
 其他数据库类似，可参考官方文档（或者本仓库 demo 工程里已有的示例），这里不在赘述。
-

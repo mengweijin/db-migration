@@ -1,21 +1,19 @@
 ## 使用 Liquibase
 
-### 达梦数据库
-引入 db-migration-dm 的 maven 依赖。然后按照 Liquibase 的官方使用方式使用即可。
-
-**注意：** liquibase 基于 oracle 实现，因此 liquibase 中达梦数据库的 jdbc url 需要添加 **compatibleMode=oracle** 参数。
-
-**比如：** jdbc:dm://localhost:5236?**compatibleMode=oracle**
+### 以达梦数据库为例，其他数据库类似
+引入 db-migration 的 maven 依赖。然后按照 Liquibase 的官方使用方式使用即可。
 
 ```xml
 <dependency>
     <groupId>com.github.mengweijin</groupId>
-    <artifactId>db-migration-dm</artifactId>
+    <artifactId>db-migration</artifactId>
     <version>${db-migration-dm.version}</version>
 </dependency>
+<!--liquibase 的版本一般不需要指定（会使用 spring boot 默认的版本），如果兼容 spring boot 2.1 至 2.5 版本，则需要明确指定为 4.5.0 版本。-->
 <dependency>
     <groupId>org.liquibase</groupId>
     <artifactId>liquibase-core</artifactId>
+    <!--<version>4.5.0</version>-->
 </dependency>
 ```
 
@@ -27,7 +25,7 @@ spring:
     active: local
   datasource:
     driver-class-name: dm.jdbc.driver.DmDriver
-    url: jdbc:dm://localhost:5236?compatibleMode=oracle
+    url: jdbc:dm://localhost:5236
     username: VTL_TEST
     password:
   liquibase:
@@ -51,20 +49,18 @@ spring:
 ```
 
 ### Liquibase + Flowable 使用
-依赖、配置等参考 demo 目录下的 liquibase-dm 工程。注意 flowable 的配置项。
-
-注意 flowable 版本:
+依赖、配置等参考 demo 目录下的 demo-dm/dm-liquibase 工程。注意 flowable 的配置项。
 
 * flowable 6.x.x 版本，适配 springboot 2.x；
 * flowable 7.x.x 版本以及之后，适配 springboot 3.x；
 
-#### 一、spring boot 配置：只用来初始化 flowable 相关的表
+#### 一、只用来初始化 flowable 相关的表
 
 ```yaml
 spring:
   datasource:
     driver-class-name: dm.jdbc.driver.DmDriver
-    url: jdbc:dm://localhost:5236?compatibleMode=oracle
+    url: jdbc:dm://localhost:5236
     username: VTL_TEST
     password: 
 flowable:
@@ -72,7 +68,7 @@ flowable:
   database-schema: VTL_TEST
 ```
 
-#### 二、spring boot 配置：初始化 flowable 相关的表，还要执行其他 sql 脚本
+#### 二、初始化 flowable 相关的表，还要执行其他 sql 脚本
 
 ```yaml
 spring:

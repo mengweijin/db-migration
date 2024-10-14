@@ -1,4 +1,4 @@
-## flowable drop 所有表脚本
+## 清理 flowable 所有表脚本
 
 ```oracle-sql
 -- 单维数组

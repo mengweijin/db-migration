@@ -1,5 +1,7 @@
 ## 笔记
 
+提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VTL_TEST
+
 ### 创建用户和授权
 
 #### 达梦 与 Oracle
