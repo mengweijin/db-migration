@@ -1,8 +1,8 @@
 package liquibase.snapshot.jvm;
 
 import liquibase.Scope;
-import liquibase.database.core.Gbase8sDatabase;
 import liquibase.database.Database;
+import liquibase.database.core.Gbase8sDatabase;
 import liquibase.exception.DatabaseException;
 import liquibase.executor.ExecutorService;
 import liquibase.snapshot.CachedRow;
@@ -45,13 +45,18 @@ public class ColumnSnapshotGeneratorGbase8s extends ColumnSnapshotGeneratorInfor
 
     /**
      * https://github.com/liquibase/liquibase/issues/1462
+     *
+     * liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.DatabaseException:
+     * Encountered unknown firstQualifier code (1) for column 'master.databasechangelog.dateexecuted',
+     * basic date type 'DATETIME', while trying to decipher information encoded in the column length (25)
      * @param database database
      * @param defaultValue defaultValue
      * @return collength
      */
     private int collengthQuery(Database database, int defaultValue) {
         try {
-            String query = "SELECT collength FROM syscolumns WHERE tabid = (SELECT tabid FROM systables WHERE tabname = 'databasechangelog') AND colname = 'dateexecuted'";
+            String databasechangelog = database.getDatabaseChangeLogTableName();
+            String query = "SELECT collength FROM syscolumns WHERE tabid = (SELECT tabid FROM systables WHERE lower(tabname) = lower('" + databasechangelog + "')) AND lower(colname) = lower('dateexecuted')";
             return Scope.getCurrentScope().getSingleton(ExecutorService.class).getExecutor("jdbc", database).queryForObject(new RawSqlStatement(query), Integer.class);
         } catch (Exception e) {
             Scope.getCurrentScope().getLog(getClass()).info("Error query collength!", e);

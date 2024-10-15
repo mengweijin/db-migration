@@ -7,7 +7,7 @@
 <dependency>
     <groupId>com.github.mengweijin</groupId>
     <artifactId>db-migration</artifactId>
-    <version>${db-migration-dm.version}</version>
+    <version>${db-migration.version}</version>
 </dependency>
 <!--liquibase 的版本一般不需要指定（会使用 spring boot 默认的版本），如果兼容 spring boot 2.1 至 2.5 版本，则需要明确指定为 4.5.0 版本。-->
 <dependency>

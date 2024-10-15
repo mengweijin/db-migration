@@ -28,4 +28,4 @@ spring:
 flowable:
   #async-executor-activate: false
   #database-schema-update: true
-  database-schema: gbasedbt
+  #database-schema: gbasedbt

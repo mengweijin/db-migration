@@ -54,7 +54,7 @@ Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s
 
 * [使用 flyway](./doc/use_flyway.md)
 * [使用 liquibase + flowable 工作流](./doc/use_liquibase.md)
-* [附录：清理 flowable 所有表脚本](./doc/use_flowable_drop_script.md)
+* [附录：Oracle 清理 flowable 所有表脚本](./doc/use_oracle_flowable_drop_script)
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
 

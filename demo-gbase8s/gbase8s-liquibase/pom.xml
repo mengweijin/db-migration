@@ -17,8 +17,10 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <db-migration.version>2.0.2</db-migration.version>
-<!--        <liquibase.version>4.5.0</liquibase.version>-->
+        <flowable.version>7.0.1</flowable.version>
+        <db-migration.version>2.0.3-SNAPSHOT</db-migration.version>
+        <db-migration-flowable.version>7.0.1.0-SNAPSHOT</db-migration-flowable.version>
+        <!--<liquibase.version>4.5.0</liquibase.version>-->
     </properties>
 
     <dependencies>
@@ -36,6 +38,11 @@
             <version>${db-migration.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.github.mengweijin</groupId>
+            <artifactId>db-migration-flowable</artifactId>
+            <version>${db-migration-flowable.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
         </dependency>
@@ -45,6 +52,12 @@
             <version>3.5.1</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/../lib/gbasedbtjdbc_3.5.1_3X1_3.jar</systemPath>
+        </dependency>
+        <!-- https://github.com/flowable/flowable-engine/blob/main/distro/sql/create/all/flowable.oracle.all.create.sql -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-process</artifactId>
+            <version>${flowable.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
