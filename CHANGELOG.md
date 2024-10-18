@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v2.0.3] 2024-10-19
+- 【Gitee issue IAY19A】修复达梦数据库中 liquibase 第二次启动报错的问题。
+
 ### [v2.0.2] 2024-10-13
 - 【优化】兼容达梦和南大通用 GBase 8s 数据库对 flyway 和 liquibase 低版本的支持。
 
