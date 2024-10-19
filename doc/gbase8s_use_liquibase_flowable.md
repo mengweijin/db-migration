@@ -1,4 +1,4 @@
-# GBase 8s 使用 Liquibase 和 Flowable
+# GBase 8s 使用 Liquibase
 
 引入 db-migration 的 maven 依赖，然后按照 Liquibase 的官方使用方式使用即可。
 
