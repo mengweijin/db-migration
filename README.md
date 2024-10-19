@@ -18,9 +18,7 @@
 </p>
 
 ## 介绍
-Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s）数据库。
-
-只需要 maven 引入包即可（更多使用示例参考 demo 工程）。如下：
+Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s）数据库，并支持 Flowable 工作流。
 
 **注意**：artifactId 已更新为 **db-migration**。使用旧版本 db-migration-dm 的需要更新为 db-migration。
 
