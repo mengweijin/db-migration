@@ -27,7 +27,7 @@ Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s
 ### 已支持
 
 * 达梦数据库（DM 8）。默认支持 flowable 工作流。
-* 南大通用数据库（GBase 8s）。需要额外引入 db-migration-flowable 包来支持 flowable 工作流。
+* 南大通用数据库（GBase 8s）。需要额外引入 [db-migration-flowable](https://gitee.com/mengweijin/db-migration-flowable) 包来支持 flowable 工作流。
 
 ### 版本说明
 
@@ -50,25 +50,7 @@ Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s
 | 2.0.3           | 3.2.x          |  9.22.3 ❄️✅ |   4.24.0 ❄️✅ |
 | 2.0.3           | 3.3.x          | 10.10.0 ❄️✅ |   4.27.0 ❄️✅ |
 
-## db-migration-flowable 适配 Flowable
-
-* 达梦数据库无需这个，db-migration 默认就已经支持了。
-* 南大通用 GBase 8s 数据库需要引入对应版本的 maven 包才支持。
-
-```xml
-<dependency>
-    <groupId>com.github.mengweijin</groupId>
-    <artifactId>db-migration</artifactId>
-    <version>${db-migration.version}</version>
-</dependency>
-<dependency>
-    <groupId>com.github.mengweijin</groupId>
-    <artifactId>db-migration-flowable</artifactId>
-    <version>${db-migration-flowable.version}</version>
-</dependency>
-```
-
-db-migration-flowable 已适配 Flowable 版本如下：
+## db-migration-flowable 适配 Flowable 版本
 
 | Flowable 版本 | db-migration-flowable 版本 |
 |:------------|:-------------------------|
@@ -83,10 +65,16 @@ Flowable 版本和 db-migration-flowable 版本需要对应上。
 
 ## 参考文档
 
-* [使用 flyway](./doc/use_flyway.md)
-* [使用 liquibase + flowable 工作流](./doc/use_liquibase.md)
-* [附录：Oracle 清理 flowable 所有表脚本](./doc/use_oracle_flowable_drop_script.md)
+* [【达梦】 使用 Flyway](./doc/dm_use_flyway.md)
+* [【达梦】 使用 Liquibase 和 Flowable 工作流](./doc/dm_use_liquibase_flowable.md)
+* [【南大通用 GBase 8s】 使用 Flyway](./doc/gbase8s_use_flyway.md)
+* [【南大通用 GBase 8s】 使用 Liquibase 和 Flowable 工作流](./doc/gbase8s_use_liquibase_flowable.md)
 
+## 其他文档
+
+* [Oracle 清理 flowable 所有表脚本](./doc/use_oracle_flowable_drop_script.md)
+* [MySQL、Oracle、PostgreSQL 等数据库使用Flyway 的温馨提示](./doc/z_flyway_supported_database_notes.md)
+* 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
 
 ## ⭐Star db-migration on GitHub

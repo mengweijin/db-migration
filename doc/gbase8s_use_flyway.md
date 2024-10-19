@@ -1,7 +1,6 @@
-## 使用 Flyway
+## GBase 8s 使用 Flyway
 
-### 以达梦数据库为例，其他数据库类似
-引入 db-migration 的 maven 依赖。然后按照 Flyway 的使用方式直接使用即可。
+引入 db-migration 的 maven 依赖，然后按照 Flyway 的使用方式直接使用即可。
 
 ```xml
 <dependency>
@@ -24,9 +23,9 @@ spring:
   profiles:
     active: local
   datasource:
-    driver-class-name: dm.jdbc.driver.DmDriver
-    url: jdbc:dm://localhost:5236
-    username: SYSDBA
+    driver-class-name: com.gbasedbt.jdbc.Driver
+    url: jdbc:gbasedbt-sqli://localhost:9088/testdb:GBASEDBTSERVER=gbase01
+    username: gbasedbt
     password:
   flyway:
     # 默认不启用，true 为启用
@@ -45,39 +44,8 @@ spring:
     # flyway脚本命名规则为：V<VERSION>__<NAME>.sql (with <VERSION> an underscore-separated version, such as ‘1’ or ‘2_1’)
     # flyway在spring boot中默认配置位置为：classpath:db/migration
     locations:
-      - classpath:db/migration/dm
+      - classpath:db/migration/gbase
       # - classpath:db/migration/h2
       # - classpath:db/migration/mysql
       # - classpath:db/migration/oracle
 ```
-
-### Flyway MySQL / Oracle / PostgreSQL 等数据库温馨提示
-flyway-core 8.2.1及以后的版本不再直接支持 MySQL，需要额外引入：
-
-Flyway MySQL 官方文档：[https://documentation.red-gate.com/fd/mysql-184127601.html](https://documentation.red-gate.com/fd/mysql-184127601.html)
-```xml
-<dependency>
-    <artifactId>flyway-core</artifactId>
-    <groupId>org.flywaydb</groupId>
-</dependency>
-<dependency>
-  <groupId>org.flywaydb</groupId>
-  <artifactId>flyway-mysql</artifactId>
-</dependency>
-```
-
-flyway-core 9.22.3 及以后的版本不再直接支持 Oracle(Flyway 9.16.3 还是直接支持 Oracle 的)，需要额外引入：
-
-Flyway Oracle 官方文档：[https://documentation.red-gate.com/flyway/flyway-cli-and-api/supported-databases/oracle-database](https://documentation.red-gate.com/flyway/flyway-cli-and-api/supported-databases/oracle-database)
-```xml
-<dependency>
-    <artifactId>flyway-core</artifactId>
-    <groupId>org.flywaydb</groupId>
-</dependency>
-<dependency>
-    <groupId>org.flywaydb</groupId>
-    <artifactId>flyway-database-oracle</artifactId>
-</dependency>
-```
-
-其他数据库类似，可参考官方文档（或者本仓库 demo 工程里已有的示例），这里不在赘述。

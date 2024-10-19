@@ -1,6 +1,5 @@
-## 使用 Liquibase
+# 达梦数据库使用 Liquibase
 
-### 以达梦数据库为例，其他数据库类似
 引入 db-migration 的 maven 依赖。然后按照 Liquibase 的官方使用方式使用即可。
 
 ```xml
@@ -48,13 +47,14 @@ spring:
     # password:
 ```
 
-### Liquibase + Flowable 使用
-依赖、配置等参考 demo 目录下的 demo-dm/dm-liquibase 工程。注意 flowable 的配置项。
+## 达梦数据库 + Liquibase + Flowable 使用
 
 * flowable 6.x.x 版本，适配 springboot 2.x；
 * flowable 7.x.x 版本以及之后，适配 springboot 3.x；
 
-#### 一、只用来初始化 flowable 相关的表
+注意：application.yml 中 flowable.database-schema 的配置项。
+
+### 一、只用来初始化 flowable 相关的表
 
 ```yaml
 spring:
@@ -68,11 +68,15 @@ flowable:
   database-schema: VTL_TEST
 ```
 
-#### 二、初始化 flowable 相关的表，还要执行其他 sql 脚本
+### 二、初始化 flowable 相关的表，还要执行其他 sql 脚本
 
 ```yaml
 spring:
-  # 此处省略数据库相关配置，可参考上面一段配置。
+  datasource:
+    driver-class-name: dm.jdbc.driver.DmDriver
+    url: jdbc:dm://localhost:5236
+    username: VTL_TEST
+    password:
   liquibase:
     # 启用liquibase
     enabled: true
