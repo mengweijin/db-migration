@@ -50,10 +50,16 @@ Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s
 
 ## db-migration-flowable 适配 Flowable 版本
 
-| Flowable 版本 | db-migration-flowable 版本 | 适配情况 |
-|:------------|:-------------------------|:----:|
-| 6.8.0       | 待适配                      |  ❌❌  |
-| 7.0.1       | 7.0.1.0                  | ❄️✅  |
+注意：达梦数据库（DM 8）默认支持 flowable 工作流所有版本。所以不需要关注此章节。
+
+此章节仅适用于以下数据库：
+
+* 南大通用 GBase 8s 数据库
+
+| Flowable 版本 | db-migration-flowable 版本 |         适配情况          |
+|:------------|:-------------------------|:---------------------:|
+| 6.8.0       | 待适配                      | 南大通用 GBase 8s 数据库：❌❌  |
+| 7.0.1       | 7.0.1.0                  | 南大通用 GBase 8s 数据库：❄️✅ |
 
 Flowable 版本和 db-migration-flowable 版本需要对应上。
 

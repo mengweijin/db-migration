@@ -19,6 +19,7 @@
     <module>demo-dm/dm-liquibase</module>
     <module>demo-dm/dm-liquibase-drop-first</module>
     <module>demo-dm/dm-liquibase-spring-boot2</module>
+    <module>demo-dm/dm-liquibase-github-issue-10</module>
 
 
     <module>demo-gbase8s/gbase8s-flyway</module>
