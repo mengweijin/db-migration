@@ -1936,7 +1936,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                     } else if (database instanceof DmDatabase) {
                         CatalogAndSchema catalogAndSchema = new CatalogAndSchema(catalogName, schemaName).customize(database);
 
-                        warnAboutDbaRecycleBin();
+                        //warnAboutDbaRecycleBin();
                         try {
                             String sql = "SELECT NULL AS table_cat, c.owner AS table_schem, c.table_name, c.column_name, c.position AS key_seq,c.constraint_name AS pk_name, k.VALIDATED as VALIDATED FROM " +
                                     "all_cons_columns c, " +
