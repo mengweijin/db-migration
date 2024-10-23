@@ -23,6 +23,7 @@
 
     <module>demo-gbase8s/gbase8s-flyway</module>
     <module>demo-gbase8s/gbase8s-liquibase</module>
+    <module>demo-gbase8s/gbase8s-liquibase-spring-boot2</module>
 
 
     <module>demo-mysql/mysql-flyway</module>

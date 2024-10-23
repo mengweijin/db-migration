@@ -72,5 +72,5 @@ create index ACT_IDX_PROCDEF_INFO_PROC on ACT_PROCDEF_INFO(PROC_DEF_ID_);
 
 alter table ACT_PROCDEF_INFO add constraint ACT_UNIQ_INFO_PROCDEF unique (PROC_DEF_ID_);
 # 修改后
-Create unique index ACT_IDX_PROCDEF_INFO_PROC on ACT_PROCDEF_INFO(PROC_DEF_ID_);
+create unique index ACT_IDX_PROCDEF_INFO_PROC on ACT_PROCDEF_INFO(PROC_DEF_ID_);
 ```
