@@ -3,6 +3,7 @@
 引入 db-migration 的 maven 依赖，然后按照 Flyway 的使用方式直接使用即可。
 
 ```xml
+<!--注意引入顺序，db-migration 必须在前面先引入。-->
 <dependency>
     <groupId>com.github.mengweijin</groupId>
     <artifactId>db-migration</artifactId>

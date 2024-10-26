@@ -26,17 +26,19 @@
     <module>demo-gbase8s/gbase8s-liquibase-spring-boot2</module>
 
 
-    <module>demo-mysql/mysql-flyway</module>
+<!--    <module>demo-mysql/mysql-flyway</module>-->
+<!--    <module>demo-mysql/mysql-liquibase</module>-->
 
 
-    <module>demo-oracle/oracle-flyway</module>
-    <module>demo-oracle/oracle-liquibase</module>
+<!--    <module>demo-oracle/oracle-flyway</module>-->
+<!--    <module>demo-oracle/oracle-liquibase</module>-->
 
 
-    <module>demo-postgresql/postgresql-flyway</module>
-    <module>demo-postgresql/postgresql-liquibase</module>
+<!--    <module>demo-postgresql/postgresql-flyway</module>-->
+<!--    <module>demo-postgresql/postgresql-liquibase</module>-->
 
     <module>demo-issues/dm-liquibase-github-issue-10</module>
+    <module>demo-issues/dm-liquibase-gitee-issue-IAZJJE</module>
 
 
   </modules>
