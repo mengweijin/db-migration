@@ -87,6 +87,9 @@ public class CharType extends LiquibaseDataType {
             return "N'"+database.escapeStringForDatabase(val)+"'";
         }
 
+        if (database instanceof DmDatabase) {
+            // ignore
+        } else
         /*
           It is a somewhat safe assumption that if the database is Oracle and the length of the string exceeds 4000
           characters then the column must be a clob type column, because Oracle doesn't support varchars longer than
@@ -103,11 +106,6 @@ public class CharType extends LiquibaseDataType {
             List<String> chunks = StringUtil.splitToChunks(stringValue, 4000);
             return "to_clob( '" + StringUtil.join(chunks, "' ) || to_clob( '", obj -> database.escapeStringForDatabase(obj.toString())) + "' )";
         }
-
-        if (database instanceof DmDatabase){
-            // ignore
-        }
-
         return "'"+database.escapeStringForDatabase(val)+"'";
     }
 

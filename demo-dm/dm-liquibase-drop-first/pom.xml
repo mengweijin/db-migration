@@ -17,7 +17,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <db-migration.version>2.0.1</db-migration.version>
+        <db-migration.version>2.0.4</db-migration.version>
         <liquibase.version>4.27.0</liquibase.version>
         <DmJdbcDriver18.version>8.1.3.140</DmJdbcDriver18.version>
     </properties>
