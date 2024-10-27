@@ -1,4 +1,8 @@
 ## CHANGELOG
+
+### [v2.0.4] 2024-10-27
+- 【优化】修改 liquibase 实现方式。
+
 ### [v2.0.3] 2024-10-19
 - 【Gitee issue IAY19A】修复达梦数据库中 liquibase 第二次启动报错的问题。
 
