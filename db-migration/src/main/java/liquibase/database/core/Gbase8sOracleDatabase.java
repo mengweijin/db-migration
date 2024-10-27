@@ -118,7 +118,7 @@ public class Gbase8sOracleDatabase extends InformixDatabase {
             return this.defaultCatalogName;
         } else {
             try {
-                String schemaName = (String)((ExecutorService)Scope.getCurrentScope().getSingleton(ExecutorService.class)).getExecutor("jdbc", this).queryForObject(new RawSqlStatement("select DBINFO('dbname') from dual;"), String.class);
+                String schemaName = Scope.getCurrentScope().getSingleton(ExecutorService.class).getExecutor("jdbc", this).queryForObject(new RawSqlStatement("select DBINFO('dbname') from dual;"), String.class);
                 return schemaName != null ? schemaName.trim() : null;
             } catch (DatabaseException var2) {
                 return null;
