@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <flowable.version>7.0.1</flowable.version>
-        <db-migration.version>2.0.3</db-migration.version>
+        <db-migration.version>2.0.4-SNAPSHOT</db-migration.version>
         <db-migration-flowable.version>7.0.1.1</db-migration-flowable.version>
         <liquibase.version>4.27.0</liquibase.version>
     </properties>
