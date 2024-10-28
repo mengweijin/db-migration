@@ -13,17 +13,17 @@
     <module>./db-migration</module>
 
 
-    <module>demo-dm/dm-flyway</module>
-    <module>demo-dm/dm-flyway-schema-baseline-version</module>
+<!--    <module>demo-dm/dm-flyway</module>-->
+<!--    <module>demo-dm/dm-flyway-schema-baseline-version</module>-->
 
     <module>demo-dm/dm-liquibase</module>
-    <module>demo-dm/dm-liquibase-drop-first</module>
-    <module>demo-dm/dm-liquibase-spring-boot2</module>
+<!--    <module>demo-dm/dm-liquibase-drop-first</module>-->
+<!--    <module>demo-dm/dm-liquibase-spring-boot2</module>-->
 
 
-    <module>demo-gbase8s/gbase8s-flyway</module>
-    <module>demo-gbase8s/gbase8s-liquibase</module>
-    <module>demo-gbase8s/gbase8s-liquibase-spring-boot2</module>
+<!--    <module>demo-gbase8s/gbase8s-flyway</module>-->
+<!--    <module>demo-gbase8s/gbase8s-liquibase</module>-->
+<!--    <module>demo-gbase8s/gbase8s-liquibase-spring-boot2</module>-->
 
 
 <!--    <module>demo-mysql/mysql-flyway</module>-->
@@ -37,8 +37,8 @@
 <!--    <module>demo-postgresql/postgresql-flyway</module>-->
 <!--    <module>demo-postgresql/postgresql-liquibase</module>-->
 
-    <module>demo-issues/dm-liquibase-github-issue-10</module>
-    <module>demo-issues/dm-liquibase-gitee-issue-IAZJJE</module>
+<!--    <module>demo-issues/dm-liquibase-github-issue-10</module>-->
+<!--    <module>demo-issues/dm-liquibase-gitee-issue-IAZJJE</module>-->
 
 
   </modules>

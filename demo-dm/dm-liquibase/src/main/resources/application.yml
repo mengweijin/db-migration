@@ -24,7 +24,7 @@ spring:
     # user:
     # 访问数据库的密码
     # password:
-flowable:
+#flowable:
   #async-executor-activate: false
   #database-schema-update: true
-  database-schema: VTL_TEST
+  #database-schema: VTL_TEST

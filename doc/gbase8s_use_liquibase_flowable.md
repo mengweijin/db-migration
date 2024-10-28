@@ -48,9 +48,7 @@ spring:
     # password:
 ```
 
-## GBase 8s + Liquibase + Flowable 使用
-
-注意 flowable 的配置项。
+## 和 Flowable 一起使用
 
 * flowable 6.x.x 版本，适配 springboot 2.x；
 * flowable 7.x.x 版本以及之后，适配 springboot 3.x；
@@ -64,6 +62,11 @@ spring:
     <groupId>com.github.mengweijin</groupId>
     <artifactId>db-migration-flowable</artifactId>
     <version>${db-migration-flowable.version}</version>
+</dependency>
+<dependency>
+<groupId>org.flowable</groupId>
+<artifactId>flowable-spring-boot-starter-process</artifactId>
+<version>${flowable.version}</version>
 </dependency>
 ```
 

@@ -1,34 +1,26 @@
-## 使用版本（有就填，没有就不填）
+## 使用版本
+
+数据库：【达梦】或【南大通用 GBase 8s】
 
 ```shell
-# 例如：3.3.0
-Spring Boot: 
+Spring Boot: 3.3.0
 
-db-migration: 2.0.3
+db-migration: 2.0.4
 
-# 例如：10.10.0
-Flyway: 
+Flyway: 10.10.0
 
 Liquibase: 4.27.0
 
-# 例如：7.0.1
-flowable: 
+DmJdbcDriver18: 8.1.3.140
 
-# 例如：8.1.3.140
-DmJdbcDriver18: 
-
-# 达梦、南大通用 GBase 8s
-数据库：
-
-# 例如：DM DBMS 8.1.3.162
-数据库版本：
+flowable: 7.0.1
 ```
 
 ## 问题描述
 
 略......
 
-## 重现步骤
+## 重现步骤（一定要描述清楚怎么复现的，这个非常重要！）
 
 略......
 

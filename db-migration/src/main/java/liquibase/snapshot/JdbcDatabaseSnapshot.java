@@ -734,7 +734,8 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                 //     sql += ", DEFAULT_ON_NULL, IDENTITY_COLUMN, ic.GENERATION_TYPE ";
                 // }
                 sql += "FROM ALL_TAB_COLS c " +
-                        "JOIN ALL_COL_COMMENTS cc USING ( OWNER, TABLE_NAME, COLUMN_NAME ) ";
+                        // Fixed DM schema issue. INNER JOIN ---> LEFT JOIN
+                        "LEFT JOIN ALL_COL_COMMENTS cc USING ( OWNER, TABLE_NAME, COLUMN_NAME ) ";
                 // if (collectIdentityData) {
                 //     sql += "LEFT JOIN ALL_TAB_IDENTITY_COLS ic USING (OWNER, TABLE_NAME, COLUMN_NAME ) ";
                 // }
