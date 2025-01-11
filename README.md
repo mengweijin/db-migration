@@ -86,6 +86,11 @@ Flowable 版本和 [db-migration-flowable](https://gitee.com/mengweijin/db-migra
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
 
+## 捉急请联系我👇
+|     QQ      |       邮箱        |
+|:-----------:|:---------------:|
+| 1002284406  | mwjwork@qq.com  |
+
 ## ⭐Star db-migration on GitHub
 
 [![Stargazers over time](https://starchart.cc/mengweijin/db-migration.svg)](https://starchart.cc/mengweijin/db-migration)
