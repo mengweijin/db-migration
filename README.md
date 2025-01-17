@@ -86,6 +86,28 @@ Flowable 版本和 [db-migration-flowable](https://gitee.com/mengweijin/db-migra
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
 
+## 重要👉：关于达梦 JDBC Driver 的坑！
+
+达梦历史上 JDBC Driver 的 artifactId 发生过变化，并且有一些 BUG。如果是使用老版本的小伙伴，请切换为新版本。
+
+```xml
+<!-- 新版本 -->
+<!-- 注意：artifactId 已变更为 DmJdbcDriver18 -->
+<dependency>
+    <groupId>com.dameng</groupId>
+    <artifactId>DmJdbcDriver18</artifactId>
+<!--<version>8.1.2.192</version>-->
+<!--<version>8.1.3.140</version>-->
+</dependency>
+
+<!-- 旧版本 -->
+<dependency>
+    <groupId>com.dameng</groupId>
+    <artifactId>Dm8JdbcDriver18</artifactId>
+    <version>8.1.1.49</version>
+</dependency>
+```
+
 ## 捉急请联系我👇
 |     QQ      |       邮箱        |
 |:-----------:|:---------------:|
