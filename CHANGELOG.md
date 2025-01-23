@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v2.0.6] 2025-01-23
+- 【Fixed】修复 Gitee issue IBJH0F，在flyway执行含有DROP TABLE IF EXISTS类型的语句的时候，如果DROP前面有注释或者两个以上的换行符而抛出异常的问题。
+- 
 ### [v2.0.5] 2024-10-28
 - 【优化】修复 liquibase 达梦指定 schema 时二次启动报错的问题。
 

@@ -213,7 +213,11 @@ public class DmParser extends Parser {
     private void adjustBlockDepthDm(ParserContext context, List<Token> tokens, Token keyword, PeekingReader reader) {
         String keywordText = keyword.getText();
         if (EXISTS.equals(keywordText) && context.getBlockDepth() > 0) {
-            String sql = tokens.stream().map(Token::getText).collect(Collectors.joining(" "));
+            String sql = tokens.stream()
+                    // 2025-01-23 Fixed issue: https://gitee.com/mengweijin/db-migration/issues/IBJH0F
+                    .filter(t-> TokenType.KEYWORD == t.getType())
+                    .map(Token::getText)
+                    .collect(Collectors.joining(" "));
             if (sql.matches(CREATE_OR_DROP_IF_OR_NOT)) {
                 context.decreaseBlockDepth();
             }

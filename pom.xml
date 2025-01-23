@@ -39,7 +39,7 @@
 <!--    <module>demo-issues/dm-liquibase-github-issue-10</module>-->
 <!--    <module>demo-issues/dm-liquibase-gitee-issue-IAZJJE</module>-->
 <!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IB557X</module>-->
-    <module>demo-issues/dm-flyway-druid-gitee-issue-IBIG0P</module>
+<!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IBIG0P</module>-->
 
   </modules>
 
