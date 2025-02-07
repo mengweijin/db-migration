@@ -12,7 +12,7 @@
   <modules>
     <module>./db-migration</module>
 
-<!--    <module>demo-dm/dm-flyway</module>-->
+    <module>demo-dm/dm-flyway</module>
 <!--    <module>demo-dm/dm-flyway-schema-baseline-version</module>-->
 
 <!--    <module>demo-dm/dm-liquibase</module>-->

@@ -198,7 +198,7 @@ public class DmParser extends Parser {
 
     private static final String EXISTS = "EXISTS";
 
-    private static final String CREATE_OR_DROP_IF_OR_NOT = "(CREATE|DROP)\\s(TABLE|PROCEDURE|FUNCTION)\\sIF(\\sNOT)?";
+    private static final String CREATE_OR_DROP_IF_OR_NOT = "(CREATE|DROP)\\s(TABLE|INDEX|PROCEDURE|FUNCTION)\\sIF(\\sNOT)?";
 
     /**
      * 调整块深度<BR>
