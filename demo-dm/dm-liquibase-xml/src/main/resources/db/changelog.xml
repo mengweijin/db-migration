@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro
+        http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd"
+        objectQuotingStrategy="QUOTE_ALL_OBJECTS"
+>
+<!--
+    表名称用引号引起来避免关键词冲突：objectQuotingStrategy="QUOTE_ALL_OBJECTS" 参考：
+    https://docs.liquibase.com/concepts/changelogs/attributes/objectquotingstrategy.html#xml_example
+-->
+
+    <preConditions>
+        <!-- 前置条件（非必须）。当数据库类型为 DM 并且用户为 VTL_TEST 时执行。 -->
+        <dbms type="DM" />
+        <runningAs username="VTL_TEST" />
+    </preConditions>
+
+    <changeSet  id="1"  author="mengweijin">
+        <createTable  tableName="person">
+            <column  name="id"  type="int">
+                <constraints  primaryKey="true"  nullable="false"/>
+            </column>
+            <column  name="firstname"  type="varchar(50)"/>
+            <column  name="lastname"  type="varchar(50)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="state"  type="char(2)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet  id="2"  author="mengweijin">
+        <addColumn  tableName="person">
+            <column  name="username"  type="varchar(8)"/>
+        </addColumn>
+    </changeSet>
+
+    <!-- 表名称为关键词的测试 -->
+    <changeSet  id="3"  author="mengweijin">
+        <createTable  tableName="group">
+            <column  name="id"  type="int">
+                <constraints  primaryKey="true"  nullable="false"/>
+            </column>
+            <column  name="name"  type="varchar(50)">
+                <constraints  nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
