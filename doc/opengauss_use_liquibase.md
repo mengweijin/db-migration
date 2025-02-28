@@ -2,7 +2,7 @@
 
 Liquibase 可以直接使用 postgresql 的驱动包。然后按照 Liquibase 的官方使用方式使用即可。
 
-因此，这里仅仅给出一个使用示例。如果想使用 Flyway 的话，
+因此，这里仅仅给出一个使用示例。如果想使用 Flyway 的话，参考 README.md 中的文档：【华为 OpenGauss】 使用 Flyway
 
 ```xml
 <dependency>
