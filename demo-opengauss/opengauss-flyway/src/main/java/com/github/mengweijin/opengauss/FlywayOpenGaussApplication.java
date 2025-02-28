@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author mengweijin
  */
 @SpringBootApplication
-public class FlywayPostgreSQLApplication {
+public class FlywayOpenGaussApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FlywayPostgreSQLApplication.class, args);
+		SpringApplication.run(FlywayOpenGaussApplication.class, args);
 	}
 }

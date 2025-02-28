@@ -1,10 +1,6 @@
-# 达梦数据库使用 Flyway
+# OpenGauss（华为高斯数据库） 数据库使用 Flyway
 
-引入 db-migration 的 maven 依赖。然后按照 Flyway 的使用方式直接使用即可。
-
-达梦要指定 schema 的话，直接在 jdbc url 中添加参数即可。比如：
-
-jdbc:dm://localhost:5236?**schema=VTL_TEST_SCHEMA**
+引入 db-migration 的 maven 依赖和 postgresql 的驱动包。然后按照 Flyway 的使用方式直接使用即可。
 
 ```xml
 <!--注意引入顺序，db-migration 必须在前面先引入。-->
@@ -19,6 +15,17 @@ jdbc:dm://localhost:5236?**schema=VTL_TEST_SCHEMA**
     <groupId>org.flywaydb</groupId>
     <!--<version>7.15.0</version>-->
 </dependency>
+<dependency>
+<groupId>org.flywaydb</groupId>
+<artifactId>flyway-database-postgresql</artifactId>
+<!-- 版本可以使用和 flyway-core 一样的版本号，如果不行的话，再指定使用 10.10.0 版本-->
+<version>${flyway.version}</version>
+</dependency>
+<dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<scope>runtime</scope>
+</dependency>
 ```
 
 spring boot 参考配置：
@@ -28,9 +35,9 @@ spring:
   profiles:
     active: local
   datasource:
-    driver-class-name: dm.jdbc.driver.DmDriver
-    url: jdbc:dm://localhost:5236
-    username: SYSDBA
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?binaryTransfer=false&forceBinary=false&reWriteBatchedInserts=true
+    username: 
     password:
   flyway:
     # 默认不启用，true 为启用
@@ -49,30 +56,8 @@ spring:
     # flyway脚本命名规则为：V<VERSION>__<NAME>.sql (with <VERSION> an underscore-separated version, such as ‘1’ or ‘2_1’)
     # flyway在spring boot中默认配置位置为：classpath:db/migration
     locations:
-      - classpath:db/migration/dm
+      - classpath:db/migration/opengauss
       # - classpath:db/migration/h2
       # - classpath:db/migration/mysql
       # - classpath:db/migration/oracle
-```
-
-## 重要👉：关于达梦 JDBC Driver 的坑！
-
-达梦历史上 JDBC Driver 的 artifactId 发生过变化，并且有一些 BUG。如果是使用老版本的小伙伴，请切换为新版本。
-
-```xml
-<!-- 新版本 -->
-<!-- 注意：artifactId 已变更为 DmJdbcDriver18 -->
-<dependency>
-    <groupId>com.dameng</groupId>
-    <artifactId>DmJdbcDriver18</artifactId>
-<!--<version>8.1.2.192</version>-->
-<!--<version>8.1.3.140</version>-->
-</dependency>
-
-<!-- 旧版本 -->
-<dependency>
-    <groupId>com.dameng</groupId>
-    <artifactId>Dm8JdbcDriver18</artifactId>
-    <version>8.1.1.49</version>
-</dependency>
 ```

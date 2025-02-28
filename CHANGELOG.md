@@ -1,4 +1,8 @@
 ## CHANGELOG
+### [v2.0.8] 2025-03-01
+- 【适配】增加 Flyway 对 OpenGauss 数据库的支持，以及增加 Liquibase 对 OpenGauss 数据库的使用示例。
+- 【移除】移除南大通用 GBase8s 默认对 Flowable 的支持。需要的话建议从 Flowable 仓库拿到需要的版本的完整版 sql 脚本，有针对性的修改。
+- 【示例】增加 Flyway 和 Liquibase 对 kingbase 人大金仓数据库的使用示例。
 
 ### [v2.0.7] 2025-02-07
 - 【Fixed】修复 Gitee issue IBK64W，flyway 支持达梦的 DROP INDEX IF EXISTS 语法。

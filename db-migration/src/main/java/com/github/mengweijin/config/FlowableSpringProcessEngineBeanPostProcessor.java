@@ -24,7 +24,7 @@ public class FlowableSpringProcessEngineBeanPostProcessor implements BeanPostPro
         if(bean instanceof SpringProcessEngineConfiguration) {
             Properties databaseTypeMappings = SpringProcessEngineConfiguration.getDefaultDatabaseTypeMappings();
             databaseTypeMappings.setProperty("DM DBMS", AbstractEngineConfiguration.DATABASE_TYPE_ORACLE);
-            databaseTypeMappings.setProperty("GBase 8s Server", "gbase8s");
+            //databaseTypeMappings.setProperty("GBase 8s Server", "gbase8s");
 
             Field field = ReflectUtil.getField("databaseTypeMappings", bean);
             ReflectUtil.setField(field, bean, databaseTypeMappings);

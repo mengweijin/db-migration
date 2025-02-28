@@ -18,66 +18,47 @@
 </p>
 
 ## 介绍
-Flyway、Liquibase 扩展支持达梦（DM）数据库、南大通用（GBase 8s）数据库，并支持 Flowable 工作流。
-
-**注意**：artifactId 已更新为 **db-migration**。使用旧版本 db-migration-dm 的需要更新为 db-migration。
+Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等数据库。部分数据库直接支持 Flowable 工作流。
 
 ### 已支持
 
-* 达梦数据库（DM 8）。达梦使用 db-migration 时，默认支持 flowable 工作流。
-* 南大通用数据库（GBase 8s）。南大通用使用 db-migration 时，需要额外引入 [db-migration-flowable](https://gitee.com/mengweijin/db-migration-flowable) 包来支持 flowable 工作流。
+- **达梦（DM 8）**：支持 Flyway 和 Liquibase，支持 flowable 工作流。
+- **南大通用（GBase 8s）**：支持 Flyway 和 Liquibase。
+- **OpenGauss**：支持 Flyway，Liquibase 可直接使用 postgres 驱动得到支持。
+- **人大金仓（Kingbase）**：可直接使用 postgres 驱动得到支持，无需依赖 db-migration 项目。
 
 ### 版本说明
 
-* ❌❌：不支持；
-* 🈯✅：flyway 或 liquibase **需要**指定特定版本才支持；
-* ❄️✅：flyway 或 liquibase **不需要**指定版本就支持（不指定版本，则默认使用的 spring boot 默认版本）；
+- ❌❌：不支持；
+- 🈯✅：flyway 或 liquibase **需要**指定特定版本才支持；
+- ❄️✅：flyway 或 liquibase **不需要**指定版本就支持（不指定版本，则默认使用的 spring boot 默认版本）；
 
 | db-migration 版本 | spring boot 版本 |   flyway 版本 | liquibase 版本 |
 |:----------------|:---------------|------------:|-------------:|
-| 2.0.7           | 2.0.x.RELEASE  |   7.15.0 ❌❌ |    4.27.0 ❌❌ |
-| 2.0.7           | 2.1.x.RELEASE  |   7.15.0 ❌❌ |   4.27.0 🈯✅ | 
-| 2.0.7           | 2.2.x.RELEASE  |   7.15.0 ❌❌ |   4.27.0 🈯✅ | 
-| 2.0.7           | 2.3.x.RELEASE  |   7.15.0 ❌❌ |   4.27.0 🈯✅ | 
-| 2.0.7           | 2.4.x          |  7.15.0 🈯✅ |   4.27.0 🈯✅ |  
-| 2.0.7           | 2.5.x          |  7.15.0 🈯✅ |   4.27.0 🈯✅ |  
-| 2.0.7           | 2.6.x          |   8.0.4 ❄️✅ |   4.27.0 🈯✅ | 
-| 2.0.7           | 2.7.x          |  8.5.11 ❄️✅ |   4.27.0 🈯✅ | 
-| 2.0.7           | 3.0.x          |   9.5.1 ❄️✅ |   4.27.0 🈯✅ | 
-| 2.0.7           | 3.1.x          |  9.16.3 ❄️✅ |   4.27.0 🈯✅ | 
-| 2.0.7           | 3.2.x          |  9.22.3 ❄️✅ |   4.27.0 🈯✅ | 
-| 2.0.7           | 3.3.x          | 10.10.0 ❄️✅ |   4.27.0 ❄️✅ |
-| 2.0.7           | 3.4.x          | 10.10.0 🈯✅ |   4.27.0 🈯✅ |
-
-达梦要指定 schema 的话，直接在 jdbc url 中添加参数即可。比如：
-
-jdbc:dm://localhost:5236?**schema=VTL_TEST_SCHEMA**
-
-## db-migration-flowable 适配 Flowable 版本
-
-注意：达梦数据库（DM 8）默认支持 flowable 工作流所有版本。所以不需要关注此章节。
-
-此章节仅适用于以下数据库：
-
-* 南大通用 GBase 8s 数据库
-
-| Flowable 版本 | db-migration-flowable 版本 |        适配情况         |
-|:------------|:-------------------------|:-------------------:|
-| 6.8.0       | 6.8.0.0                  | 南大通用 GBase 8s 数据库：✅ |
-| 7.0.1       | 7.0.1.1                  | 南大通用 GBase 8s 数据库：✅ |
-
-Flowable 版本和 [db-migration-flowable](https://gitee.com/mengweijin/db-migration-flowable) 版本需要对应上。
-
-比如：使用 flowable 7.0.1 版本的话，就要使用上面表格中对应的 db-migration-flowable 7.0.1.1 版本。
-
-更多版本适配，请提 issue! 嘿嘿
+| 2.0.8           | 2.0.x.RELEASE  |   7.15.0 ❌❌ |    4.27.0 ❌❌ |
+| 2.0.8           | 2.1.x.RELEASE  |   7.15.0 ❌❌ |   4.27.0 🈯✅ | 
+| 2.0.8           | 2.2.x.RELEASE  |   7.15.0 ❌❌ |   4.27.0 🈯✅ | 
+| 2.0.8           | 2.3.x.RELEASE  |   7.15.0 ❌❌ |   4.27.0 🈯✅ | 
+| 2.0.8           | 2.4.x          |  7.15.0 🈯✅ |   4.27.0 🈯✅ |  
+| 2.0.8           | 2.5.x          |  7.15.0 🈯✅ |   4.27.0 🈯✅ |  
+| 2.0.8           | 2.6.x          |   8.0.4 ❄️✅ |   4.27.0 🈯✅ | 
+| 2.0.8           | 2.7.x          |  8.5.11 ❄️✅ |   4.27.0 🈯✅ | 
+| 2.0.8           | 3.0.x          |   9.5.1 ❄️✅ |   4.27.0 🈯✅ | 
+| 2.0.8           | 3.1.x          |  9.16.3 ❄️✅ |   4.27.0 🈯✅ | 
+| 2.0.8           | 3.2.x          |  9.22.3 ❄️✅ |   4.27.0 🈯✅ | 
+| 2.0.8           | 3.3.x          | 10.10.0 ❄️✅ |   4.27.0 ❄️✅ |
+| 2.0.8           | 3.4.x          | 10.10.0 🈯✅ |   4.27.0 🈯✅ |
 
 ## 参考文档
 
-* [【达梦】 使用 Flyway](./doc/dm_use_flyway.md)
-* [【达梦】 使用 Liquibase 和 Flowable 工作流](./doc/dm_use_liquibase_flowable.md)
-* [【南大通用 GBase 8s】 使用 Flyway](./doc/gbase8s_use_flyway.md)
-* [【南大通用 GBase 8s】 使用 Liquibase 和 Flowable 工作流](./doc/gbase8s_use_liquibase_flowable.md)
+- [【达梦 DM DBMS】 使用 Flyway](./doc/dm_use_flyway.md)
+- [【达梦 DM DBMS】 使用 Liquibase 和 Flowable 工作流](./doc/dm_use_liquibase_flowable.md)
+- [【南大通用 GBase 8s】 使用 Flyway](./doc/gbase8s_use_flyway.md)
+- [【南大通用 GBase 8s】 使用 Liquibase](./doc/gbase8s_use_liquibase.md)
+- [【华为 OpenGauss】 使用 Flyway](./doc/opengauss_use_flyway.md)
+- [【华为 OpenGauss】 使用 Liquibase](./doc/opengauss_use_liquibase.md)
+- [【人大金仓 Kingbase】 使用 Flyway 的示例工程](https://gitee.com/mengweijin/db-migration/tree/master/demo-kingbase/kingbase-flyway)
+- [【人大金仓 Kingbase】 使用 Liquibase 的示例工程](https://gitee.com/mengweijin/db-migration/tree/master/demo-kingbase/kingbase-liquibase)
 
 ### Flyway 对 PL/SQL 的支持
 
@@ -121,28 +102,6 @@ INSERT INTO users VALUES (1);
 * [MySQL、Oracle、PostgreSQL 等数据库使用Flyway 的温馨提示](./doc/z_flyway_supported_database_notes.md)
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
-
-## 重要👉：关于达梦 JDBC Driver 的坑！
-
-达梦历史上 JDBC Driver 的 artifactId 发生过变化，并且有一些 BUG。如果是使用老版本的小伙伴，请切换为新版本。
-
-```xml
-<!-- 新版本 -->
-<!-- 注意：artifactId 已变更为 DmJdbcDriver18 -->
-<dependency>
-    <groupId>com.dameng</groupId>
-    <artifactId>DmJdbcDriver18</artifactId>
-<!--<version>8.1.2.192</version>-->
-<!--<version>8.1.3.140</version>-->
-</dependency>
-
-<!-- 旧版本 -->
-<dependency>
-    <groupId>com.dameng</groupId>
-    <artifactId>Dm8JdbcDriver18</artifactId>
-    <version>8.1.1.49</version>
-</dependency>
-```
 
 ## 捉急请联系我👇
 |     QQ      |       邮箱        |

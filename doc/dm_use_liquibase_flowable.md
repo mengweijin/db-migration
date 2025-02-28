@@ -2,6 +2,10 @@
 
 引入 db-migration 的 maven 依赖。然后按照 Liquibase 的官方使用方式使用即可。
 
+达梦要指定 schema 的话，直接在 jdbc url 中添加参数即可。比如：
+
+jdbc:dm://localhost:5236?**schema=VTL_TEST_SCHEMA**
+
 ```xml
 <!--注意引入顺序，db-migration 必须在前面先引入。-->
 <dependency>
@@ -9,7 +13,7 @@
     <artifactId>db-migration</artifactId>
     <version>${db-migration.version}</version>
 </dependency>
-<!--liquibase 的版本一般不需要指定（会使用 spring boot 默认的版本），如果要兼容 spring boot 2.1 至 3.2 版本，则需要明确指定为 4.27.0 版本。-->
+<!--liquibase 的版本固定使用 4.27.0 -->
 <dependency>
     <groupId>org.liquibase</groupId>
     <artifactId>liquibase-core</artifactId>
@@ -64,3 +68,25 @@ spring:
 
 * flowable 6.x.x 版本，适配 springboot 2.x；
 * flowable 7.x.x 版本以及之后，适配 springboot 3.x；
+
+## 重要👉：关于达梦 JDBC Driver 的坑！
+
+达梦历史上 JDBC Driver 的 artifactId 发生过变化，并且有一些 BUG。如果是使用老版本的小伙伴，请切换为新版本。
+
+```xml
+<!-- 新版本 -->
+<!-- 注意：artifactId 已变更为 DmJdbcDriver18 -->
+<dependency>
+    <groupId>com.dameng</groupId>
+    <artifactId>DmJdbcDriver18</artifactId>
+<!--<version>8.1.2.192</version>-->
+<!--<version>8.1.3.140</version>-->
+</dependency>
+
+<!-- 旧版本 -->
+<dependency>
+    <groupId>com.dameng</groupId>
+    <artifactId>Dm8JdbcDriver18</artifactId>
+    <version>8.1.1.49</version>
+</dependency>
+```
