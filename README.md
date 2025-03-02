@@ -18,7 +18,7 @@
 </p>
 
 ## 介绍
-Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等数据库。部分数据库直接支持 Flowable 工作流。
+Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等国产数据库。部分数据库直接支持 Flowable 工作流。
 
 ### 已支持
 
