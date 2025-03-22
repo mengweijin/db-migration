@@ -100,6 +100,7 @@ INSERT INTO users VALUES (1);
 
 * [Oracle 清理 Flowable 7.0.1 所有表脚本](./doc/use_oracle_flowable_drop_script.md)
 * [MySQL、Oracle、PostgreSQL 等数据库使用Flyway 的温馨提示](./doc/z_flyway_supported_database_notes.md)
+* [Flowable_脚本适配国产数据库](doc/z_flowable_%E8%84%9A%E6%9C%AC%E9%80%82%E9%85%8D%E5%9B%BD%E4%BA%A7%E6%95%B0%E6%8D%AE%E5%BA%93.md)
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
 
