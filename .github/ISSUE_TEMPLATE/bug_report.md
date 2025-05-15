@@ -1,3 +1,11 @@
+---
+name: 问题报告
+about: 创建一个问题报告以帮助我们优化项目
+title: ''
+labels: ''
+assignees: ''
+---
+
 ## 使用版本
 
 数据库：【达梦】或【南大通用 GBase 8s】或 【OpenGauss】
