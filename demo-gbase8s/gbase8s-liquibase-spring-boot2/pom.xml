@@ -46,12 +46,21 @@
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
         </dependency>
+        <!--
+                <dependency>
+                    <artifactId>gbase8s</artifactId>
+                    <groupId>com.gbase</groupId>
+                    <version>3.5.1</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/../lib/gbasedbtjdbc_3.5.1_3X1_3.jar</systemPath>
+                </dependency>
+        -->
         <dependency>
-            <artifactId>gbase8s</artifactId>
-            <groupId>com.gbase</groupId>
+            <groupId>com.gbasedbt</groupId>
+            <artifactId>jdbc</artifactId>
             <version>3.5.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../lib/gbasedbtjdbc_3.5.1_3X1_3.jar</systemPath>
+            <!-- 3.6.3.2 版本驱动包启动有问题 -->
+            <!--<version>3.6.3.2</version>-->
         </dependency>
         <!-- https://github.com/flowable/flowable-engine/blob/main/distro/sql/create/all/flowable.oracle.all.create.sql -->
         <dependency>

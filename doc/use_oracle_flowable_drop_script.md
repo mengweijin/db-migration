@@ -1,4 +1,4 @@
-## 清理 flowable 7.0.1 所有表脚本
+## 清理 flowable 7.0.1 所有 process 表脚本
 
 ### DROP TABLE
 
