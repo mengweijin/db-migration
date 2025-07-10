@@ -27,6 +27,8 @@ Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、Ope
 - **OpenGauss**：支持 Flyway，Liquibase 可直接使用 postgres 驱动得到支持。
 - **人大金仓（Kingbase）**：可直接使用 postgres 驱动得到支持，无需依赖 db-migration 项目。
 
+Flowable 的支持参考：[Flowable_脚本适配国产数据库及集成 Liquibase 或 Flyway 使用](./docs/z_flowable_sql_supported_database_in_china_local.md)
+
 ### 版本说明
 
 - ❌❌：不支持；
@@ -51,56 +53,20 @@ Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、Ope
 
 ## 参考文档
 
-- [【达梦 DM DBMS】 使用 Flyway](./doc/dm_use_flyway.md)
-- [【达梦 DM DBMS】 使用 Liquibase 和 Flowable 工作流](./doc/dm_use_liquibase_flowable.md)
-- [【南大通用 GBase 8s】 使用 Flyway](./doc/gbase8s_use_flyway.md)
-- [【南大通用 GBase 8s】 使用 Liquibase](./doc/gbase8s_use_liquibase.md)
-- [【华为 OpenGauss】 使用 Flyway](./doc/opengauss_use_flyway.md)
-- [【华为 OpenGauss】 使用 Liquibase](./doc/opengauss_use_liquibase.md)
-- [【人大金仓 Kingbase】 使用 Flyway 的示例工程](https://gitee.com/mengweijin/db-migration/tree/master/demo-kingbase/kingbase-flyway)
-- [【人大金仓 Kingbase】 使用 Liquibase 的示例工程](https://gitee.com/mengweijin/db-migration/tree/master/demo-kingbase/kingbase-liquibase)
+- [【达梦 DM DBMS】 使用 Flyway](./docs/dm_use_flyway.md)
+- [【达梦 DM DBMS】 使用 Liquibase 和 Flowable 工作流](./docs/dm_use_liquibase_flowable.md)
+- [【南大通用 GBase 8s】 使用 Flyway](./docs/gbase8s_use_flyway.md)
+- [【南大通用 GBase 8s】 使用 Liquibase](./docs/gbase8s_use_liquibase.md)
+- [【华为 OpenGauss】 使用 Flyway](./docs/opengauss_use_flyway.md)
+- [【华为 OpenGauss】 使用 Liquibase](./docs/opengauss_use_liquibase.md)
+- [【人大金仓 Kingbase】 使用 Flyway 的示例工程](./demo-kingbase/kingbase-flyway)
+- [【人大金仓 Kingbase】 使用 Liquibase 的示例工程](./demo-kingbase/kingbase-liquibase)
 
-### Flyway 对 PL/SQL 的支持
-
-Oracle 的存储过程、触发器、函数等 PL/SQL 代码块需以 `/` 符号结尾，告知 SQL 引擎执行该代码块。
-
-因此，在 Flyway 中执行 Oracle 存储过程脚本时，必须在 PL/SQL 块的末尾添加 `/` 符号，以明确表示代码块的结束。
-这是 Oracle 数据库对 PL/SQL 语法解析的要求，Flyway 在执行脚本时同样需要遵循这一规则。
-
-Flyway 默认使用普通 SQL 解析器执行脚本，而 Oracle 的 PL/SQL 块需要明确的分隔符。添加 / 符号能帮助 Flyway 识别代码块边界。
-
-例如在创建存储过程或触发器时：
-
-```sql
-CREATE OR REPLACE PROCEDURE test_proc AS
-BEGIN
-    -- 存储过程逻辑。此处略。
-END;
-/
-   
-CREATE TRIGGER test_trig AFTER INSERT ON test_user
-BEGIN
-    UPDATE test_user SET name = CONCAT(name, 'triggered');
-END;
-/
-```
-
-与普通 SQL 脚本的区别：
-
-普通的 DDL（如建表）或 DML（如插入数据）脚本无需 / 符号，因为它们不是多行代码块。 例如：
-
-```sql
-CREATE TABLE users (id NUMBER PRIMARY KEY);
-INSERT INTO users VALUES (1);
-```
-
-但涉及 PL/SQL 结构的脚本（如存储过程、函数、包）必须添加 /。
-
-## 其他文档
-
-* [Oracle 清理 Flowable 7.0.1 所有表脚本](./doc/use_oracle_flowable_drop_script.md)
-* [MySQL、Oracle、PostgreSQL 等数据库使用Flyway 的温馨提示](./doc/z_flyway_supported_database_notes.md)
-* [Flowable_脚本适配国产数据库](doc/z_flowable_%E8%84%9A%E6%9C%AC%E9%80%82%E9%85%8D%E5%9B%BD%E4%BA%A7%E6%95%B0%E6%8D%AE%E5%BA%93.md)
+## 其它文档
+- [Flowable_脚本适配国产数据库及集成 Liquibase 或 Flyway 使用](./docs/z_flowable_sql_supported_database_in_china_local.md)
+- [Flyway 对 PL/SQL 的支持](./docs/z_flyway_supported_for_PL-SQL.md)
+- [Flowable 6.8.1 清理所有表脚本](./flowable/6.8.1.flowable.all.drop.sql)
+- [MySQL、Oracle、PostgreSQL 等数据库使用 Flyway 的温馨提示](./docs/z_flyway_supported_database_notes.md)
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。
 
