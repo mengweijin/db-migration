@@ -1,5 +1,9 @@
 # Flowable_脚本适配国产数据库及集成 Liquibase 或 Flyway 使用
 
+建议自行通过修改 Flowable 脚本的方式得到 .sql 文件，然后通过 Liquibase 或 Flyway 去执行该脚本来创建 Flowable 表。
+
+注：Flowable 官方 7.1.0 + 版本也已经移除了默认使用的 Liquibase。
+
 ## 达梦
 达梦兼容 Oracle 可直接使用。参考：[达梦数据库使用 Liquibase 和 Flowable](./dm_use_liquibase_flowable.md)
 
