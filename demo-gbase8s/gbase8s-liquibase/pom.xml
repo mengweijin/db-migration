@@ -3,7 +3,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.0</version>
+        <version>3.4.0</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,7 +12,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <java.version>8</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -46,13 +46,23 @@
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
         </dependency>
+        <!--
+                <dependency>
+                    <artifactId>gbase8s</artifactId>
+                    <groupId>com.gbase</groupId>
+                    <version>3.5.1</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/../lib/gbasedbtjdbc_3.5.1_3X1_3.jar</systemPath>
+                </dependency>
+        -->
         <dependency>
-            <artifactId>gbase8s</artifactId>
-            <groupId>com.gbase</groupId>
+            <groupId>com.gbasedbt</groupId>
+            <artifactId>jdbc</artifactId>
             <version>3.5.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../lib/gbasedbtjdbc_3.5.1_3X1_3.jar</systemPath>
+            <!-- 3.6.3.2 版本驱动包启动有问题 -->
+            <!--<version>3.6.3.2</version>-->
         </dependency>
+
         <!-- https://github.com/flowable/flowable-engine/blob/main/distro/sql/create/all/flowable.oracle.all.create.sql -->
         <dependency>
             <groupId>org.flowable</groupId>

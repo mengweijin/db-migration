@@ -33,19 +33,19 @@
     <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
-      <version>4.27.0</version>
+      <version>4.31.1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.flowable</groupId>
       <artifactId>flowable-spring</artifactId>
-      <version>7.0.1</version>
+      <version>7.1.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>3.3.0</version>
+      <version>3.4.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

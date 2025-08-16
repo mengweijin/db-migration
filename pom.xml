@@ -18,15 +18,16 @@
 <!--    <module>demo-dm/dm-liquibase</module>-->
 <!--    <module>demo-dm/dm-liquibase-xml</module>-->
 <!--    <module>demo-dm/dm-liquibase-drop-first</module>-->
-<!--    <module>demo-dm/dm-liquibase-spring-boot2</module>-->
+    <module>demo-dm/dm-liquibase-spring-boot2</module>
 
 
 <!--    <module>demo-gbase8s/gbase8s-flyway</module>-->
 <!--    <module>demo-gbase8s/gbase8s-liquibase</module>-->
+<!--    <module>demo-gbase8s/gbase8s-liquibase-flowable</module>-->
 <!--    <module>demo-gbase8s/gbase8s-liquibase-spring-boot2</module>-->
 
-        <module>demo-kingbase/kingbase-flyway</module>
-        <module>demo-kingbase/kingbase-liquibase</module>
+<!--        <module>demo-kingbase/kingbase-flyway</module>-->
+<!--        <module>demo-kingbase/kingbase-liquibase</module>-->
 
 <!--    <module>demo-mysql/mysql-flyway</module>-->
 <!--    <module>demo-mysql/mysql-liquibase</module>-->

@@ -1,4 +1,6 @@
-# 版本 flowable 7.0.1
+# ~~GBase 8s 适配版本 flowable 7.0.1~~
+
+# 当前文档已弃用！参考：[Flowable_脚本适配国产数据库及集成 Liquibase 或 Flyway 使用](z_flowable_sql_supported_database_in_china_local.md)
 
 参考：[版本 flowable 6.4.2适配gbase8s](https://www.gbase.cn/community/post/4540)
 
