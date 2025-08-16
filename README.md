@@ -35,6 +35,10 @@ Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、Ope
 
 Flowable 的支持参考：[Flowable_脚本适配国产数据库及集成 Liquibase 或 Flyway 使用](./docs/z_flowable_sql_supported_database_in_china_local.md)
 
+注：由于 flowable 官方 7.1.0 已经移除默认 liquibase 支持，db-migration V2.1.0 将剔除 flowable 相关代码。
+
+flowable 相关脚本可通过 flyway 或 liquibase 去执行，可同样达到启动自动创建表的功能。
+
 ### 版本说明
 
 - ❌❌：不支持；
