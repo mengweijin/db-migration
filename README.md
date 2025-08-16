@@ -1,6 +1,6 @@
 # db-migration
 <p align="center">
-    <a target="_blank" href="https://search.maven.org/search?q=g:%22com.github.mengweijin%22%20AND%20a:%22db-migration%22">
+    <a target="_blank" href="https://central.sonatype.com/artifact/com.github.mengweijin/db-migration/versions">
         <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration?label=db-migration&color=blue" />
     </a>
 	<a target="_blank" href="https://github.com/mengweijin/db-migration/blob/master/LICENSE">
@@ -71,7 +71,7 @@ Flowable 的支持参考：[Flowable_脚本适配国产数据库及集成 Liquib
 ## 其它文档
 - [Flowable_脚本适配国产数据库及集成 Liquibase 或 Flyway 使用](./docs/z_flowable_sql_supported_database_in_china_local.md)
 - [Flyway 对 PL/SQL 的支持](./docs/z_flyway_supported_for_PL-SQL.md)
-- [Flowable 6.8.1 清理所有表脚本](./flowable/6.8.1.flowable.all.drop.sql)
+- [Flowable 6.8.1 清理所有表脚本](flowable/6_8_1/6.8.1.flowable.all.drop.sql)
 - [MySQL、Oracle、PostgreSQL 等数据库使用 Flyway 的温馨提示](./docs/z_flyway_supported_database_notes.md)
 
 完整的基础使用示例参考代码仓库中，各自的 demo 工程。

@@ -66,6 +66,15 @@ spring:
 </dependency>
 ```
 
+application.yml 中按实际需求增加 flowable 配置：
+
+```yaml
+flowable:
+  async-executor-activate: false
+  database-schema-update: true
+  database-schema: VTL_TEST
+```
+
 * flowable 6.x.x 版本，适配 springboot 2.x；
 * flowable 7.x.x 版本以及之后，适配 springboot 3.x；
 
