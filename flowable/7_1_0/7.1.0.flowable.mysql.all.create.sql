@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset db-migration:flowable-7.1.0-all-create
 create table ACT_GE_PROPERTY (
     NAME_ varchar(64),
     VALUE_ varchar(300),
