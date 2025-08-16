@@ -19,9 +19,9 @@
 
 以此作为基础来修改（也可基于其它数据库脚本来修改）。
 
-GBase8s 语句的修改可参考仓库 db-migration 下：【[6.8.1.flowable.gbase8s.all.create.change.md](../flowable/6.8.1.flowable.gbase8s.all.create.change.md)】文档。
+GBase8s 语句的修改可参考仓库 db-migration 下：【[6.8.1.flowable.gbase8s.all.create.change.md](../flowable/docs/6.8.1.flowable.gbase8s.all.create.change.md)】文档。
 
-这里已经修改了一个 Flowable 6.8.1 版本的脚本：[6.8.1.flowable.gbase8s.all.create.sql](../flowable/6.8.1.flowable.gbase8s.all.create.sql)
+这里已经修改了一个 Flowable 6.8.1 版本的脚本：[6.8.1.flowable.gbase8s.all.create.sql](../flowable/6_8_1/6.8.1.flowable.gbase8s.all.create.sql)
 
 **注意！！！**：这里修改的脚本是按照上面文档中修改的点来的，请自行排查是否有其它影响。不放心可自行修改脚本，避免直接使用。
 
@@ -31,7 +31,7 @@ sql 脚本修改完成后，可直接用 flyway 或 Liquibase 去自动执行。
 
 以 GBase8s 为例：
 
-现在，假设你已经得到了一个修改后的 Flowable 6.8.1 版本的创建表的所有脚本：[6.8.1.flowable.gbase8s.all.create.sql](../flowable/6.8.1.flowable.gbase8s.all.create.sql)
+现在，假设你已经得到了一个修改后的 Flowable 6.8.1 版本的创建表的所有脚本：[6.8.1.flowable.gbase8s.all.create.sql](../flowable/6_8_1/6.8.1.flowable.gbase8s.all.create.sql)
 
 #### maven
 
@@ -108,7 +108,7 @@ flowable:
 
 Flyway 的使用方式和 Liquibase 类似，依然是：
 
-假设你已经得到了一个修改后的 Flowable 6.8.1 版本的创建表的所有脚本：[6.8.1.flowable.gbase8s.all.create.sql](../flowable/6.8.1.flowable.gbase8s.all.create.sql)
+假设你已经得到了一个修改后的 Flowable 6.8.1 版本的创建表的所有脚本：[6.8.1.flowable.gbase8s.all.create.sql](../flowable/6_8_1/6.8.1.flowable.gbase8s.all.create.sql)
 
 然后 maven 引入 db-migration、flyway、flowable 等。
 
