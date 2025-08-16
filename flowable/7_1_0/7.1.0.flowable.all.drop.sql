@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset admin:flowable-7.1.0-all-drop
+--changeset db-migration:flowable-7.1.0-all-drop
 DROP TABLE ACT_EVT_LOG;
 DROP TABLE ACT_HI_ACTINST;
 DROP TABLE ACT_HI_ATTACHMENT;
