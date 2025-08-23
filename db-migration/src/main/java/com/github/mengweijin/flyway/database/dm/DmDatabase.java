@@ -328,4 +328,12 @@ public class DmDatabase extends Database<DmConnection> implements ISupportDataba
         return result;
     }
 
+    /**
+     * Fixed Github issue 17：当有 initSql 时，initSql会被执行2次
+     * <a href="https://github.com/mengweijin/db-migration/issues/17">https://github.com/mengweijin/db-migration/issues/17</a>
+     */
+    @Override
+    public boolean useSingleConnection() {
+        return true;
+    }
 }

@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v2.0.9] 2025-08-23
+- 【Bug】解决达梦数据库当有 initSql 时，initSql 会被执行 2 次的问题。
+
 ### [v2.0.8] 2025-03-01
 - 【适配】增加 Flyway 对 OpenGauss 数据库的支持，以及增加 Liquibase 对 OpenGauss 数据库的使用示例。
 - 【移除】移除南大通用 GBase8s 默认对 Flowable 的支持。需要的话建议从 Flowable 仓库拿到需要的版本的完整版 sql 脚本，有针对性的修改。
