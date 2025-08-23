@@ -46,7 +46,7 @@
 <!--    <module>demo-issues/dm-liquibase-gitee-issue-IAZJJE</module>-->
 <!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IB557X</module>-->
 <!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IBIG0P</module>-->
-    <module>demo-issues/dm-flyway-initsql-github-issue-17</module>
+<!--    <module>demo-issues/dm-flyway-initsql-github-issue-17</module>-->
 
   </modules>
 
