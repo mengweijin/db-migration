@@ -18,7 +18,7 @@
 <!--    <module>demo-dm/dm-liquibase</module>-->
 <!--    <module>demo-dm/dm-liquibase-xml</module>-->
 <!--    <module>demo-dm/dm-liquibase-drop-first</module>-->
-    <module>demo-dm/dm-liquibase-spring-boot2</module>
+<!--    <module>demo-dm/dm-liquibase-spring-boot2</module>-->
 
 
 <!--    <module>demo-gbase8s/gbase8s-flyway</module>-->
@@ -46,6 +46,7 @@
 <!--    <module>demo-issues/dm-liquibase-gitee-issue-IAZJJE</module>-->
 <!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IB557X</module>-->
 <!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IBIG0P</module>-->
+<!--    <module>demo-issues/dm-flyway-initsql-github-issue-17</module>-->
 
   </modules>
 
