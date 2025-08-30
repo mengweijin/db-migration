@@ -54,30 +54,6 @@ spring:
 
 提示：若要指定 schema，可修改 datasource 中的 url。比如：jdbc:dm://localhost:5236?schema=VTL_TEST_SCHEMA
 
-## 和 Flowable 一起使用
-
-引入 flowable 依赖即可。
-
-```xml
-<dependency>
-    <groupId>org.flowable</groupId>
-    <artifactId>flowable-spring-boot-starter-process</artifactId>
-    <version>${flowable.version}</version>
-</dependency>
-```
-
-application.yml 中按实际需求增加 flowable 配置：
-
-```yaml
-flowable:
-  async-executor-activate: false
-  database-schema-update: true
-  database-schema: VTL_TEST
-```
-
-* flowable 6.x.x 版本，适配 springboot 2.x；
-* flowable 7.x.x 版本以及之后，适配 springboot 3.x；
-
 ## 重要👉：关于达梦 JDBC Driver 的坑！
 
 达梦历史上 JDBC Driver 的 artifactId 发生过变化，并且有一些 BUG。如果是使用老版本的小伙伴，请切换为新版本。

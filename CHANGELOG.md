@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v2.1.0] 2025-08-30
+- 【变更】移除 Flowable 相关代码。有 Flowable 需求的可参考 README 文档相关章节。
+
 ### [v2.0.9] 2025-08-23
 - 【Bug】解决达梦数据库当有 initSql 时，initSql 会被执行 2 次的问题。
 
