@@ -4,9 +4,9 @@
 
   <groupId>com.github.mengweijin</groupId>
   <artifactId>db-migration</artifactId>
-  <version>2.0.9</version>
+  <version>2.1.0</version>
   <name>db-migration</name>
-  <description>Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等数据库。部分数据库直接支持 Flowable 工作流。</description>
+  <description>Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等数据库。</description>
 
   <properties>
     <skipTests>true</skipTests>
@@ -33,19 +33,7 @@
     <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
-      <version>4.31.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.flowable</groupId>
-      <artifactId>flowable-spring</artifactId>
-      <version>7.1.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>3.4.0</version>
+      <version>4.27.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
