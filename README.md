@@ -34,12 +34,12 @@ Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、Ope
 
 ### 数据库支持说明
 
-|                数据库 |        Flyway         |       Liquibase       |
-|-------------------:|:---------------------:|:---------------------:|
-|       **达梦（DM 8）** |           ✅           |           ✅           |
-| **南大通用（GBase 8s）** |           ✅           |           ✅           |
-|  **高斯（OpenGauss）** |           ✅           | 直接使用 PostgreSQL 数据库驱动 |
-| **人大金仓（Kingbase）** | 直接使用 PostgreSQL 数据库驱动 | 直接使用 PostgreSQL 数据库驱动 |
+|                数据库 |      Flyway      |    Liquibase     | 备注                               |
+|-------------------:|:----------------:|:----------------:|:---------------------------------|
+|       **达梦（DM 8）** |        ✅         |        ✅         |                                  |
+| **南大通用（GBase 8s）** |        ✅         |        ✅         |                                  |
+|  **高斯（OpenGauss）** |        ✅         | 使用 PostgreSQL 驱动 | 使用 Liquibase 时，无需使用 db-migration |
+| **人大金仓（Kingbase）** | 使用 PostgreSQL 驱动 | 使用 PostgreSQL 驱动 | 无需使用 db-migration，这里仅提供使用信息      |
 
 ### db-migration 版本说明
 
