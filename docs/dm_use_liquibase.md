@@ -4,7 +4,7 @@
 
 达梦要指定 schema 的话，直接在 jdbc url 中添加参数即可。比如：
 
-jdbc:dm://localhost:5236?**schema=VTL_TEST_SCHEMA**
+jdbc:dm://localhost:5236?**schema=VT_TEST_SCHEMA**
 
 ```xml
 <!--注意引入顺序，db-migration 必须在前面先引入。-->
@@ -30,7 +30,7 @@ spring:
   datasource:
     driver-class-name: dm.jdbc.driver.DmDriver
     url: jdbc:dm://localhost:5236
-    username: VTL_TEST
+    username: VT_TEST
     password:
   liquibase:
     # 启用liquibase
@@ -52,7 +52,7 @@ spring:
     # password:
 ```
 
-提示：若要指定 schema，可修改 datasource 中的 url。比如：jdbc:dm://localhost:5236?schema=VTL_TEST_SCHEMA
+提示：若要指定 schema，可修改 datasource 中的 url。比如：jdbc:dm://localhost:5236?schema=VT_TEST_SCHEMA
 
 ## 重要👉：关于达梦 JDBC Driver 的坑！
 

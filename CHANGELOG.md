@@ -1,4 +1,13 @@
 ## CHANGELOG
+### [v2.2.0] 2026-04-18
+- 【Feature】为方便使用，进行模块拆分。
+  - 之前的版本 maven 引入 db-migration 时，需要保证引入顺序才行，现在只需要引入对应的模块即可。
+  - **db-migration-dameng-flyway**：达梦数据库 flyway 支持。
+  - **db-migration-dameng-liquibase**：达梦数据库 liquibase 支持。
+  - **db-migration-gauss-flyway**：高斯 Open Gauss 数据库 flyway 支持。
+  - **db-migration-gbase8s-flyway**：南大通用 GBase 8s 数据库 flyway 支持。
+  - **db-migration-gbase8s-liquibase**：南大通用 GBase 8s 数据库 liquibase 支持。
+
 ### [v2.1.0] 2025-08-30
 - 【变更】移除 Flowable 相关代码。有 Flowable 需求的可参考 README 文档相关章节。
 

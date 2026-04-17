@@ -4,53 +4,227 @@
 
   <groupId>com.github.mengweijin</groupId>
   <artifactId>db-migration-parent</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
-
-  <name>db-migration-parent</name>
+  <name>${project.artifactId}</name>
+  <description>Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等数据库。</description>
+  <url>https://github.com/mengweijin/db-migration</url>
 
   <modules>
     <module>./db-migration</module>
+    <module>./db-migration-dameng-flyway</module>
+    <module>./db-migration-dameng-liquibase</module>
+    <module>./db-migration-gauss-flyway</module>
+    <module>./db-migration-gbase8s-flyway</module>
+    <module>./db-migration-gbase8s-liquibase</module>
 
-<!--    <module>demo-dm/dm-flyway</module>-->
-<!--    <module>demo-dm/dm-flyway-flowable</module>-->
-<!--    <module>demo-dm/dm-flyway-schema-baseline-version</module>-->
-
-<!--    <module>demo-dm/dm-liquibase</module>-->
-<!--    <module>demo-dm/dm-liquibase-flowable</module>-->
-<!--    <module>demo-dm/dm-liquibase-xml</module>-->
-<!--    <module>demo-dm/dm-liquibase-drop-first</module>-->
-<!--    <module>demo-dm/dm-liquibase-spring-boot2</module>-->
-
-
-<!--    <module>demo-gbase8s/gbase8s-flyway</module>-->
-<!--    <module>demo-gbase8s/gbase8s-liquibase</module>-->
-<!--    <module>demo-gbase8s/gbase8s-liquibase-flowable</module>-->
-<!--    <module>demo-gbase8s/gbase8s-liquibase-spring-boot2</module>-->
-
-<!--    <module>demo-kingbase/kingbase-flyway</module>-->
-<!--    <module>demo-kingbase/kingbase-liquibase</module>-->
-
-<!--    <module>demo-mysql/mysql-flyway</module>-->
-<!--    <module>demo-mysql/mysql-liquibase</module>-->
-
-<!--    <module>demo-opengauss/opengauss-flyway</module>-->
-<!--    <module>demo-opengauss/opengauss-liquibase</module>-->
-
-<!--    <module>demo-oracle/oracle-flyway</module>-->
-<!--    <module>demo-oracle/oracle-liquibase</module>-->
-
-
-<!--    <module>demo-postgresql/postgresql-flyway</module>-->
-<!--    <module>demo-postgresql/postgresql-liquibase</module>-->
-
-<!--    <module>demo-issues/dm-liquibase-github-issue-10</module>-->
-<!--    <module>demo-issues/dm-liquibase-gitee-issue-IAZJJE</module>-->
-<!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IB557X</module>-->
-<!--    <module>demo-issues/dm-flyway-druid-gitee-issue-IBIG0P</module>-->
-<!--    <module>demo-issues/dm-flyway-initsql-github-issue-17</module>-->
-    <module>demo-issues/dm-flyway-github-issue-19</module>
-
+    <!-- demo-dameng -->
+<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3-flowable</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3-schema-baseline-version</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot2</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3-drop-first</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3-flowable</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3-xml</module>-->
+    <!-- demo-gbase8s -->
+    <!-- demo-opengauss -->
   </modules>
+
+  <properties>
+    <revision>2.2.0-SNAPSHOT</revision>
+
+    <skipTests>true</skipTests>
+    <java.version>8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <flyway.version>10.10.0</flyway.version>
+    <liquibase.version>4.27.0</liquibase.version>
+
+    <lombok.version>1.18.30</lombok.version>
+    <junit-jupiter.version>5.10.2</junit-jupiter.version>
+
+    <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+    <maven-javadoc-plugin.version>3.11.3</maven-javadoc-plugin.version>
+    <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+    <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
+    <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>flyway-core</artifactId>
+        <groupId>org.flywaydb</groupId>
+        <version>${flyway.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-database-postgresql</artifactId>
+        <version>${flyway.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-core</artifactId>
+        <version>${liquibase.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- 开源许可证 -->
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <!-- 开发者信息 -->
+  <developers>
+    <developer>
+      <name>Meng Wei Jin</name>
+      <email>aday.fun@outlook.com</email>
+      <url>https://github.com/mengweijin</url>
+    </developer>
+    <developer>
+      <name>Jack Chu</name>
+      <email>chuchuanbao@gmail.com</email>
+      <url>https://gitee.com/godfather1103</url>
+    </developer>
+  </developers>
+  <!--开源地址-->
+  <scm>
+    <url>https://github.com/mengweijin/db-migration</url>
+  </scm>
+  <!--  Issue地址  -->
+  <issueManagement>
+    <system>Github Issue</system>
+    <url>https://github.com/mengweijin/db-migration/issues</url>
+  </issueManagement>
+
+  <build>
+    <plugins>
+      <!-- Source -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven-source-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Javadoc -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven-javadoc-plugin.version}</version>
+        <configuration>
+          <charset>UTF-8</charset>
+          <docencoding>UTF-8</docencoding>
+          <additionalOptions>
+            <!--由于JDK8的java doc生成机制比之前的要严谨许多,导致项目用maven打包的时候出错 解决办法: 添加-Xdoclint:none配置-->
+            <additionalOption>-Xdoclint:none</additionalOption>
+          </additionalOptions>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- GPG -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>${maven-gpg-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>${central-publishing-maven-plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+          <autoPublish>true</autoPublish>
+        </configuration>
+      </plugin>
+      <!-- 使用 flatten-maven-plugin 解决版本占位符 ${revision} 问题 -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>${flatten-maven-plugin.version}</version>
+        <configuration>
+          <!-- 确保更新最终的 pom 文件 -->
+          <updatePomFile>true</updatePomFile>
+          <!-- 只解析CI友好变量，保留其他内容不变，推荐配置 -->
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <!-- 在 process-resources 阶段执行 -->
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>flatten-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>snapshots</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+    </repository>
+    <repository>
+      <id>aliyun</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>aliyun</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </pluginRepository>
+  </pluginRepositories>
 
 </project>

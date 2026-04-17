@@ -1,4 +1,4 @@
-# db-migration
+<h1 align="center" style="margin: 0 0 30px 0">db-migration</h1>
 <p align="center">
     <a target="_blank" href="https://github.com/mengweijin/db-migration">
 		<img src="https://img.shields.io/badge/repo-Github-purple" />
@@ -29,10 +29,11 @@
 	</a>
 </p>
 
-## 介绍
-Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等国产数据库。
+<p align="center">
+    Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、OpenGauss 等国产数据库。
+</p>
 
-### 数据库支持说明
+## 数据库支持说明
 
 |                数据库 |      Flyway      |    Liquibase     | 备注                                    |
 |-------------------:|:----------------:|:----------------:|:--------------------------------------|
@@ -41,7 +42,7 @@ Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、Ope
 |  **高斯（OpenGauss）** |        ✅         | 使用 PostgreSQL 驱动 | 使用 Liquibase 时，和 db-migration 无关，无需使用 |
 | **人大金仓（Kingbase）** | 使用 PostgreSQL 驱动 | 使用 PostgreSQL 驱动 | 和 db-migration 无关，无需使用，这里仅提供使用信息      |
 
-### db-migration 版本说明
+## db-migration 版本说明
 
 - ❌❌：不支持；
 - 🈯✅：flyway 或 liquibase **需要**指定特定版本才支持；
@@ -65,8 +66,7 @@ Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、Ope
 | 2.1.0           | 3.5.x          | 10.10.0 🈯✅ |   4.27.0 🈯✅ |
 | 计划中             | 4.0.x          |             |              |
 
-
-### Flowable 支持说明
+## Flowable 支持说明
 
 **注意！！！**：自 **2.1.0** 版本及以后，移除了达梦数据库默认对 flowable 支持的相关代码。后续如何使用 Flowable 参考如下：
 
@@ -86,8 +86,8 @@ Flyway、Liquibase 扩展支持达梦（DM）、南大通用（GBase 8s）、Ope
 
 Flowable 相关示例工程：
 
-- 达梦使用 **Flyway** + Flowable：[/demo-dm/dm-flyway-flowable](./demo-dm/dm-flyway-flowable)
-- 达梦使用 **Liquibase** + Flowable：[/demo-dm/dm-liquibase-flowable](./demo-dm/dm-liquibase-flowable)
+- 达梦使用 **Flyway** + Flowable：[/demo-dm/dm-flyway-flowable](demo/demo-dm/dm-flyway-flowable)
+- 达梦使用 **Liquibase** + Flowable：[/demo-dm/dm-liquibase-flowable](demo/demo-dameng/dm-liquibase-flowable)
 
 ## 参考文档
 

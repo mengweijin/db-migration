@@ -33,6 +33,8 @@ build/
 ### VS Code ###
 .vscode/
 
+.flattened-pom.xml
+
 /h2
 logs
 /upload

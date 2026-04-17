@@ -4,7 +4,7 @@
 
 达梦要指定 schema 的话，直接在 jdbc url 中添加参数即可。比如：
 
-jdbc:dm://localhost:5236?**schema=VTL_TEST_SCHEMA**
+jdbc:dm://localhost:5236?**schema=VT_TEST_SCHEMA**
 
 ```xml
 <!--注意引入顺序，db-migration 必须在前面先引入。-->

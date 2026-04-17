@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.github.mengweijin</groupId>
+    <artifactId>db-migration-parent</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>db-migration-gauss-flyway</artifactId>
+  <packaging>jar</packaging>
+  <name>${project.artifactId}</name>
+  <description>Flyway 扩展支持 Open Gauss 高斯数据库。</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.github.mengweijin</groupId>
+      <artifactId>db-migration</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>flyway-core</artifactId>
+      <groupId>org.flywaydb</groupId>
+    </dependency>
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-database-postgresql</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>

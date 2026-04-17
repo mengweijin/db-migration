@@ -71,7 +71,7 @@ sql 脚本修改完成后，可直接用 flyway 或 Liquibase 去自动执行。
 - flowable.database-schema-update: false
   - 要关闭 flowable 默认启动时的更新表操作。把它设置为 false。
 
-详细可参考示例工程：[gbase8s-liquibase-flowable](../demo-gbase8s/gbase8s-liquibase-flowable)
+详细可参考示例工程：[gbase8s-liquibase-flowable](../demo/demo-gbase8s/gbase8s-liquibase-flowable)
 
 ```yaml
 spring:

@@ -1,23 +1,23 @@
 ## 笔记
 
-提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VTL_TEST
+提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VT_TEST
 
 ### 创建用户和授权
 
 #### 达梦 与 Oracle
 ```shell
-drop user VTL_TEST cascade;
-create user VTL_TEST identified by "1qaz2wsx";
+drop user VT_TEST cascade;
+create user VT_TEST identified by "1qaz2wsx";
 # grant 时注意和 oracle 的区别
 # 达梦：
-grant "PUBLIC","RESOURCE" to "VTL_TEST";
+grant "PUBLIC","RESOURCE" to "VT_TEST";
 # oracle：
-grant "CONNECT","RESOURCE" to "VTL_TEST";
+grant "CONNECT","RESOURCE" to "VT_TEST";
 
-grant "DBA" to "VTL_TEST";
+grant "DBA" to "VT_TEST";
 
 # 修改密码
-ALTER user VTL_TEST identified by "1qaz2wsx";
+ALTER user VT_TEST identified by "1qaz2wsx";
 ```
 
 ### 创建模式
@@ -39,10 +39,10 @@ DROP SCHEMA <schemaname> [RESTRICT|CASCADE]
 ### 达梦备忘 SQL
 
 ```shell
-SELECT * FROM ALL_USERS WHERE USERNAME = 'VTL_TEST';
+SELECT * FROM ALL_USERS WHERE USERNAME = 'VT_TEST';
 
-SELECT * FROM ALL_OBJECTS WHERE OWNER='VTL_TEST';
+SELECT * FROM ALL_OBJECTS WHERE OWNER='VT_TEST';
 
-SELECT DISTINCT OBJECT_NAME FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'SCH' AND OBJECT_NAME = 'VTL_TEST';
+SELECT DISTINCT OBJECT_NAME FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'SCH' AND OBJECT_NAME = 'VT_TEST';
 
 ```
