@@ -15,6 +15,7 @@ import org.flywaydb.core.internal.license.FlywayEditionUpgradeRequiredException;
 import org.flywaydb.core.internal.parser.Parser;
 import org.flywaydb.core.internal.parser.ParsingContext;
 import org.flywaydb.core.internal.sqlscript.SqlScriptExecutorFactory;
+
 import java.sql.Connection;
 import java.sql.Types;
 import java.util.regex.Pattern;
@@ -43,7 +44,7 @@ public class DmDatabaseType extends BaseDatabaseType {
         if (url.startsWith("jdbc-secretsmanager:dm:")) {
 
 
-            throw new FlywayEditionUpgradeRequiredException(Tier.ENTERPRISE, (Tier) null, "jdbc-secretsmanager");
+            throw new FlywayEditionUpgradeRequiredException(Tier.ENTERPRISE, "jdbc-secretsmanager");
 
         }
         return url.startsWith("jdbc:dm") || url.startsWith("jdbc:p6spy:dm");

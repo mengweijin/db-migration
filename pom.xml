@@ -34,20 +34,20 @@
   </modules>
 
   <properties>
-    <revision>2.2.1</revision>
+    <revision>3.0.0-SNAPSHOT</revision>
 
     <skipTests>true</skipTests>
-    <java.version>8</java.version>
+    <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <flyway.version>10.10.0</flyway.version>
-    <liquibase.version>4.27.0</liquibase.version>
+    <flyway.version>12.1.1</flyway.version>
+    <liquibase.version>4.31.1</liquibase.version>
 
-    <lombok.version>1.18.30</lombok.version>
-    <junit-jupiter.version>5.10.2</junit-jupiter.version>
+    <lombok.version>1.18.44</lombok.version>
+    <junit-jupiter.version>6.0.3</junit-jupiter.version>
 
     <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
     <maven-javadoc-plugin.version>3.11.3</maven-javadoc-plugin.version>

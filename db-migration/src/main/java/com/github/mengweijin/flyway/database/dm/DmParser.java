@@ -5,13 +5,12 @@ import org.flywaydb.core.internal.parser.Parser;
 import org.flywaydb.core.internal.parser.ParserContext;
 import org.flywaydb.core.internal.parser.ParsingContext;
 import org.flywaydb.core.internal.parser.PeekingReader;
-import org.flywaydb.core.internal.parser.Recorder;
 import org.flywaydb.core.internal.parser.StatementType;
 import org.flywaydb.core.internal.parser.Token;
 import org.flywaydb.core.internal.parser.TokenType;
 import org.flywaydb.core.internal.sqlscript.Delimiter;
-import org.flywaydb.core.internal.sqlscript.ParsedSqlStatement;
 import org.flywaydb.core.internal.util.StringUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -83,32 +82,6 @@ public class DmParser extends Parser {
         super(configuration, parsingContext, 3);
 
 
-    }
-
-
-    @Override
-    protected ParsedSqlStatement createStatement(PeekingReader reader, Recorder recorder,
-                                                 int statementPos, int statementLine, int statementCol,
-                                                 int nonCommentPartPos, int nonCommentPartLine, int nonCommentPartCol,
-                                                 StatementType statementType, boolean canExecuteInTransaction,
-                                                 Delimiter delimiter, String sql, boolean batchable
-    ) throws IOException {
-        if (PLSQL_VIEW_STATEMENT == statementType) {
-            sql = sql.trim();
-
-            // Strip extra semicolon to avoid issues with WITH statements containing PL/SQL
-            if (sql.endsWith(";")) {
-                sql = sql.substring(0, sql.length() - 1);
-            }
-        }
-
-        return super.createStatement(reader, recorder, statementPos, statementLine, statementCol,
-                nonCommentPartPos, nonCommentPartLine, nonCommentPartCol,
-                statementType, canExecuteInTransaction, delimiter, sql
-
-
-                , batchable
-        );
     }
 
     @Override
