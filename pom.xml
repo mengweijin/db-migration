@@ -19,6 +19,8 @@
     <module>./db-migration-gbase8s-liquibase</module>
 
     <!-- demo-dameng -->
+<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot2.4</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot2.7</module>-->
 <!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3</module>-->
 <!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3-flowable</module>-->
 <!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3-schema-baseline-version</module>-->
