@@ -1,5 +1,5 @@
 ## CHANGELOG
-### [v2.2.0] 2026-04-18
+### [v2.2.1] 2026-04-18
 - 【Feature】为方便使用，进行模块拆分。
   - 之前的版本 maven 引入 db-migration 时，需要保证引入顺序才行，现在只需要引入对应的模块即可。
   - **db-migration-dameng-flyway**：达梦数据库 flyway 支持。
