@@ -1,4 +1,7 @@
 ## CHANGELOG
+### [v3.0.0] 2026-04-25
+- 【Feature】适配对 Spring Boot 4 版本中 flyway 和 liquibase 的支持。
+
 ### [v2.2.1] 2026-04-18
 - 【Feature】为方便使用，进行模块拆分。使用方法发生了重大改变。
   - 之前的版本 maven 引入 db-migration 时，需要保证引入顺序才行，现在只需要引入对应的模块即可。

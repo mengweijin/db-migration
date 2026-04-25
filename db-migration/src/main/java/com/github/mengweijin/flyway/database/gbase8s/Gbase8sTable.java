@@ -27,9 +27,16 @@ public class Gbase8sTable extends Table<Gbase8sDatabase, Gbase8sSchema> {
         jdbcTemplate.execute("DROP TABLE " + name);
     }
 
+    /**
+     * flyway 12.1.1 重写。
+     * 不使用 JDBC 元数据查询，直接执行 SQL 判断表是否存在
+     */
     @Override
     protected boolean doExists() throws SQLException {
-        return exists(null, schema, name);
+        // return exists(null, schema, name);
+        // GBase8s 专用查询：直接查询表是否存在，不查系统表
+        int count = jdbcTemplate.queryForInt("SELECT count(*) FROM systables WHERE tabname = ? AND owner = ?", this.name, this.schema.getName());
+        return count > 0;
     }
 
     @Override
