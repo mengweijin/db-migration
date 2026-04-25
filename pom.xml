@@ -32,7 +32,7 @@
   </modules>
 
   <properties>
-    <revision>3.0.0-SNAPSHOT</revision>
+    <revision>3.0.0</revision>
 
     <skipTests>true</skipTests>
     <java.version>17</java.version>
