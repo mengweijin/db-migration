@@ -73,8 +73,8 @@ public class Gbase8sOracleDatabase extends InformixDatabase {
         if (name == null) {
             return null;
         }
-        if (name.matches(".*\\..*\\..*")) {
-            name = name.replaceFirst("\\.", ".");
+        if (name.contains(":")) {
+            name = name.replace(":", ".");
         }
         return name;
     }

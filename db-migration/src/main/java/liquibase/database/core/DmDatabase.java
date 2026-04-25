@@ -120,8 +120,7 @@ public class DmDatabase extends OracleDatabase {
                 }
             }
         }
-        // super.setConnection(conn);
-        super.setSuperConnection(conn);
+        super.setConnection(conn);
     }
 
     @Override

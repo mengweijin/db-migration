@@ -1,6 +1,5 @@
 package com.github.mengweijin.flyway.database.dm;
 
-import com.github.mengweijin.flyway.ISupportDatabase;
 import org.flywaydb.core.api.configuration.Configuration;
 import org.flywaydb.core.extensibility.Tier;
 import org.flywaydb.core.internal.database.base.Database;
@@ -18,7 +17,7 @@ import java.util.Set;
 /**
  * @author mengweijin
  */
-public class DmDatabase extends Database<DmConnection> implements ISupportDatabase {
+public class DmDatabase extends Database<DmConnection> {
     private static final String DM_NET_TNS_ADMIN = "dm.net.tns_admin";
 
     /**
@@ -42,11 +41,6 @@ public class DmDatabase extends Database<DmConnection> implements ISupportDataba
         return new DmConnection(this, connection);
     }
 
-    @Override
-    public boolean supportsChangingCurrentSchema() {
-        return true;
-    }
-
     /**
      * 兼容低版本
      * @param identifier identifier
@@ -55,15 +49,6 @@ public class DmDatabase extends Database<DmConnection> implements ISupportDataba
     @Override
     public String doQuote(String identifier) {
         return "\"" + identifier + "\"";
-    }
-
-    @Override
-    public void ensureSupported() {
-        //最小支持版本7
-        ensureDatabaseIsRecentEnough("7");
-        //最新支持版本8.1
-        //ensureDatabaseNotOlderThanOtherwiseRecommendUpgradeToFlywayEdition("8.1", org.flywaydb.core.internal.license.Edition.ENTERPRISE);
-        recommendFlywayUpgradeIfNecessary("8.1");
     }
 
     @Override

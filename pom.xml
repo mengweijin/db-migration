@@ -19,35 +19,33 @@
     <module>./db-migration-gbase8s-liquibase</module>
 
     <!-- demo-dameng -->
-<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot2.4</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot2.7</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3-flowable</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot3-schema-baseline-version</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot2</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3-drop-first</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3-flowable</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot3-xml</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot4</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot4-flowable</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot4</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot4-flowable</module>-->
+<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot4-xml</module>-->
     <!-- demo-gbase8s -->
+<!--    <module>demo/demo-gbase8s/demo-gbase8s-flyway-spring-boot4</module>-->
+<!--    <module>demo/demo-gbase8s/demo-gbase8s-liquibase-spring-boot4</module>-->
     <!-- demo-opengauss -->
+<!--        <module>demo/demo-opengauss/demo-opengauss-flyway-spring-boot4</module>-->
   </modules>
 
   <properties>
-    <revision>2.2.1</revision>
+    <revision>3.0.0-SNAPSHOT</revision>
 
     <skipTests>true</skipTests>
-    <java.version>8</java.version>
+    <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <flyway.version>10.10.0</flyway.version>
-    <liquibase.version>4.27.0</liquibase.version>
+    <flyway.version>12.1.1</flyway.version>
+    <liquibase.version>4.31.1</liquibase.version>
 
-    <lombok.version>1.18.30</lombok.version>
-    <junit-jupiter.version>5.10.2</junit-jupiter.version>
+    <lombok.version>1.18.44</lombok.version>
+    <junit-jupiter.version>6.0.3</junit-jupiter.version>
 
     <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
     <maven-javadoc-plugin.version>3.11.3</maven-javadoc-plugin.version>

@@ -6,25 +6,7 @@ import liquibase.database.AbstractJdbcDatabase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseConnection;
 import liquibase.database.LiquibaseTableNamesFactory;
-import liquibase.database.core.AbstractDb2Database;
-import liquibase.database.core.CockroachDatabase;
-import liquibase.database.core.DB2Database;
-import liquibase.database.core.Db2zDatabase;
-import liquibase.database.core.DerbyDatabase;
-import liquibase.database.core.DmDatabase;
-import liquibase.database.core.FirebirdDatabase;
-import liquibase.database.core.H2Database;
-import liquibase.database.core.HsqlDatabase;
-import liquibase.database.core.InformixDatabase;
-import liquibase.database.core.Ingres9Database;
-import liquibase.database.core.MSSQLDatabase;
-import liquibase.database.core.MariaDBDatabase;
-import liquibase.database.core.MySQLDatabase;
-import liquibase.database.core.OracleDatabase;
-import liquibase.database.core.PostgresDatabase;
-import liquibase.database.core.SQLiteDatabase;
-import liquibase.database.core.SybaseASADatabase;
-import liquibase.database.core.SybaseDatabase;
+import liquibase.database.core.*;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.DatabaseException;
 import liquibase.executor.jvm.ColumnMapRowMapper;
@@ -37,20 +19,8 @@ import liquibase.structure.core.View;
 import liquibase.util.JdbcUtil;
 import liquibase.util.StringUtil;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Types;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.sql.*;
+import java.util.*;
 
 public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
 
@@ -93,7 +63,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
             this.database = database;
         }
 
-        public DatabaseMetaData getDatabaseMetaData() {
+        public java.sql.DatabaseMetaData getDatabaseMetaData() {
             return databaseMetaData;
         }
 
@@ -124,7 +94,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
 
                 @Override
                 public boolean bulkContainsSchema(String schemaKey) {
-                    return getAllCatalogsStringScratchData() != null && ((database instanceof OracleDatabase));
+                    return getAllCatalogsStringScratchData() != null && database instanceof OracleDatabase;
                 }
 
                 @Override
@@ -349,7 +319,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                     c.forEach(row -> {
                         row.set("FILTER_CONDITION", null);
                         String key = row.getString("INDEX_OWNER") + "::" + row.getString("INDEX_NAME") + "::" +
-                                     row.getInt("ORDINAL_POSITION");
+                                row.getInt("ORDINAL_POSITION");
                         CachedRow fromMap = expressionMap.get(key);
                         if (fromMap != null) {
                             row.set("FILTER_CONDITION", fromMap.get("COLUMN_EXPRESSION"));
@@ -466,7 +436,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                 String catalogs = getAllCatalogsStringScratchData();
                 return catalogs != null && schemaKey != null
                         && catalogs.contains("'" + schemaKey.toUpperCase() + "'")
-                        && (database instanceof OracleDatabase);
+                        && database instanceof OracleDatabase;
             }
 
             @Override
@@ -494,13 +464,13 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
 
                 try {
                     List<CachedRow> returnList =
-                       extract(
-                            databaseMetaData.getColumns(
-                                    ((AbstractJdbcDatabase) database).getJdbcCatalogName(catalogAndSchema),
-                                    escapeForLike(((AbstractJdbcDatabase) database).getJdbcSchemaName(catalogAndSchema), database),
-                                    escapeForLike(tableName, database),
-                                    SQL_FILTER_MATCH_ALL)
-                    );
+                            extract(
+                                    databaseMetaData.getColumns(
+                                            ((AbstractJdbcDatabase) database).getJdbcCatalogName(catalogAndSchema),
+                                            escapeForLike(((AbstractJdbcDatabase) database).getJdbcSchemaName(catalogAndSchema), database),
+                                            escapeForLike(tableName, database),
+                                            SQL_FILTER_MATCH_ALL)
+                            );
                     //
                     // IF MARIADB OR SQL ANYWHERE
                     // Query to get actual data types and then map each column to its CachedRow
@@ -530,10 +500,10 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
 
                 try {
                     List<CachedRow> returnList =
-                        extract(databaseMetaData.getColumns(((AbstractJdbcDatabase) database)
-                                    .getJdbcCatalogName(catalogAndSchema),
-                            escapeForLike(((AbstractJdbcDatabase) database).getJdbcSchemaName(catalogAndSchema), database),
-                            SQL_FILTER_MATCH_ALL, SQL_FILTER_MATCH_ALL));
+                            extract(databaseMetaData.getColumns(((AbstractJdbcDatabase) database)
+                                            .getJdbcCatalogName(catalogAndSchema),
+                                    escapeForLike(((AbstractJdbcDatabase) database).getJdbcSchemaName(catalogAndSchema), database),
+                                    SQL_FILTER_MATCH_ALL, SQL_FILTER_MATCH_ALL));
                     //
                     // IF MARIADB OR SQL ANYWHERE
                     // Query to get actual data types and then map each column to its CachedRow
@@ -576,8 +546,8 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                     // See https://help.sap.com/docs/SAP_SQL_Anywhere/93079d4ba8e44920ae63ffb4def91f5b/3beaa3956c5f1014883cb0c3e3559cc9.html.
                     //
                     String selectStatement =
-                        "SELECT table_name, column_name, scale, column_type FROM SYSTABCOL KEY JOIN SYSTAB KEY JOIN SYSUSER " +
-                        "WHERE user_name = ? AND ? IS NULL OR table_name = ?";
+                            "SELECT table_name, column_name, scale, column_type FROM SYSTABCOL KEY JOIN SYSTAB KEY JOIN SYSUSER " +
+                                    "WHERE user_name = ? AND ? IS NULL OR table_name = ?";
                     Connection underlyingConnection = ((JdbcConnection) database.getConnection()).getUnderlyingConnection();
                     try (PreparedStatement stmt = underlyingConnection.prepareStatement(selectStatement)) {
                         stmt.setString(1, schemaName);
@@ -593,7 +563,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                                     String rowTableName = row.getString("TABLE_NAME");
                                     String rowColumnName = row.getString("COLUMN_NAME");
                                     if (rowTableName.equalsIgnoreCase(selectedTableName) &&
-                                        rowColumnName.equalsIgnoreCase(selectedColumnName)) {
+                                            rowColumnName.equalsIgnoreCase(selectedColumnName)) {
                                         int rowDataType = row.getInt("DATA_TYPE");
                                         if (rowDataType == Types.VARCHAR || rowDataType == Types.CHAR) {
                                             row.set("scale", selectedScale);
@@ -606,9 +576,6 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                         }
                     } catch (SQLException sqle) {
                         throw new RuntimeException(sqle);
-                        //
-                        // Do not stop
-                        //
                     }
                     return;
                 }
@@ -619,7 +586,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                 // to capture DATETIME(<precision>) data types.
                 //
                 StringBuilder selectStatement = new StringBuilder(
-                    "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ?");
+                        "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ?");
                 if(tableName != null) {
                     selectStatement.append(" AND TABLE_NAME = ?");
                 }
@@ -630,7 +597,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                     statement.setString(2, tableName);
                 }
                 try {
-                    ResultSet columnSelectRS = statement.executeQuery(selectStatement.toString());
+                    ResultSet columnSelectRS = statement.executeQuery();
                     //
                     // Iterate the result set from the query and match the rows
                     // to the rows that were returned by getColumns() in order
@@ -646,10 +613,10 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                             String rowTypeName = row.getString("TYPE_NAME");
                             int rowDataType = row.getInt("DATA_TYPE");
                             if (rowTableName.equalsIgnoreCase(selectedTableName) &&
-                                rowColumnName.equalsIgnoreCase(selectedColumnName) &&
-                                rowTypeName.equalsIgnoreCase("datetime") &&
-                                rowDataType == Types.OTHER &&
-                                !rowTypeName.equalsIgnoreCase(actualDataType)) {
+                                    rowColumnName.equalsIgnoreCase(selectedColumnName) &&
+                                    rowTypeName.equalsIgnoreCase("datetime") &&
+                                    rowDataType == Types.OTHER &&
+                                    !rowTypeName.equalsIgnoreCase(actualDataType)) {
                                 row.set("TYPE_NAME", actualDataType);
                                 row.set("DATA_TYPE", Types.TIMESTAMP);
                                 break;
@@ -660,6 +627,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                     //
                     // Do not stop
                     //
+                    Scope.getCurrentScope().getLog(getClass()).severe("Failed to get column types for table " + tableName, sqle);
                 }
                 finally {
                     JdbcUtil.closeStatement(statement);
@@ -788,39 +756,39 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                         "dc.definition as COLUMN_DEF, " +
                         // data type mapping from https://msdn.microsoft.com/en-us/library/ms378878(v=sql.110).aspx
                         "CASE t.name " +
-                        "WHEN 'bigint' THEN " + Types.BIGINT + " " +
-                        "WHEN 'binary' THEN " + Types.BINARY + " " +
-                        "WHEN 'bit' THEN " + Types.BIT + " " +
-                        "WHEN 'char' THEN " + Types.CHAR + " " +
-                        "WHEN 'date' THEN " + Types.DATE + " " +
-                        "WHEN 'datetime' THEN " + Types.TIMESTAMP + " " +
-                        "WHEN 'datetime2' THEN " + Types.TIMESTAMP + " " +
+                        "WHEN 'bigint' THEN " + java.sql.Types.BIGINT + " " +
+                        "WHEN 'binary' THEN " + java.sql.Types.BINARY + " " +
+                        "WHEN 'bit' THEN " + java.sql.Types.BIT + " " +
+                        "WHEN 'char' THEN " + java.sql.Types.CHAR + " " +
+                        "WHEN 'date' THEN " + java.sql.Types.DATE + " " +
+                        "WHEN 'datetime' THEN " + java.sql.Types.TIMESTAMP + " " +
+                        "WHEN 'datetime2' THEN " + java.sql.Types.TIMESTAMP + " " +
                         "WHEN 'datetimeoffset' THEN -155 " +
-                        "WHEN 'decimal' THEN " + Types.DECIMAL + " " +
-                        "WHEN 'float' THEN " + Types.DOUBLE + " " +
-                        "WHEN 'image' THEN " + Types.LONGVARBINARY + " " +
-                        "WHEN 'int' THEN " + Types.INTEGER + " " +
-                        "WHEN 'money' THEN " + Types.DECIMAL + " " +
-                        "WHEN 'nchar' THEN " + Types.NCHAR + " " +
-                        "WHEN 'ntext' THEN " + Types.LONGNVARCHAR + " " +
-                        "WHEN 'numeric' THEN " + Types.NUMERIC + " " +
-                        "WHEN 'nvarchar' THEN " + Types.NVARCHAR + " " +
+                        "WHEN 'decimal' THEN " + java.sql.Types.DECIMAL + " " +
+                        "WHEN 'float' THEN " + java.sql.Types.DOUBLE + " " +
+                        "WHEN 'image' THEN " + java.sql.Types.LONGVARBINARY + " " +
+                        "WHEN 'int' THEN " + java.sql.Types.INTEGER + " " +
+                        "WHEN 'money' THEN " + java.sql.Types.DECIMAL + " " +
+                        "WHEN 'nchar' THEN " + java.sql.Types.NCHAR + " " +
+                        "WHEN 'ntext' THEN " + java.sql.Types.LONGNVARCHAR + " " +
+                        "WHEN 'numeric' THEN " + java.sql.Types.NUMERIC + " " +
+                        "WHEN 'nvarchar' THEN " + java.sql.Types.NVARCHAR + " " +
                         "WHEN 'real' THEN " + Types.REAL + " " +
-                        "WHEN 'smalldatetime' THEN " + Types.TIMESTAMP + " " +
-                        "WHEN 'smallint' THEN " + Types.SMALLINT + " " +
-                        "WHEN 'smallmoney' THEN " + Types.DECIMAL + " " +
-                        "WHEN 'text' THEN " + Types.LONGVARCHAR + " " +
-                        "WHEN 'time' THEN " + Types.TIME + " " +
-                        "WHEN 'timestamp' THEN " + Types.BINARY + " " +
-                        "WHEN 'tinyint' THEN " + Types.TINYINT + " " +
-                        "WHEN 'udt' THEN " + Types.VARBINARY + " " +
-                        "WHEN 'uniqueidentifier' THEN " + Types.CHAR + " " +
-                        "WHEN 'varbinary' THEN " + Types.VARBINARY + " " +
-                        "WHEN 'varbinary(max)' THEN " + Types.VARBINARY + " " +
-                        "WHEN 'varchar' THEN " + Types.VARCHAR + " " +
-                        "WHEN 'varchar(max)' THEN " + Types.VARCHAR + " " +
-                        "WHEN 'xml' THEN " + Types.LONGVARCHAR + " " +
-                        "WHEN 'LONGNVARCHAR' THEN " + Types.SQLXML + " " +
+                        "WHEN 'smalldatetime' THEN " + java.sql.Types.TIMESTAMP + " " +
+                        "WHEN 'smallint' THEN " + java.sql.Types.SMALLINT + " " +
+                        "WHEN 'smallmoney' THEN " + java.sql.Types.DECIMAL + " " +
+                        "WHEN 'text' THEN " + java.sql.Types.LONGVARCHAR + " " +
+                        "WHEN 'time' THEN " + java.sql.Types.TIME + " " +
+                        "WHEN 'timestamp' THEN " + java.sql.Types.BINARY + " " +
+                        "WHEN 'tinyint' THEN " + java.sql.Types.TINYINT + " " +
+                        "WHEN 'udt' THEN " + java.sql.Types.VARBINARY + " " +
+                        "WHEN 'uniqueidentifier' THEN " + java.sql.Types.CHAR + " " +
+                        "WHEN 'varbinary' THEN " + java.sql.Types.VARBINARY + " " +
+                        "WHEN 'varbinary(max)' THEN " + java.sql.Types.VARBINARY + " " +
+                        "WHEN 'varchar' THEN " + java.sql.Types.VARCHAR + " " +
+                        "WHEN 'varchar(max)' THEN " + java.sql.Types.VARCHAR + " " +
+                        "WHEN 'xml' THEN " + java.sql.Types.LONGVARCHAR + " " +
+                        "WHEN 'LONGNVARCHAR' THEN " + java.sql.Types.SQLXML + " " +
                         "ELSE " + Types.OTHER + " END AS DATA_TYPE, " +
                         "CASE WHEN c.is_nullable = 'true' THEN 1 ELSE 0 END AS NULLABLE, " +
                         "10 as NUM_PREC_RADIX, " +
@@ -938,7 +906,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
 
                 if (database instanceof DB2Database) {
                     if (database.getDatabaseProductName().startsWith("DB2 UDB for AS/400")) {
-                        executeAndExtract(getDB2ForAs400Sql(jdbcSchemaName, tableName), database);
+                        return executeAndExtract(getDB2ForAs400Sql(jdbcSchemaName, tableName), database);
                     }
                     return querytDB2Luw(jdbcSchemaName, tableName);
                 } else if (database instanceof Db2zDatabase) {
@@ -982,7 +950,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                     CatalogAndSchema catalogAndSchema = new CatalogAndSchema(catalogName, schemaName).customize(database);
                     String jdbcSchemaName = ((AbstractJdbcDatabase) database).getJdbcSchemaName(catalogAndSchema);
                     if (database.getDatabaseProductName().startsWith("DB2 UDB for AS/400")) {
-                        executeAndExtract(getDB2ForAs400Sql(jdbcSchemaName, null), database);
+                        return executeAndExtract(getDB2ForAs400Sql(jdbcSchemaName, null), database);
                     }
                     return querytDB2Luw(jdbcSchemaName, null);
                 } else if (database instanceof Db2zDatabase) {
@@ -2216,7 +2184,7 @@ public class JdbcDatabaseSnapshot extends DatabaseSnapshot {
                                     }
                                 }
                             } catch (DatabaseException e) {
-                                Scope.getCurrentScope().getLog(getClass()).fine("Cannot determine h2 version, using default unique constraint query");
+                                Scope.getCurrentScope().getLog(getClass()).fine("Cannot determine h2 version, using default unique constraint query", e);
                             }
                         }
                         if (sql == null) {

@@ -37,6 +37,7 @@ public class ColumnSnapshotGeneratorInformix extends ColumnSnapshotGenerator {
         qualifiers.put(15, "FRACTION(5)");
     }
 
+
     @Override
     public int getPriority(Class<? extends DatabaseObject> objectType, Database database) {
         if (database instanceof InformixDatabase)
@@ -49,7 +50,6 @@ public class ColumnSnapshotGeneratorInformix extends ColumnSnapshotGenerator {
     public Class<? extends SnapshotGenerator>[] replaces() {
         return new Class[]{ColumnSnapshotGenerator.class};
     }
-
 
     @Override
     protected DataType readDataType(CachedRow columnMetadataResultSet, Column column, Database database) throws DatabaseException {
@@ -69,7 +69,7 @@ public class ColumnSnapshotGeneratorInformix extends ColumnSnapshotGenerator {
             String lastQualifier = qualifiers.get(lastQualifierType);
 
             if (firstQualifier == null) {
-                throw new DatabaseException(
+                throw new liquibase.exception.DatabaseException(
                         String.format(
                                 "Encountered unknown firstQualifier code (%d) for column '%s', basic date type '%s', " +
                                         "while trying to decipher information encoded in the column length (%d)",
@@ -78,7 +78,7 @@ public class ColumnSnapshotGeneratorInformix extends ColumnSnapshotGenerator {
             }
 
             if (lastQualifier == null) {
-                throw new DatabaseException(
+                throw new liquibase.exception.DatabaseException(
                         String.format(
                                 "Encountered unknown lastQualifier code (%d) for column '%s', basic date type '%s', " +
                                         "while trying to decipher information encoded in the column length (%d)",
