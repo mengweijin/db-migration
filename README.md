@@ -121,8 +121,8 @@
 
 ## 使用文档
 
-- spring boot 4.x.x 版本参考文档：[在 Spring Boot 4 中使用 db-migration](docs/use_in_spring_boot_4.md)
-- spring boot 2.x.x 和 3.x.x 版本参考文档：[在 Spring Boot 2 和 spring boot 3 中使用 db-migration](docs/use_in_spring_boot_3.md)
+- spring boot 4.x.x 参考：[在 Spring Boot 4 中使用 db-migration](docs/use_in_spring_boot_4.md)
+- spring boot 3.x.x 和 2.x.x 参考：[在 Spring Boot 3 和 spring boot 2 中使用 db-migration](docs/use_in_spring_boot_3.md)
 
 ## Flowable 说明
 
