@@ -146,4 +146,4 @@
 
 ## ⭐Star db-migration on GitHub
 
-[![Stargazers over time](https://starchart.cc/mengweijin/db-migration.svg)](https://starchart.cc/mengweijin/db-migration)
+[![Star History Chart](https://api.star-history.com/chart?repos=mengweijin/db-migration&type=date&legend=top-left)](https://www.star-history.com/?repos=mengweijin%2Fdb-migration&type=date&legend=top-left)
