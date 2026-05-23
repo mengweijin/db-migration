@@ -1,15 +1,15 @@
-## 使用版本
-
-数据库：【达梦】或【南大通用 GBase 8s】或 【OpenGauss】
+## 基本信息
 
 ```txt
-Spring Boot: 3.4.0
+使用的数据库：
 
-db-migration: 2.0.8
+Spring Boot 版本: 
 
-Flyway: 10.10.0 或 Liquibase: 4.27.0
+db-migration 版本: 
 
-JDBC driver: 【DmJdbcDriver18: 8.1.3.140】 或其它
+Flyway 版本: 
+ 
+Liquibase 版本: 
 ```
 
 ## 问题描述
@@ -18,7 +18,7 @@ JDBC driver: 【DmJdbcDriver18: 8.1.3.140】 或其它
 略......
 ```
 
-## 重现步骤（尽量描述清楚复现步骤）
+## 重现步骤（或复现的代码工程）
 
 ```txt
 略......

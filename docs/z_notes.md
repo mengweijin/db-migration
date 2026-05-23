@@ -1,13 +1,20 @@
-## 笔记
+# 笔记
+
+## 查看过期时间
+
+```sql
+SELECT EXPIRED_DATE FROM V$LICENSE;
+```
 
 提示：在url中指定schema的方式：jdbc:dm://localhost:5236?schema=VT_TEST
 
-### 创建用户和授权
+## 创建用户和授权
 
-#### 达梦 与 Oracle
+### 达梦 与 Oracle
 ```shell
 drop user VT_TEST cascade;
-create user VT_TEST identified by "1qaz2wsx";
+
+create user VT_TEST identified by "DM@123.com";
 # grant 时注意和 oracle 的区别
 # 达梦：
 grant "PUBLIC","RESOURCE" to "VT_TEST";
@@ -17,15 +24,16 @@ grant "CONNECT","RESOURCE" to "VT_TEST";
 grant "DBA" to "VT_TEST";
 
 # 修改密码
-ALTER user VT_TEST identified by "1qaz2wsx";
+ALTER user VT_TEST identified by "DM@123.com";
 ```
 
-### 创建模式
+## 创建模式
 
 ```shell
 # 给指定用户授予创建模式权限
 grant create schema to <username>
 # DBA用户或具有CREATE SCHEMA权限用户创建模式。
+
 # AUTHORIZATION <username>标识了拥有该模式的用户；它是为其他用户创建模式时使用，缺省拥有该模式的用户为当前操作的用户（SYSDBA或是具有CREATE SCHEMA权限的用户）
 create schema <schemaname> AUTHORIZATION <username>
 # 或者
@@ -36,7 +44,7 @@ SET SCHEMA <schemaname>
 DROP SCHEMA <schemaname> [RESTRICT|CASCADE]
 ```
 
-### 达梦备忘 SQL
+## 达梦备忘 SQL
 
 ```shell
 SELECT * FROM ALL_USERS WHERE USERNAME = 'VT_TEST';

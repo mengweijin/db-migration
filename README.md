@@ -121,8 +121,8 @@
 
 ## 使用文档
 
-- spring boot 4.x.x 参考：[在 Spring Boot 4 中使用 db-migration](docs/use_in_spring_boot_4.md)
 - spring boot 3.x.x 和 2.x.x 参考：[在 Spring Boot 3 和 spring boot 2 中使用 db-migration](docs/use_in_spring_boot_3.md)
+- spring boot 4.x.x 参考：[在 Spring Boot 4 中使用 db-migration](docs/use_in_spring_boot_4.md)
 
 ## Flowable 说明
 
@@ -143,6 +143,11 @@
 ## 其它文档
 - [Flyway 对 PL/SQL 的支持](./docs/z_flyway_supported_for_PL-SQL.md)
 - [Flowable 6.8.1 清理所有表脚本](flowable/6_8_1/6.8.1.flowable.all.drop.sql)
+
+## 有参考价值的 issues
+
+- [达梦 oracle 兼容模式的问题](https://gitee.com/mengweijin/db-migration/issues/IJOBPN)
+- [怎么兼容多数据源的达梦](https://github.com/mengweijin/db-migration/issues/14)
 
 ## ⭐Star db-migration on GitHub
 

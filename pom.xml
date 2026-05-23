@@ -29,6 +29,8 @@
 <!--    <module>demo/demo-gbase8s/demo-gbase8s-liquibase-spring-boot4</module>-->
     <!-- demo-opengauss -->
 <!--        <module>demo/demo-opengauss/demo-opengauss-flyway-spring-boot4</module>-->
+    <!-- issue -->
+<!--    <module>issue/gitee-IJOBPN</module>-->
   </modules>
 
   <properties>

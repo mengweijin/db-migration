@@ -10,7 +10,7 @@
 ```xml
 <project>
     <properties>
-        <!-- 锁定 flyway 版本号 -->
+        <!-- 锁定 flyway 版本号（具体版本号参考 README.md 中 `db-migration 版本说明` 章节）。 -->
         <flyway.version>12.1.1</flyway.version>
         <!-- db-migration 版本 -->
         <db-migration.version>3.0.0</db-migration.version>
@@ -53,7 +53,7 @@
 ```xml
 <project>
     <properties>
-        <!-- 锁定 liquibase 版本号 -->
+        <!-- 锁定 liquibase 版本号（具体版本号参考 README.md 中 `db-migration 版本说明` 章节）。 -->
         <liquibase.version>4.31.1</liquibase.version>
         <!-- db-migration 版本 -->
         <db-migration.version>3.0.0</db-migration.version>

@@ -10,7 +10,7 @@
 ```xml
 <project>
     <properties>
-        <!-- 锁定 flyway 版本号，低版本比如 spring boot 2.4.* 可对应修改为：7.15.0 -->
+        <!-- 锁定 flyway 版本号（具体版本号参考 README.md 中 `db-migration 版本说明` 章节）。比如 spring boot 2.4.* 可对应修改为：7.15.0 -->
         <flyway.version>10.10.0</flyway.version>
         <!-- db-migration 版本 -->
         <db-migration.version>2.2.1</db-migration.version>
@@ -42,7 +42,7 @@
 ```xml
 <project>
     <properties>
-        <!-- 锁定 liquibase 版本号 -->
+        <!-- 锁定 liquibase 版本号（具体版本号参考 README.md 中 `db-migration 版本说明` 章节）。 -->
         <liquibase.version>4.27.0</liquibase.version>
         <!-- db-migration 版本 -->
         <db-migration.version>2.2.1</db-migration.version>
