@@ -35,8 +35,6 @@
 
   <properties>
     <revision>3.0.0</revision>
-
-    <skipTests>true</skipTests>
     <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
