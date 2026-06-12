@@ -17,32 +17,18 @@
     <module>./db-migration-gauss-flyway</module>
     <module>./db-migration-gbase8s-flyway</module>
     <module>./db-migration-gbase8s-liquibase</module>
-
-    <!-- demo-dameng -->
-<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot4</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-flyway-spring-boot4-flowable</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot4</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot4-flowable</module>-->
-<!--    <module>demo/demo-dameng/demo-dameng-liquibase-spring-boot4-xml</module>-->
-    <!-- demo-gbase8s -->
-<!--    <module>demo/demo-gbase8s/demo-gbase8s-flyway-spring-boot4</module>-->
-<!--    <module>demo/demo-gbase8s/demo-gbase8s-liquibase-spring-boot4</module>-->
-    <!-- demo-opengauss -->
-<!--        <module>demo/demo-opengauss/demo-opengauss-flyway-spring-boot4</module>-->
-    <!-- issue -->
-<!--    <module>issue/gitee-IJOBPN</module>-->
   </modules>
 
   <properties>
-    <revision>3.0.0</revision>
+    <revision>3.1.0-SNAPSHOT</revision>
     <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <flyway.version>12.1.1</flyway.version>
-    <liquibase.version>4.31.1</liquibase.version>
+    <flyway.version>12.4.0</flyway.version>
+    <liquibase.version>5.0.3</liquibase.version>
 
     <lombok.version>1.18.44</lombok.version>
     <junit-jupiter.version>6.0.3</junit-jupiter.version>

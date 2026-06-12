@@ -1,4 +1,9 @@
 ## CHANGELOG
+
+### [v3.1.0] 2026-06-13
+- 【update】升级 flyway 版本至 12.4.0；
+- 【update】升级 liquibase 版本至 5.0.3；
+
 ### [v3.0.0] 2026-04-25
 - 【Feature】适配对 Spring Boot 4 版本中 flyway 和 liquibase 的支持。
 
