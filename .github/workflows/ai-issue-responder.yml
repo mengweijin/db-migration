@@ -1,0 +1,68 @@
+name: AI Issue Responder (Friendly + Free)
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  ai-reply:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write          # 允许写入 Issue 评论
+    steps:
+      - name: AI Analyze and Comment
+        uses: actions/github-script@v7
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        with:
+          script: |
+            const issue = context.payload.issue;
+
+            // 1. 忽略机器人自己创建的 Issue，避免死循环
+            if (issue.user.type === 'Bot') {
+              console.log('Skipping bot-created issue');
+              return;
+            }
+
+            const title = issue.title;
+            const body = issue.body || '（无描述）';
+
+            // 2. 构建给 AI 的提示词（可以根据项目需求修改）
+            const prompt = `你是一个开源项目的智能助手，请用专业且热情的语气，为用户刚创建的 GitHub Issue 给出初步分析与建议。
+            
+            标题：${title}
+            描述：${body}`;
+
+            const apiKey = process.env.GEMINI_API_KEY;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
+            // 3. 调用 Gemini 免费 API
+            const response = await fetch(url, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                contents: [{
+                  parts: [{ text: prompt }]
+                }]
+              })
+            });
+
+            if (!response.ok) {
+              const errText = await response.text();
+              throw new Error(`Gemini API error: ${response.status} ${errText}`);
+            }
+
+            const data = await response.json();
+            const rawReply = data.candidates[0].content.parts[0].text.trim();
+
+            // 4. 在 AI 生成的内容前加上友好提示
+            const friendlyPrefix = `✨ 我是项目 AI 小助手，以下内容为智能分析，人工回复可能会稍晚一些～\n\n`;
+            const finalReply = friendlyPrefix + rawReply;
+
+            // 5. 回复到 Issue 中
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: finalReply
+            });
