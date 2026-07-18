@@ -150,11 +150,8 @@
 - [达梦 oracle 兼容模式的问题](https://gitee.com/mengweijin/db-migration/issues/IJOBPN)
 - [怎么兼容多数据源的达梦](https://github.com/mengweijin/db-migration/issues/14)
 
-## ⭐Star db-migration on GitHub
+## ⭐Star History on GitHub
 
-<!-- star-history:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/star-history/star-history-dark-20260711022331.svg">
-  <img alt="Star history" src="assets/star-history/star-history-light-20260711022331.svg">
+  <img alt="Star history" src="./assets/star-history/star-history.png">
 </picture>
-<!-- star-history:end -->
