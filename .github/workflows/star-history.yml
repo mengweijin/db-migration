@@ -1,8 +1,6 @@
 name: Star History
 
 on:
-  schedule:
-    - cron: '0 0 * * *'   # every 6 hours; see the interval table below
   watch:
     types: [started]        # optional: also refresh right after a new star
   workflow_dispatch:
