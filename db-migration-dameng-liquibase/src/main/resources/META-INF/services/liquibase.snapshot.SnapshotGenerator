@@ -1,0 +1,7 @@
+com.github.mengweijin.liquibase.dameng.snapshot.DmColumnSnapshotGenerator
+com.github.mengweijin.liquibase.dameng.snapshot.DmTableSnapshotGenerator
+com.github.mengweijin.liquibase.dameng.snapshot.DmViewSnapshotGenerator
+com.github.mengweijin.liquibase.dameng.snapshot.DmIndexSnapshotGenerator
+com.github.mengweijin.liquibase.dameng.snapshot.DmPrimaryKeySnapshotGenerator
+com.github.mengweijin.liquibase.dameng.snapshot.DmForeignKeySnapshotGenerator
+com.github.mengweijin.liquibase.dameng.snapshot.DmUniqueConstraintSnapshotGenerator

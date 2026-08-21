@@ -1,0 +1,45 @@
+name: Liquibase extension checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  dameng-liquibase:
+    runs-on: ubuntu-latest
+    env:
+      DM_JDBC_URL: ${{ secrets.DM_JDBC_URL }}
+      DM_JDBC_USERNAME: ${{ secrets.DM_JDBC_USERNAME }}
+      DM_JDBC_PASSWORD: ${{ secrets.DM_JDBC_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Unit and classpath-order tests
+        run: mvn --batch-mode --no-transfer-progress -pl db-migration-dameng-liquibase -am test
+      - name: Duplicate FQCN gate
+        run: >-
+          mvn --batch-mode --no-transfer-progress -pl db-migration-dameng-liquibase
+          test-compile
+          org.basepom.maven:duplicate-finder-maven-plugin:2.0.1:check
+          -DcheckCompileClasspath=true
+          -DcheckRuntimeClasspath=true
+          -DcheckTestClasspath=true
+          -DfailBuildInCaseOfConflict=true
+          -DfailBuildInCaseOfDifferentContentConflict=true
+          -DfailBuildInCaseOfEqualContentConflict=true
+      - name: DM integration tests
+        if: ${{ env.DM_JDBC_URL != '' && env.DM_JDBC_USERNAME != '' && env.DM_JDBC_PASSWORD != '' }}
+        run: >-
+          mvn --batch-mode --no-transfer-progress -pl db-migration-dameng-liquibase -am
+          -Pdm-integration integration-test

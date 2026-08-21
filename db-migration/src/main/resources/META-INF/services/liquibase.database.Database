@@ -1,3 +1,2 @@
-liquibase.database.core.DmDatabase
 liquibase.database.core.Gbase8sDatabase
 liquibase.database.core.Gbase8sOracleDatabase

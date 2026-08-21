@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="dm-extension-1" author="db-migration">
+        <createTable tableName="DM_LB_PARENT">
+            <column name="ID" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="CODE" type="char(16)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="DM_LB_CHILD">
+            <column name="ID" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="PARENT_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+        <addForeignKeyConstraint constraintName="FK_DM_LB_CHILD_PARENT"
+                                 baseTableName="DM_LB_CHILD" baseColumnNames="PARENT_ID"
+                                 referencedTableName="DM_LB_PARENT" referencedColumnNames="ID"/>
+        <createIndex indexName="IDX_DM_LB_CHILD_PARENT" tableName="DM_LB_CHILD">
+            <column name="PARENT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="dm-extension-2" author="db-migration">
+        <createView viewName="DM_LB_CHILD_VIEW">
+            SELECT ID, PARENT_ID, ACTIVE FROM DM_LB_CHILD
+        </createView>
+    </changeSet>
+</databaseChangeLog>

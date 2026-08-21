@@ -14,14 +14,90 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.github.mengweijin</groupId>
-      <artifactId>db-migration</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.basepom.maven</groupId>
+        <artifactId>duplicate-finder-maven-plugin</artifactId>
+        <version>${duplicate-finder-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>no-liquibase-core-shadowing</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <configuration>
+              <checkCompileClasspath>true</checkCompileClasspath>
+              <checkRuntimeClasspath>true</checkRuntimeClasspath>
+              <checkTestClasspath>true</checkTestClasspath>
+              <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
+              <failBuildInCaseOfDifferentContentConflict>true</failBuildInCaseOfDifferentContentConflict>
+              <failBuildInCaseOfEqualContentConflict>true</failBuildInCaseOfEqualContentConflict>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>dm-integration</id>
+      <properties>
+        <dm.jdbc.url>${env.DM_JDBC_URL}</dm.jdbc.url>
+        <dm.jdbc.username>${env.DM_JDBC_USERNAME}</dm.jdbc.username>
+        <dm.jdbc.password>${env.DM_JDBC_PASSWORD}</dm.jdbc.password>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>com.dameng</groupId>
+          <artifactId>DmJdbcDriver18</artifactId>
+          <version>8.1.3.140</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>${maven-failsafe-plugin.version}</version>
+            <configuration>
+              <systemPropertyVariables>
+                <dm.jdbc.url>${dm.jdbc.url}</dm.jdbc.url>
+                <dm.jdbc.username>${dm.jdbc.username}</dm.jdbc.username>
+                <dm.jdbc.password>${dm.jdbc.password}</dm.jdbc.password>
+              </systemPropertyVariables>
+            </configuration>
+            <executions>
+              <execution>
+                <phase>integration-test</phase>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
