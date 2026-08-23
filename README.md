@@ -169,4 +169,31 @@
 Thanks goes to these wonderful people:
 
 <!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/mengweijin">
+                    <img src="https://avatars.githubusercontent.com/u/30249729?v=4" width="100;" alt="mengweijin"/>
+                    <br />
+                    <sub><b>Meng Wei Jin</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/godfather1103">
+                    <img src="https://avatars.githubusercontent.com/u/11797964?v=4" width="100;" alt="godfather1103"/>
+                    <br />
+                    <sub><b>Jack Chu</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/li-daqian">
+                    <img src="https://avatars.githubusercontent.com/u/12995007?v=4" width="100;" alt="li-daqian"/>
+                    <br />
+                    <sub><b>Li Daqian</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <!-- readme: contributors -end -->
