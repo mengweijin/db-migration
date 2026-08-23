@@ -168,4 +168,5 @@
 
 Thanks goes to these wonderful people:
 
-[![Contributors](https://contrib.rocks/image?repo=mengweijin/db-migration)](https://github.com/mengweijin/db-migration/graphs/contributors)
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
