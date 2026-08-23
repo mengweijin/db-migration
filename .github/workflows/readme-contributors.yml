@@ -1,3 +1,5 @@
+name: Readme Contributors
+
 on:
   push:
     branches:
