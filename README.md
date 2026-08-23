@@ -6,8 +6,8 @@
     <a target="_blank" href="https://gitee.com/mengweijin/db-migration">
 		<img src="https://img.shields.io/badge/repo-码云 Gitee-purple" />
 	</a>
-    <a target="_blank" href="https://central.sonatype.com/artifact/com.github.mengweijin/db-migration/versions">
-        <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration?label=db-migration&color=blue" />
+    <a target="_blank" href="https://central.sonatype.com/artifact/com.github.mengweijin/db-migration-parent/versions">
+        <img src="https://img.shields.io/maven-central/v/com.github.mengweijin/db-migration-parent?label=db-migration&color=blue" />
     </a>
 	<a target="_blank" href="https://github.com/mengweijin/db-migration/blob/master/LICENSE">
 		<img src="https://img.shields.io/badge/license-Apache2.0-blue.svg" />
