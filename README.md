@@ -163,3 +163,9 @@
 <picture>
   <img alt="Star history" src="./assets/star-history/star-history.png">
 </picture>
+
+## Github Contributors
+
+Thanks goes to these wonderful people:
+
+[![Contributors](https://contrib.rocks/image?repo=mengweijin/db-migration)](https://github.com/mengweijin/db-migration/graphs/contributors)
