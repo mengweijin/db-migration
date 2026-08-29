@@ -1,4 +1,4 @@
-# 在 Spring Boot 4 中使用 db-migration
+# ~~在 Spring Boot 4 中使用 db-migration~~
 
 - 版本参考（需要 db-migration >= 3.0.0）：`README.md` 中的`db-migration 版本说明`表格。
 - Maven 坐标参考：`README.md` 中的 `Maven 坐标`章节。

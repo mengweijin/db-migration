@@ -2,8 +2,8 @@ package com.github.mengweijin.liquibase.gbase8s.snapshot;
 
 import liquibase.Scope;
 import liquibase.database.Database;
-import liquibase.database.core.Gbase8sDatabase;
-import liquibase.database.core.Gbase8sOracleDatabase;
+import com.github.mengweijin.liquibase.gbase8s.database.Gbase8sDatabase;
+import com.github.mengweijin.liquibase.gbase8s.database.Gbase8sOracleDatabase;
 import liquibase.exception.DatabaseException;
 import liquibase.executor.ExecutorService;
 import liquibase.snapshot.CachedRow;

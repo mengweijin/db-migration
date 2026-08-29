@@ -1,4 +1,4 @@
-# 使用 db-migration V4
+# 使用 db-migration 4.x.x
 
 - 版本参考（需要 db-migration >= 4.0.0）：`README.md` 中的`db-migration 版本说明`表格。
 - Maven 坐标参考：`README.md` 中的 `Maven 坐标`章节。
@@ -17,13 +17,31 @@
 
 其他`数据库 + Flyway` 的使用方式类似，不再赘述。
 
+#### Spring Boot 3
+
+```xml
+<project>
+    <properties>
+        <db-migration.version>4.1.0</db-migration.version>
+    </properties>
+    <dependencies>
+      <!-- 引入要使用的 maven 坐标（其他数据库可引入对应的坐标） -->
+      <dependency>
+        <groupId>com.github.mengweijin</groupId>
+        <artifactId>db-migration-dameng-flyway</artifactId>
+        <version>${db-migration.version}</version>
+      </dependency>
+    </dependencies>
+</project>
+```
+
 #### Spring Boot 4
 
 ```xml
 <project>
     <properties>
         <!-- db-migration 版本 -->
-        <db-migration.version>4.0.0</db-migration.version>
+        <db-migration.version>4.1.0</db-migration.version>
     </properties>
     <dependencies>
       <!-- 引入要使用的 maven 坐标（其他数据库可引入对应的坐标） -->
@@ -53,13 +71,31 @@
 
 其他`数据库 + Liquibase` 的使用方式类似，不再赘述。
 
+#### Spring Boot 3
+
+```xml
+<project>
+    <properties>
+        <db-migration.version>4.1.0</db-migration.version>
+    </properties>
+    <dependencies>
+      <!-- 引入要使用的 maven 坐标（其他数据库可引入对应的坐标） -->
+      <dependency>
+        <groupId>com.github.mengweijin</groupId>
+        <artifactId>db-migration-dameng-liquibase</artifactId>
+        <version>${db-migration.version}</version>
+      </dependency>
+    </dependencies>
+</project>
+```
+
+
 #### Spring Boot 4
 
 ```xml
 <project>
     <properties>
-        <!-- db-migration 版本 -->
-        <db-migration.version>3.0.0</db-migration.version>
+        <db-migration.version>4.1.0</db-migration.version>
     </properties>
     <dependencies>
       <!-- 引入要使用的 maven 坐标（其他数据库可引入对应的坐标） -->
@@ -78,7 +114,4 @@
 
 ## 示例工程
 
-- 代码分支 `master` 下的：
-  - `demo-dameng`
-  - `demo-gbase8s`
-  - `demo-opengauss`
+- 代码分支 `master` 下的 `demo` 文件夹。

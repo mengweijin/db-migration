@@ -14,11 +14,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.github.mengweijin</groupId>
-      <artifactId>db-migration</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
       <artifactId>flyway-core</artifactId>
       <groupId>org.flywaydb</groupId>
     </dependency>

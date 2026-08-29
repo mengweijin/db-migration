@@ -12,12 +12,10 @@
   <name>${project.artifactId}</name>
   <description>Flyway 扩展支持 Open Gauss 高斯数据库。</description>
 
+  <properties>
+    <lombok.version>1.18.44</lombok.version>
+  </properties>
   <dependencies>
-    <dependency>
-      <groupId>com.github.mengweijin</groupId>
-      <artifactId>db-migration</artifactId>
-      <version>${project.version}</version>
-    </dependency>
     <dependency>
       <artifactId>flyway-core</artifactId>
       <groupId>org.flywaydb</groupId>
@@ -25,6 +23,12 @@
     <dependency>
       <groupId>org.flywaydb</groupId>
       <artifactId>flyway-database-postgresql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+      <version>${lombok.version}</version>
     </dependency>
   </dependencies>
 

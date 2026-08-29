@@ -1,0 +1,2 @@
+com.github.mengweijin.liquibase.gbase8s.database.Gbase8sDatabase
+com.github.mengweijin.liquibase.gbase8s.database.Gbase8sOracleDatabase
