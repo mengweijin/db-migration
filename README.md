@@ -133,7 +133,7 @@
 ## 使用文档
 
 - Spring boot + db-migration 4.x.x 参考：[docs/use_db-migration_v4.md](docs/use_db-migration_v4.md)
-- spring boot 3.x.x 和 2.x.x 参考：[docs/use_in_spring_boot_3.md](docs/use_in_spring_boot_3.md)
+- spring boot + db-migration 历史版本参考：[docs/use_in_spring_boot_3.md](docs/use_in_spring_boot_3.md)
 
 ## Flowable 说明
 
