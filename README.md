@@ -170,6 +170,6 @@
 
 Thanks goes to these wonderful people:
 
-<a href="https://github.com/apache/fesod/graphs/contributors">
+<a href="https://github.com/mengweijin/db-migration/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=mengweijin/db-migration"/>
 </a>
