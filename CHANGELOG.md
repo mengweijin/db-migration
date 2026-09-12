@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+### [v4.1.0] 2026-08-29
+- 【all】Remove flyway & Liquibase core class shadowing；
+
+### [v4.0.0] 2026-08-23
+- 【dameng】Remove Liquibase core class shadowing；
+
 ### [v3.1.0] 2026-06-13
 - 【update】升级 flyway 版本至 12.4.0；
 - 【update】升级 liquibase 版本至 5.0.3；
