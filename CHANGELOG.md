@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+### [v4.1.1] 2026-09-14
+- 【fixed】Liquibase 不支持自增列的问题。[@Gitee-IKFJU7](https://gitee.com/mengweijin/db-migration/issues/IKFJU7)
+- 【fixed】Liquibase preConditions 未配置 schemaName 报 NPE 的问题。[@Gitee-IKFLJT](https://gitee.com/mengweijin/db-migration/issues/IKFLJT)
+
 ### [v4.1.0] 2026-08-29
 - 【all】Remove flyway & Liquibase core class shadowing；
 

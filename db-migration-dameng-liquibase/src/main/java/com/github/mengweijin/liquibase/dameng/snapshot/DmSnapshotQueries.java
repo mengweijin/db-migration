@@ -64,8 +64,7 @@ final class DmSnapshotQueries {
         String defaultTablespace = defaultTablespace(database, schemaName);
         for (CachedRow row : rows) {
             String tablespace = row.getString("TABLESPACE_NAME");
-            row.set("DEFAULT_TABLESPACE", tablespace != null && defaultTablespace != null
-                    && tablespace.equalsIgnoreCase(defaultTablespace) ? "true" : null);
+            row.set("DEFAULT_TABLESPACE", tablespace != null && tablespace.equalsIgnoreCase(defaultTablespace) ? "true" : null);
         }
         return rows;
     }
@@ -86,13 +85,16 @@ final class DmSnapshotQueries {
         String connectionUser = database.getConnection().getConnectionUserName();
         boolean currentUserSchema = equalsIgnoreCase(schemaName, connectionUser);
         if (currentUserSchema) {
-            return firstValue(query(database, "SELECT DEFAULT_TABLESPACE FROM USER_USERS", List.of()),
-                    "DEFAULT_TABLESPACE");
+            return firstValue(query(database, "SELECT DEFAULT_TABLESPACE FROM USER_USERS", List.of())
+            );
         }
 
+        if (schemaName == null) {
+            return null;
+        }
         try {
-            return firstValue(query(database, schemaOwnerDefaultTablespaceSql(), List.of(schemaName)),
-                    "DEFAULT_TABLESPACE");
+            return firstValue(query(database, schemaOwnerDefaultTablespaceSql(), List.of(schemaName))
+            );
         } catch (DatabaseException e) {
             if (!isMissingCatalogPrivilege(e)) {
                 throw e;
@@ -103,12 +105,12 @@ final class DmSnapshotQueries {
         }
     }
 
-    private static String firstValue(List<CachedRow> rows, String column) {
-        return rows.isEmpty() ? null : rows.get(0).getString(column);
+    private static String firstValue(List<CachedRow> rows) {
+        return rows.isEmpty() ? null : rows.get(0).getString("DEFAULT_TABLESPACE");
     }
 
     private static boolean equalsIgnoreCase(String left, String right) {
-        return left != null && right != null && left.equalsIgnoreCase(right);
+        return left != null && left.equalsIgnoreCase(right);
     }
 
     private static boolean isMissingCatalogPrivilege(Throwable error) {

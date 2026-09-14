@@ -3,13 +3,12 @@ package com.github.mengweijin.liquibase.dameng.database;
 import liquibase.GlobalConfiguration;
 import liquibase.Scope;
 import liquibase.database.DatabaseConnection;
-import liquibase.database.OfflineConnection;
 import liquibase.database.core.OracleDatabase;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.DatabaseException;
 import liquibase.exception.UnexpectedLiquibaseException;
 import liquibase.util.JdbcUtil;
-
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
@@ -28,7 +27,7 @@ public class DmDatabase extends OracleDatabase {
     @Override
     public void setConnection(DatabaseConnection connection) {
         Connection jdbcConnection = null;
-        if (!(connection instanceof OfflineConnection) && connection instanceof JdbcConnection) {
+        if (connection instanceof JdbcConnection) {
             try {
                 jdbcConnection = ((JdbcConnection) connection).getWrappedConnection();
             } catch (Exception e) {
@@ -113,5 +112,39 @@ public class DmDatabase extends OracleDatabase {
     @Override
     public int getIdentifierMaximumLength() {
         return LONG_IDENTIFIERS_LEGNTH;
+    }
+
+    /**
+     * Returns the auto-increment clause for the DM database.
+     * {@link <a href="https://gitee.com/mengweijin/db-migration/issues/IKFJU7">Gitee-IKFJU7</a>}
+     * @return AutoIncrementClause
+     */
+    protected String getAutoIncrementClause() {
+        return getAutoIncrementClause(defaultAutoIncrementStartWith, defaultAutoIncrementBy, null, null);
+    }
+
+    /**
+     * Returns the auto-increment clause for the DM database.
+     * {@link <a href="https://gitee.com/mengweijin/db-migration/issues/IKFJU7">Gitee-IKFJU7</a>}
+     * @return AutoIncrementClause
+     */
+    @Override
+    protected String getAutoIncrementClause(final String generationType, final Boolean defaultOnNull) {
+        return getAutoIncrementClause(defaultAutoIncrementStartWith, defaultAutoIncrementBy, null, null);
+    }
+
+    /**
+     * Returns the auto-increment clause for the DM database.
+     * {@link <a href="https://gitee.com/mengweijin/db-migration/issues/IKFJU7">Gitee-IKFJU7</a>}
+     * @return AutoIncrementClause
+     */
+    @Override
+    public String getAutoIncrementClause(final BigInteger startWith, final BigInteger incrementBy, final String generationType, final Boolean defaultOnNull) {
+        if (!supportsAutoIncrement()) {
+            return "";
+        }
+        BigInteger actualStartWith = (startWith == null) ? defaultAutoIncrementStartWith : startWith;
+        BigInteger actualIncrementBy = (incrementBy == null) ? defaultAutoIncrementBy : incrementBy;
+        return "IDENTITY" + getAutoIncrementOpening() + actualStartWith + ", " + actualIncrementBy + getAutoIncrementClosing();
     }
 }

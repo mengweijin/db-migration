@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: ncidream
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: webservice_dzdzd_fuzhu
+      changes:
+        - createTable:
+            tableName: webservice_dzdzd_fuzhu
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: "ID"
+              - column:
+                  name: batchId
+                  type: nvarchar(50)
+                  remarks: "对接批次号"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lsh
+                  type: nvarchar(50)
+                  remarks: "流水号"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: writeDate
+                  type: datetime
+                  remarks: "录入时间"
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: idx_webservice_dzdzd_fuzhu_batchIdAndlsh
+            tableName: webservice_dzdzd_fuzhu
+            columns:
+              - column:
+                  name: batchId
+              - column:
+                  name: lsh
