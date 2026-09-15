@@ -147,4 +147,14 @@ public class DmDatabase extends OracleDatabase {
         BigInteger actualIncrementBy = (incrementBy == null) ? defaultAutoIncrementBy : incrementBy;
         return "IDENTITY" + getAutoIncrementOpening() + actualStartWith + ", " + actualIncrementBy + getAutoIncrementClosing();
     }
+
+    /**
+     * {@link <a href="https://gitee.com/mengweijin/db-migration/issues/IKFXU1">Gitee-IKFXU1</a>}
+     */
+    @Override
+    public String escapeForLike(String string) {
+        // 达梦驱动对转义字符的处理有缺陷，直接返回原始字符串
+        // 避免下划线被错误转义导致查询失败
+        return string;
+    }
 }

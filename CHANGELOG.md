@@ -1,5 +1,8 @@
 ## CHANGELOG
 
+### [v4.1.2] 2026-09-15
+- 【fixed】Liquibase 达梦应取消转义查询。[@Gitee-IKFXU1](https://gitee.com/mengweijin/db-migration/issues/IKFXU1)
+
 ### [v4.1.1] 2026-09-14
 - 【fixed】Liquibase 不支持自增列的问题。[@Gitee-IKFJU7](https://gitee.com/mengweijin/db-migration/issues/IKFJU7)
 - 【fixed】Liquibase preConditions 未配置 schemaName 报 NPE 的问题。[@Gitee-IKFLJT](https://gitee.com/mengweijin/db-migration/issues/IKFLJT)
