@@ -162,9 +162,7 @@
 
 ## ⭐Star History on GitHub
 
-<picture>
-  <img alt="Star history" src="./assets/star-history/star-history.png">
-</picture>
+[![Star History Chart](https://api.star-history.com/chart?repos=mengweijin/db-migration&type=date&legend=top-left)](https://www.star-history.com/?repos=mengweijin%2Fdb-migration&type=date&legend=top-left)
 
 ## Github Contributors
 
