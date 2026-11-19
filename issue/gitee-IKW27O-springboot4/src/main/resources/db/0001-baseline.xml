@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  0001-baseline.xml — 结构基线示例
+
+  实际项目中此文件由 liquibase:generateChangeLog 从存量库反向生成后清洗而来，
+  清洗规则（达梦兼容）：
+  - 去掉 "on update CURRENT_TIMESTAMP"（达梦不支持）
+  - datetime(0)/TINYINT(3)/BIT(1) 等带精度的类型去掉精度
+  - 索引名改为 schema 级唯一（达梦索引名全 schema 唯一，不同表不能同名）
+
+  此处手工编写两张演示表，展示推荐的类型写法（MySQL 与达梦双兼容）。
+-->
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- 用户表 -->
+    <changeSet id="demo-user-table" author="geztech">
+        <createTable tableName="demo_user" remarks="演示-用户表">
+            <column name="id" type="BIGINT" remarks="主键">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(64)" remarks="用户名">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="TINYINT" remarks="年龄"/>
+            <column name="enabled" type="BIT" remarks="是否启用" defaultValueBoolean="true"/>
+            <column name="created_at" type="DATETIME" remarks="创建时间" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME" remarks="更新时间" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createIndex indexName="uk_demo_user_username" tableName="demo_user" unique="true">
+            <column name="username"/>
+        </createIndex>
+        <rollback>
+            <dropTable tableName="demo_user"/>
+        </rollback>
+    </changeSet>
+
+    <!-- 字典表（0002 将对其初始化数据） -->
+    <changeSet id="demo-dict-table" author="geztech">
+        <createTable tableName="demo_dict" remarks="演示-数据字典">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(64)" remarks="字典类型">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)" remarks="字典编码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)" remarks="字典名称">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort" type="INT" remarks="排序" defaultValueNumeric="0"/>
+        </createTable>
+        <createIndex indexName="uk_demo_dict_type_code" tableName="demo_dict" unique="true">
+            <column name="type"/>
+            <column name="code"/>
+        </createIndex>
+        <rollback>
+            <dropTable tableName="demo_dict"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

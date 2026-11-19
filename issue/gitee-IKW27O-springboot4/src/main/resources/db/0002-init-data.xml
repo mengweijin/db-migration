@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  0002-init-data.xml — 数据初始化的三种写法
+
+  与表结构一样按 changeSet 记账：执行成功后不会重复执行；
+  DML 在达梦/MySQL 中均支持事务回滚，失败不残留脏数据。
+
+  约定：数据变更与结构变更分文件管理；发出去的 changeSet 永不修改，改数据写新 changeSet。
+-->
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- 写法一：<insert> 标签，跨库语法安全，适合少量固定数据 -->
+    <changeSet id="init-demo-user" author="geztech">
+        <insert tableName="demo_user">
+            <column name="id" valueNumeric="1"/>
+            <column name="username" value="admin"/>
+            <column name="age" valueNumeric="30"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+
+    <!-- 写法二：<sql> 原生 SQL，适合复杂逻辑；用 MERGE 保证幂等（已有则不覆盖，保护人工修改） -->
+    <changeSet id="init-dict-by-merge" author="geztech" dbms="dm,oracle">
+        <sql>
+            MERGE INTO demo_dict t
+            USING (SELECT 100 AS id, 'DATA_SOURCE' AS type, 'API' AS code, '接口采集' AS name FROM DUAL) s
+            ON (t.type = s.type AND t.code = s.code)
+            WHEN NOT MATCHED THEN
+                INSERT (id, type, code, name, sort) VALUES (s.id, s.type, s.code, s.name, 1);
+        </sql>
+    </changeSet>
+
+    <!-- 写法三：<loadData> + CSV，适合批量基础数据（由存量库导出，见 README"数据反向生成"） -->
+    <changeSet id="init-dict-from-csv" author="geztech">
+        <loadData file="db/changelog/data/demo_dict.csv"
+                  tableName="demo_dict"
+                  separator="," quotchar="&quot;">
+            <column name="id" type="NUMERIC"/>
+            <column name="type" type="STRING"/>
+            <column name="code" type="STRING"/>
+            <column name="name" type="STRING"/>
+            <column name="sort" type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+
+    <!-- 写法二补充：MySQL 环境没有 MERGE...FROM DUAL 的 WHEN NOT MATCHED 等价写法差异，
+         用 INSERT IGNORE 思路演示 dbms 隔离 -->
+    <changeSet id="init-dict-by-merge-mysql" author="geztech" dbms="mysql">
+        <sql>
+            INSERT IGNORE INTO demo_dict (id, type, code, name, sort)
+            VALUES (100, 'DATA_SOURCE', 'API', '接口采集', 1);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

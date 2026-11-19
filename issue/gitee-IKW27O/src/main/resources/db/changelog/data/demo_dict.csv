@@ -1,0 +1,6 @@
+id,type,code,name,sort
+1,DATA_SOURCE,API2,接口采集,1
+2,DATA_SOURCE,DB,数据库采集,2
+3,DATA_LEVEL,S,敏感,1
+4,DATA_LEVEL,I,内部,2
+5,DATA_LEVEL,P,公开,3

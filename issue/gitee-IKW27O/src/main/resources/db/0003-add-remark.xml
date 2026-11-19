@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  0003-add-remark.xml — 增量结构变更示例（模拟第二次发版）
+
+  日常发版流程：
+  1. 复制本文件的 changeSet 模板，编写变更（addColumn/renameColumn/dropColumn/addFK...）
+  2. 新建 0004-xxx.xml 并 include 进 master.xml
+  3. 提交代码，各环境重启服务（或手动 liquibase:update）时自动执行
+
+  注意：这个 changeSet 带 preconditions 前置检查——列已存在则跳过，
+  避免"手工改过库的环境"启动失败，是增量变更的防御性最佳实践。
+-->
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="add-demo-user-remark" author="geztech">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="demo_user" columnName="remark"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="demo_user">
+            <column name="remark" type="VARCHAR(255)" remarks="备注" defaultValue=""/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
